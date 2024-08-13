@@ -1,0 +1,903 @@
+fileFormatVersion: 2
+guid: 90f4c015e858ed54287e6ad0793c43fb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rico1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0.48
+      bones: []
+      spriteID: fefc69ebf1755f749b98773213b226f6
+      internalID: 1855831296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_1
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d804705aaa3f1684b95dde272da05801
+      internalID: 775320542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_2
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906, y: 506}
+        - {x: -906, y: -504.9383}
+        - {x: 906, y: -504.9383}
+        - {x: 906, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d4a2a36116f044e9dcb2945ffc19e5
+      internalID: 220346663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_3
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea1f7d90cf75aa4588fdea377caa61c
+      internalID: 1515828224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_4
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767089575ad2b0e47bbe14a39030baaf
+      internalID: 1042716404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_5
+      rect:
+        serializedVersion: 2
+        x: 9065
+        y: 4048
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0322b0c0ff94942a2c75ebd3ab7bda
+      internalID: -1571138946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dad7d31f4d4f7944b16a7122091f05d
+      internalID: -1752911612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_7
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fed8718af3ca941a8d1ae0b840a521
+      internalID: -267488509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_8
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c19b526ed24ae43a19273952168827
+      internalID: -793528217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_10
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b1a8781c304f845a78c45bb788a167
+      internalID: -1964289348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_11
+      rect:
+        serializedVersion: 2
+        x: 9065
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07eaffd2e490af448c0a8f9d3b17206
+      internalID: -213444588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f23029dbe303e4bb24e67536a09444
+      internalID: 325532045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_13
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ce28a7973709f45aa8ac426cb6b58e
+      internalID: -1532706880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_14
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89d5e84c2f120b4bac848a7d6ab05d1
+      internalID: -1751160524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_15
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8f4312e9579274b87cc9479655bcf1
+      internalID: 354883654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_16
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819d25b7a4df03b4ebc9d03a9c1d4fe3
+      internalID: -208969939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_17
+      rect:
+        serializedVersion: 2
+        x: 9065
+        y: 2024
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49eaa7a196e31ed4a8db91c9b9bae554
+      internalID: -1158969796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9eb75a34e2b3245b0cf874ece00616
+      internalID: -1208249688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_19
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59db1a09121b224e80c4f842110aa78
+      internalID: 1371799455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_20
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d65fa1dfedac5d4a814047a44bda0ce
+      internalID: 1874448933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_21
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64689734db9917a40b017d7cbc4f9db2
+      internalID: -396254160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_22
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b637eb061dd334db7194e5c82601f1
+      internalID: 1836618395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_23
+      rect:
+        serializedVersion: 2
+        x: 9065
+        y: 1012
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7aff7d14730664482c45655ee8c105
+      internalID: -1598640224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b72fcd895e50143bbc2a1a66de9803
+      internalID: -1201898559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_25
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d3b65c2ca4b094cb7b469367d50c28
+      internalID: -1827855581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_26
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3b12758508cad4996994fc014d85a4
+      internalID: -529316358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_27
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9258cb2f1f762b46849ee83e44dc196
+      internalID: 908943827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_28
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0674adc5176995f41b661e9cc69babc9
+      internalID: 156456720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_29
+      rect:
+        serializedVersion: 2
+        x: 9065
+        y: 0
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -906.5, y: 506}
+        - {x: -906.5, y: -504.9383}
+        - {x: 906.5, y: -504.9383}
+        - {x: 906.5, y: 506}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632a58aafe80ed644860cf9866e967ec
+      internalID: -1858608989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rico1_9
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 3036
+        width: 1813
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e808500b6c114b43afca24d0b96a402
+      internalID: 526304798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rico1_0: 1855831296
+      rico1_1: 775320542
+      rico1_10: -1964289348
+      rico1_11: -213444588
+      rico1_12: 325532045
+      rico1_13: -1532706880
+      rico1_14: -1751160524
+      rico1_15: 354883654
+      rico1_16: -208969939
+      rico1_17: -1158969796
+      rico1_18: -1208249688
+      rico1_19: 1371799455
+      rico1_2: 220346663
+      rico1_20: 1874448933
+      rico1_21: -396254160
+      rico1_22: 1836618395
+      rico1_23: -1598640224
+      rico1_24: -1201898559
+      rico1_25: -1827855581
+      rico1_26: -529316358
+      rico1_27: 908943827
+      rico1_28: 156456720
+      rico1_29: -1858608989
+      rico1_3: 1515828224
+      rico1_4: 1042716404
+      rico1_5: -1571138946
+      rico1_6: -1752911612
+      rico1_7: -267488509
+      rico1_8: -793528217
+      rico1_9: 526304798
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
