@@ -2,37 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class PARALLAX : MonoBehaviour
 {
-    public Transform cameraTransform;  // Reference to the camera's Transform
-    public float parallaxEffect;       // Effect intensity (speed multiplier)
-
-    private Vector3 _lastCameraPosition; // Previous camera position
+    private float startPos, length;
+    public GameObject cam;
+    public float parallaxEffect;
 
     void Start()
     {
-        // Ensure the cameraTransform is assigned before using it
-        if (cameraTransform == null)
-        {
-            Debug.LogError("Camera Transform is not assigned in the Parallax script.");
-            return;
-        }
-
-        // Initialize the last camera position to the current position
-        _lastCameraPosition = cameraTransform.position;
+        startPos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void Update()
+  
+    void FixedUpdate()
     {
-        if (cameraTransform == null) return;
+        float distance = cam.transform.position.x * parallaxEffect;  
+        float movement = cam.transform.position.x * (1 - parallaxEffect);
 
-        // Calculate the camera's movement
-        Vector3 deltaMovement = cameraTransform.position - _lastCameraPosition;
+        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
 
-        // Apply parallax effect
-        transform.position += new Vector3(deltaMovement.x * parallaxEffect, deltaMovement.y * parallaxEffect, 0);
-
-        // Update the last camera position
-        _lastCameraPosition = cameraTransform.position;
+        
+        if (movement > startPos + length)
+        {
+            startPos += length;
+        }
+        else if (movement < startPos - length)
+        {
+            startPos -= length;
+        }
     }
 }

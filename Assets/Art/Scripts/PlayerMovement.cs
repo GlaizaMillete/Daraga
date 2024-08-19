@@ -4,62 +4,63 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public Animator animator;
-    public float moveSpeed = 5f;
+    float horizontalInput;
+    float moveSpeed = 5f;
+    bool isFacingRight = false;
+    bool isGrounded = false;
 
-    private bool isWalking;
+    Rigidbody2D rb;
+    Animator animator;
 
     void Start()
     {
         // Ensure the character starts idle
-        animator.SetBool("isWalking", false);
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("yVelocity", rb.velocity.y);
 
-        // Check for zero input to prevent immediate walking
-        if (Mathf.Abs(moveInput) > 0f)
-        {
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-            isWalking = true;
-        }
-        else
-        {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
-            isWalking = false;
-        }
+        
+    }
 
-        // Set animator parameters
-        animator.SetBool("isWalking", isWalking);
-
-        // Flip sprite based on movement direction
-        if (moveInput < 0f && transform.localScale.x > 0f)
+    void FlipSprite()
+    {
+        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-        else if (moveInput > 0f && transform.localScale.x < 0f)
-        {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
         }
     }
 
-
-
-    // body.velocity = new Vector2(xInput, yInput);
-
-    /*if (Mathf.Abs(xInput) > 0)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        body.velocity = new Vector2(xInput * speed, body.velocity.y);
+        // Set isGrounded to true when the player collides with the ground
+        isGrounded = true;
     }
 
-    if (Mathf.Abs(yInput) > 0)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        body.velocity = new Vector2(body.velocity.x, yInput * speed);
-    }*/
+        // Set isGrounded to false when the player leaves the ground
+        isGrounded = false;
+    }
 
-    //Vector2 direction = new Vector2(xInput, yInput).normalized;
-    //body.velocity = direction * speed;
+     void Update()
+    {
+        // Example of using isGrounded to handle jumping
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+        }
+
+        // Get horizontal input from the user
+        horizontalInput = Input.GetAxis("Horizontal");
+        FlipSprite();
+    }
 }
