@@ -22,22 +22,21 @@ public class JoystickMove : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()   
- 
+  private void FixedUpdate()
     {
-        if (rb != null && movementJoystick != null) 
-        {
-            horizontalInput = movementJoystick.Direction.x;
+        if (rb != null && movementJoystick != null)
+    {
+        horizontalInput = movementJoystick.Direction.x;
 
-            // Set the player's velocity based on the joystick input
-            rb.velocity = new Vector2(horizontalInput * playerSpeed, rb.velocity.y);
+        // Set the player's velocity based on the joystick input
+        rb.velocity = new Vector2(horizontalInput * playerSpeed, rb.velocity.y);
 
-            // Update the Animator with the movement input
-            animator.SetFloat("xVelocity", Mathf.Abs(horizontalInput));
+        // Update the Animator with the movement input
+        animator.SetFloat("xVelocity", Mathf.Abs(horizontalInput));
 
-            FlipSprite();
-        }
+        FlipSprite();
     }
+}
 
     private void FlipSprite()
     {

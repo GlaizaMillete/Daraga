@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 6545248911795573115}
   - component: {fileID: 6545248911795573112}
   - component: {fileID: 6545248911795573114}
+  - component: {fileID: 6545248911795573117}
   m_Layer: 5
   m_Name: Floating Joystick
   m_TagString: Untagged
@@ -1420,7 +1421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 256, y: 256}
+  m_AnchoredPosition: {x: 278, y: 66}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070590329
@@ -2285,6 +2286,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167439599}
   m_CullTransparentMesh: 0
+--- !u!114 &6545248911795573117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167439599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa472c9dd0441d4c950050b81d1ea8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementJoystick: {fileID: 6545248911795573112}
+  playerSpeed: 0
 --- !u!1001 &9127910058757475640
 PrefabInstance:
   m_ObjectHideFlags: 0
