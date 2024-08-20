@@ -6,30 +6,42 @@ public class PlayerMovement : MonoBehaviour
 {
     float horizontalInput;
     float moveSpeed = 5f;
-    bool isFacingRight = false;
-    bool isGrounded = false;
+    bool isFacingRight = true;
 
     Rigidbody2D rb;
     Animator animator;
 
     void Start()
     {
-        // Ensure the character starts idle
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        // Capture horizontal input from the user
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        // Debug to check the value of horizontalInput
+        Debug.Log($"horizontalInput: {horizontalInput}");
+
+        // Flip the sprite if needed
+        FlipSprite();
+    }
+
     private void FixedUpdate()
     {
+        // Apply horizontal movement to the player
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
 
-        
+        // Update animator parameters
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }
 
     void FlipSprite()
     {
-        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        // If the player is moving left and facing right, or moving right and facing left, flip the sprite
+        if (horizontalInput < 0 && isFacingRight || horizontalInput > 0 && !isFacingRight)
         {
             isFacingRight = !isFacingRight;
             Vector3 ls = transform.localScale;
@@ -37,29 +49,4 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = ls;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Set isGrounded to true when the player collides with the ground
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Set isGrounded to false when the player leaves the ground
-        isGrounded = false;
-    }
-
-     /*void Update()
-    {
-        // Example of using isGrounded to handle jumping
-        if (isGrounded && Input.GetButtonDown("Jump"))
-        {
-            rb.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
-        }
-
-        // Get horizontal input from the user
-        horizontalInput = Input.GetAxis("Horizontal");
-        FlipSprite();
-    }*/
 }
