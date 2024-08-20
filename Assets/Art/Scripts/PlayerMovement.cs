@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Joystick joystick; 
     float horizontalInput;
     float moveSpeed = 5f;
-    bool isFacingRight = true;
+    bool isFacingRight = false;
+    bool isGrounded = false;
 
     Rigidbody2D rb;
     Animator animator;
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Update animator parameters
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+
+        
     }
 
     void FlipSprite()

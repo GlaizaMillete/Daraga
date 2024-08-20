@@ -18,35 +18,16 @@ public class JoystickMove : MonoBehaviour
     private void Start() 
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-  private void FixedUpdate()
-    {
-        if (rb != null && movementJoystick != null)
-    {
-        horizontalInput = movementJoystick.Direction.x;
+    private void FixedUpdate() {
 
-        // Set the player's velocity based on the joystick input
-        rb.velocity = new Vector2(horizontalInput * playerSpeed, rb.velocity.y);
+        if(movementJoystick != null && movementJoystick.Direction.y != 0){
 
-        // Update the Animator with the movement input
-        animator.SetFloat("xVelocity", Mathf.Abs(horizontalInput));
-
-        FlipSprite();
-    }
-}
-
-    private void FlipSprite()
-    {
-        // If the player is moving left and facing right, or moving right and facing left, flip the sprite
-        if (horizontalInput < 0 && isFacingRight || horizontalInput > 0 && !isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 ls = transform.localScale;
-            ls.x *= -1f;
-            transform.localScale = ls;
+        rb.velocity = new Vector2(movementJoystick.Direction.x * playerSpeed, movementJoystick.Direction.y * playerSpeed);
         }
+        {
+        rb.velocity = Vector2.zero; // Use the null-conditional operator to avoid exception
+    }
     }
 }
