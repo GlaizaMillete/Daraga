@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
-        animator.SetFloat("yVelocity", rb.velocity.y);
 
         
     }
@@ -51,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
     }
 
-     void Update()
+     /*void Update()
     {
         // Example of using isGrounded to handle jumping
         if (isGrounded && Input.GetButtonDown("Jump"))
@@ -62,5 +61,5 @@ public class PlayerMovement : MonoBehaviour
         // Get horizontal input from the user
         horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
-    }
+    }*/
 }
