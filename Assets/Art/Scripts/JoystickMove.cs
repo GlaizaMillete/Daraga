@@ -17,24 +17,19 @@ public class CharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();   
-
-
-        // ... (rest of your code)
     }
 
     private void FixedUpdate() 
     {
         if (rb != null && movementJoystick != null) 
+        
         {
             float moveX = movementJoystick.Direction.x;
-    
-            // Set the player's velocity based on the joystick input
-            rb.velocity = new Vector2(moveX * playerSpeed, rb.velocity.y);
 
-            // Update the Animator with the movement input
+            rb.velocity = new Vector2(moveX * playerSpeed, rb.velocity.y);
             animator.SetFloat("xVelocity", Mathf.Abs(moveX));
 
-            // Flip the sprite based on movement direction
+            
             if (moveX < 0 && !spriteRenderer.flipX)
             {
                 spriteRenderer.flipX = true;

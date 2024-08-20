@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float moveSpeed = 5f;
     bool isFacingRight = false;
-    bool isGrounded = false;
 
     Rigidbody2D rb;
     Animator animator;
@@ -21,25 +20,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Capture horizontal input from the user
+        
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Debug to check the value of horizontalInput
+        
         Debug.Log($"horizontalInput: {horizontalInput}");
 
-        // Flip the sprite if needed
+       
         FlipSprite();
     }
 
     private void FixedUpdate()
     {
-        // Apply horizontal movement to the player
+       
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
-        // Update animator parameters
+      
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
 
-        
     }
 
     void FlipSprite()
