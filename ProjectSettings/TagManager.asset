@@ -89,14 +89,17 @@ TagManager:
   - name: 6layer8
     uniqueID: 2558728131
     locked: 0
-  - name: RICO-PLAYER
-    uniqueID: 1628624293
-    locked: 0
   - name: 7grass
     uniqueID: 790152663
     locked: 0
+  - name: RICO-PLAYER
+    uniqueID: 1628624293
+    locked: 0
   - name: 8foreground
     uniqueID: 511692229
+    locked: 0
+  - name: Joystick
+    uniqueID: 411643867
     locked: 0
   - name: portal(1)
     uniqueID: 423342181
