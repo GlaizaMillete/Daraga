@@ -1,0 +1,4 @@
+repository "Daraga@Daragang_Magayon@cloud"
+  path "/"
+    br "/main"
+    co "/main"
