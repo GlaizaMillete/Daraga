@@ -8,19 +8,32 @@ public class FloatingJoystick : Joystick
     protected override void Start()
     {
         base.Start();
-        background.gameObject.SetActive(false);
+        // Ensure the joystick background is visible at the start and remains visible
+        SetBackgroundVisibility(true);
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log("Pointer Down");
+        // Allow the joystick to move but remain visible
         background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-        background.gameObject.SetActive(true);
+        SetBackgroundVisibility(true);
         base.OnPointerDown(eventData);
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        background.gameObject.SetActive(false);
+        Debug.Log("Pointer Up");
+        // Keep the joystick visible after the pointer is released
+        SetBackgroundVisibility(true);
         base.OnPointerUp(eventData);
+    }
+
+    private void SetBackgroundVisibility(bool isVisible)
+    {
+        if (background != null)
+        {
+            background.gameObject.SetActive(isVisible);
+        }
     }
 }
