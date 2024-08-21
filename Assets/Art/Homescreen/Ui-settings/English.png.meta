@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bb2146df81ca48468c7b1d0ab92f0bf
+guid: ae34020de4e41af4c9fcd5bbd49a9ad4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 50
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
