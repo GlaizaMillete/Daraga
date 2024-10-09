@@ -23,6 +23,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Art/Chapter1/VillageScene/LiwaywayHouse.unity
     guid: 5ad32d3390576db4fa362f80c0ad5632
+  - enabled: 1
+    path: Assets/Art/Chapter1/RiverScene/fishing.unity
+    guid: 00e9083bd1dee2d40afe8715d9813b1d
+  - enabled: 1
+    path: Assets/Art/Chapter1/CassavaFields/CassavaFields.unity
+    guid: f313af0dd5246b44c91df22fa5b39cd1
+  - enabled: 1
+    path: Assets/Art/Chapter1/CassavaFields/InsideCassavaFields.unity
+    guid: 7c011ce9b0eb2cf4080a7d524071cdef
+  - enabled: 1
+    path: Assets/Art/Chapter1/DMhouse/DMhouse.unity
+    guid: d6369c3d3df06e64dbf2ca49539852dd
+  - enabled: 1
+    path: Assets/Art/Chapter1/DMhouse/insideDMhouse.unity
+    guid: 51230ef7d07ab2849a4c1c9e54ec81e4
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd

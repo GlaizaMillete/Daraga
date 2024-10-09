@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hook
+  - Fish
+  - messagePopup
+  - Sickle
+  - arrow
+  - NPC
+  - QuestTrigger
+  - Cassava
+  - sicklePrefabPopup
   layers:
   - Default
   - TransparentFX
@@ -11,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - ground
   - 
   - 
   - 
@@ -50,9 +59,6 @@ TagManager:
   - name: tree
     uniqueID: 887151399
     locked: 0
-  - name: portal
-    uniqueID: 1509909989
-    locked: 0
   - name: mc
     uniqueID: 454220595
     locked: 0
@@ -86,17 +92,20 @@ TagManager:
   - name: 5light-tree
     uniqueID: 3877985875
     locked: 0
-  - name: 6layer8
-    uniqueID: 2558728131
-    locked: 0
-  - name: 7grass
-    uniqueID: 790152663
-    locked: 0
   - name: RICO-PLAYER
     uniqueID: 1628624293
     locked: 0
   - name: 8foreground
     uniqueID: 511692229
+    locked: 0
+  - name: PORTAL(3)
+    uniqueID: 4103942991
+    locked: 0
+  - name: 6layer8
+    uniqueID: 2558728131
+    locked: 0
+  - name: 7grass
+    uniqueID: 790152663
     locked: 0
   - name: Joystick
     uniqueID: 411643867
@@ -113,11 +122,11 @@ TagManager:
   - name: BackTree
     uniqueID: 2081173075
     locked: 0
-  - name: Rico(2)
-    uniqueID: 3977116491
-    locked: 0
   - name: PORTALS
     uniqueID: 3990781291
+    locked: 0
+  - name: RICO-PLAYER(1)
+    uniqueID: 3977116491
     locked: 0
   - name: River
     uniqueID: 2565057269
@@ -167,17 +176,35 @@ TagManager:
   - name: bangs
     uniqueID: 191254271
     locked: 0
+  - name: liwaywayH
+    uniqueID: 3029343035
+    locked: 0
+  - name: liwayway
+    uniqueID: 3282045439
+    locked: 0
+  - name: insidedoor
+    uniqueID: 3862750311
+    locked: 0
+  - name: RICO-PLAYER(6)
+    uniqueID: 4174662693
+    locked: 0
   - name: house01
     uniqueID: 1176207185
     locked: 0
   - name: ground
     uniqueID: 4055464163
     locked: 0
+  - name: RIDDLEBOX
+    uniqueID: 2793243315
+    locked: 0
   - name: FrontRock
     uniqueID: 2896179911
     locked: 0
-  - name: RICO(3)
+  - name: RICO-PLAYER(2)
     uniqueID: 3534096755
+    locked: 0
+  - name: P0RTAL
+    uniqueID: 2398406197
     locked: 0
   - name: 2018
     uniqueID: 535063923
@@ -202,4 +229,304 @@ TagManager:
     locked: 0
   - name: 4th
     uniqueID: 3375297181
+    locked: 0
+  - name: waterbg
+    uniqueID: 3277027995
+    locked: 0
+  - name: hook
+    uniqueID: 1558928803
+    locked: 0
+  - name: smallfish
+    uniqueID: 3564670321
+    locked: 0
+  - name: leftmovefish
+    uniqueID: 1909656175
+    locked: 0
+  - name: rightfish
+    uniqueID: 368777769
+    locked: 0
+  - name: popup message
+    uniqueID: 1416171603
+    locked: 0
+  - name: text(1)
+    uniqueID: 139826859
+    locked: 0
+  - name: background1
+    uniqueID: 303490849
+    locked: 0
+  - name: clouds1
+    uniqueID: 2831179011
+    locked: 0
+  - name: mountains1
+    uniqueID: 1719581067
+    locked: 0
+  - name: cassava
+    uniqueID: 279023849
+    locked: 0
+  - name: RICO-PLAYER(3)
+    uniqueID: 455985649
+    locked: 0
+  - name: ground1
+    uniqueID: 1348150339
+    locked: 0
+  - name: PO0RTAL
+    uniqueID: 1696779415
+    locked: 0
+  - name: leaves
+    uniqueID: 3222315993
+    locked: 0
+  - name: arrow
+    uniqueID: 3781402181
+    locked: 0
+  - name: BGCOPY
+    uniqueID: 1258594105
+    locked: 0
+  - name: CLOUDSCOPY
+    uniqueID: 2185195965
+    locked: 0
+  - name: MOUNTAINCOPY
+    uniqueID: 1164449569
+    locked: 0
+  - name: GROUND(1)
+    uniqueID: 3351902321
+    locked: 0
+  - name: harvestcassava
+    uniqueID: 936996165
+    locked: 0
+  - name: origcassava
+    uniqueID: 1106584503
+    locked: 0
+  - name: sickle
+    uniqueID: 763337259
+    locked: 0
+  - name: extracassava
+    uniqueID: 989903539
+    locked: 0
+  - name: findcassava
+    uniqueID: 714777855
+    locked: 0
+  - name: findcassava2
+    uniqueID: 3113085709
+    locked: 0
+  - name: findcassava3
+    uniqueID: 1731946675
+    locked: 0
+  - name: messagebox
+    uniqueID: 1381617627
+    locked: 0
+  - name: text
+    uniqueID: 4182247133
+    locked: 0
+  - name: textcassava
+    uniqueID: 157356733
+    locked: 0
+  - name: resthouse
+    uniqueID: 1199211911
+    locked: 0
+  - name: tree03
+    uniqueID: 1663786707
+    locked: 0
+  - name: grass
+    uniqueID: 33862921
+    locked: 0
+  - name: cassavainpot
+    uniqueID: 814279515
+    locked: 0
+  - name: findSickle
+    uniqueID: 3767622291
+    locked: 0
+  - name: shadow
+    uniqueID: 2753445237
+    locked: 0
+  - name: DMbg
+    uniqueID: 514145283
+    locked: 0
+  - name: DMclouds
+    uniqueID: 1238984739
+    locked: 0
+  - name: DMgrass
+    uniqueID: 3572990663
+    locked: 0
+  - name: HouseofDM
+    uniqueID: 2014046469
+    locked: 0
+  - name: RICO-PLAYER(4)
+    uniqueID: 2242697543
+    locked: 0
+  - name: arrow(1)
+    uniqueID: 1188405295
+    locked: 0
+  - name: filter
+    uniqueID: 148899671
+    locked: 0
+  - name: DMshadow
+    uniqueID: 1511311759
+    locked: 0
+  - name: DMground
+    uniqueID: 3576016031
+    locked: 0
+  - name: DMleaves
+    uniqueID: 3718737517
+    locked: 0
+  - name: InsideBG
+    uniqueID: 3222250981
+    locked: 0
+  - name: Insideclouds
+    uniqueID: 3276528859
+    locked: 0
+  - name: Insidegrass
+    uniqueID: 3293788389
+    locked: 0
+  - name: stranger
+    uniqueID: 1761852007
+    locked: 0
+  - name: Insideground
+    uniqueID: 1853237947
+    locked: 0
+  - name: firsthouse
+    uniqueID: 3225885069
+    locked: 0
+  - name: secondhouse
+    uniqueID: 3487373997
+    locked: 0
+  - name: thirdhouse
+    uniqueID: 2956422737
+    locked: 0
+  - name: lasthouse
+    uniqueID: 1603553325
+    locked: 0
+  - name: middlehouse
+    uniqueID: 1985756065
+    locked: 0
+  - name: throne
+    uniqueID: 439442835
+    locked: 0
+  - name: Insideshadow
+    uniqueID: 3400444635
+    locked: 0
+  - name: guard2
+    uniqueID: 1029948425
+    locked: 0
+  - name: makusog-sitting
+    uniqueID: 3688065333
+    locked: 0
+  - name: DM
+    uniqueID: 2779548925
+    locked: 0
+  - name: fangirl
+    uniqueID: 1831167019
+    locked: 0
+  - name: guard1
+    uniqueID: 977799711
+    locked: 0
+  - name: Insideleaves
+    uniqueID: 2675030323
+    locked: 0
+  - name: cooking
+    uniqueID: 3989635575
+    locked: 0
+  - name: DM-bg
+    uniqueID: 3110484821
+    locked: 0
+  - name: DM-mountain
+    uniqueID: 2077644329
+    locked: 0
+  - name: DM-grassbehind
+    uniqueID: 693044747
+    locked: 0
+  - name: DM-middlehouse
+    uniqueID: 4069824043
+    locked: 0
+  - name: DM-throne
+    uniqueID: 1695663239
+    locked: 0
+  - name: DM-ground
+    uniqueID: 4001848507
+    locked: 0
+  - name: RICO-PLAYER(5)
+    uniqueID: 1315974355
+    locked: 0
+  - name: DM-leaves
+    uniqueID: 579779901
+    locked: 0
+  - name: DM-MAKUSOG
+    uniqueID: 1618724017
+    locked: 0
+  - name: daragangMagayon
+    uniqueID: 3536224389
+    locked: 0
+  - name: FANGIRL
+    uniqueID: 599544821
+    locked: 0
+  - name: gifts
+    uniqueID: 3258743191
+    locked: 0
+  - name: pangoronon
+    uniqueID: 3674315977
+    locked: 0
+  - name: G1
+    uniqueID: 3352343643
+    locked: 0
+  - name: G2
+    uniqueID: 3998969333
+    locked: 0
+  - name: S1
+    uniqueID: 3931339083
+    locked: 0
+  - name: S2
+    uniqueID: 261348737
+    locked: 0
+  - name: S3
+    uniqueID: 414794865
+    locked: 0
+  - name: S4
+    uniqueID: 4254599749
+    locked: 0
+  - name: S5
+    uniqueID: 922157041
+    locked: 0
+  - name: S6
+    uniqueID: 3047174029
+    locked: 0
+  - name: S7
+    uniqueID: 2546591153
+    locked: 0
+  - name: Ilog-BG
+    uniqueID: 4223711369
+    locked: 0
+  - name: Ilog-bluemountain
+    uniqueID: 3819258807
+    locked: 0
+  - name: Ilog-grassahuli
+    uniqueID: 2353005003
+    locked: 0
+  - name: ilog-pinetree1
+    uniqueID: 1725392295
+    locked: 0
+  - name: ilog-ulap
+    uniqueID: 1216446617
+    locked: 0
+  - name: ilog-pinetree2
+    uniqueID: 3846706845
+    locked: 0
+  - name: grassintheside1
+    uniqueID: 2767236975
+    locked: 0
+  - name: grassintheside2
+    uniqueID: 4125687953
+    locked: 0
+  - name: detailedwater
+    uniqueID: 2480120183
+    locked: 0
+  - name: rock
+    uniqueID: 4097029893
+    locked: 0
+  - name: Ilop-shadow
+    uniqueID: 1003166855
+    locked: 0
+  - name: Ilog-DM
+    uniqueID: 2244182559
+    locked: 0
+  - name: grassbridge
+    uniqueID: 3289023575
     locked: 0

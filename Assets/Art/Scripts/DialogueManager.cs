@@ -45,31 +45,33 @@ public class DialogueManager : MonoBehaviour
         DisplayNextDialogueLine();
     }
 
-    public void DisplayNextDialogueLine()
+   public void DisplayNextDialogueLine()
+{
+    Debug.Log("Next button clicked");
+
+    if (isTyping)
     {
-        if (isTyping) // If text is being typed, show the full sentence immediately
-        {
-            StopAllCoroutines();
-            dialogueArea.text = currentSentence; // Display the full sentence
-            isTyping = false; // Reset the typing flag
-            return;
-        }
-
-        if (lines.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
-
-        DialogueLine currentLine = lines.Dequeue();
-
-        characterIcon.sprite = currentLine.character.icon;
-
+        Debug.Log("Currently typing, showing full sentence.");
         StopAllCoroutines();
-
-        StartCoroutine(TypeSentence(currentLine));
+        dialogueArea.text = currentSentence;
+        isTyping = false;
+        return;
     }
 
+    if (lines.Count == 0)
+    {
+        Debug.Log("No more dialogue lines.");
+        EndDialogue();
+        return;
+    }
+
+    DialogueLine currentLine = lines.Dequeue();
+    characterIcon.sprite = currentLine.character.icon;
+
+    Debug.Log("Displaying next line: " + currentLine.line);
+    StopAllCoroutines();
+    StartCoroutine(TypeSentence(currentLine));
+}
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";
