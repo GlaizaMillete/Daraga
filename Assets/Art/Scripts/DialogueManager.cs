@@ -42,24 +42,32 @@ public class DialogueManager : MonoBehaviour
  
         DisplayNextDialogueLine();
     }
- 
+
     public void DisplayNextDialogueLine()
     {
+        if (isTyping) // If text is being typed, show the full sentence immediately
+        {
+            StopAllCoroutines();
+            dialogueArea.text = currentSentence; // Display the full sentence
+            isTyping = false; // Reset the typing flag
+            return;
+        }
+
         if (lines.Count == 0)
         {
             EndDialogue();
             return;
         }
- 
+
         DialogueLine currentLine = lines.Dequeue();
- 
+
         characterIcon.sprite = currentLine.character.icon;
- 
+
         StopAllCoroutines();
- 
+
         StartCoroutine(TypeSentence(currentLine));
     }
- 
+
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";

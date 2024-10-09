@@ -28,24 +28,37 @@ public class JoystickEditor : Editor
     }
 
     public override void OnInspectorGUI()
+   {
+    serializedObject.Update();
+
+    DrawValues();
+    EditorGUILayout.Space();
+    DrawComponents();
+
+    serializedObject.ApplyModifiedProperties();
+
+    // Check if handle is assigned
+    if (handle != null && handle.objectReferenceValue != null)
     {
-        serializedObject.Update();
+        RectTransform handleRect = handle.objectReferenceValue as RectTransform;
 
-        DrawValues();
-        EditorGUILayout.Space();
-        DrawComponents();
-
-        serializedObject.ApplyModifiedProperties();
-
-        if(handle != null)
+        if (handleRect != null)
         {
-            RectTransform handleRect = (RectTransform)handle.objectReferenceValue;
             handleRect.anchorMax = center;
             handleRect.anchorMin = center;
             handleRect.pivot = center;
             handleRect.anchoredPosition = Vector2.zero;
         }
+        else
+        {
+            Debug.LogWarning("Handle is not a RectTransform.");
+        }
     }
+    else
+    {
+        Debug.LogWarning("Handle is not assigned.");
+    }
+}
 
     protected virtual void DrawValues()
     {

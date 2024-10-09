@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
- private void OnTriggerEnter2D(Collider2D collision)
- {
-    if (collision.CompareTag("Player"))
+    [SerializeField] private string targetSceneName; // Assign this in the inspector for each portal
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneController.instance.NextLevel();
+        if (collision.CompareTag("Player"))
+        {
+            SceneController.instance.LoadSpecificScene(targetSceneName);
+        }
     }
- }
 }

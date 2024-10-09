@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hook
+  - Fish
+  - messagePopup
+  - Sickle
+  - arrow
+  - NPC
+  - QuestTrigger
+  - Cassava
+  - sicklePrefabPopup
   layers:
   - Default
   - TransparentFX
@@ -11,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - ground
   - 
   - 
   - 
@@ -50,9 +59,6 @@ TagManager:
   - name: tree
     uniqueID: 887151399
     locked: 0
-  - name: portal
-    uniqueID: 1509909989
-    locked: 0
   - name: mc
     uniqueID: 454220595
     locked: 0
@@ -86,17 +92,20 @@ TagManager:
   - name: 5light-tree
     uniqueID: 3877985875
     locked: 0
-  - name: 6layer8
-    uniqueID: 2558728131
-    locked: 0
-  - name: 7grass
-    uniqueID: 790152663
-    locked: 0
   - name: RICO-PLAYER
     uniqueID: 1628624293
     locked: 0
   - name: 8foreground
     uniqueID: 511692229
+    locked: 0
+  - name: PORTAL(3)
+    uniqueID: 4103942991
+    locked: 0
+  - name: 6layer8
+    uniqueID: 2558728131
+    locked: 0
+  - name: 7grass
+    uniqueID: 790152663
     locked: 0
   - name: Joystick
     uniqueID: 411643867
@@ -110,20 +119,20 @@ TagManager:
   - name: portal(1)
     uniqueID: 423342181
     locked: 0
+  - name: Ground
+    uniqueID: 4076306411
+    locked: 0
   - name: 3rdBackTree
     uniqueID: 2949668395
     locked: 0
   - name: BackTree
     uniqueID: 2081173075
     locked: 0
-  - name: Ground
-    uniqueID: 4076306411
-    locked: 0
-  - name: Rico(2)
-    uniqueID: 3977116491
-    locked: 0
   - name: PORTALS
     uniqueID: 3990781291
+    locked: 0
+  - name: RICO-PLAYER(1)
+    uniqueID: 3977116491
     locked: 0
   - name: River
     uniqueID: 2565057269
@@ -173,17 +182,35 @@ TagManager:
   - name: bangs
     uniqueID: 191254271
     locked: 0
+  - name: liwaywayH
+    uniqueID: 3029343035
+    locked: 0
+  - name: liwayway
+    uniqueID: 3282045439
+    locked: 0
+  - name: insidedoor
+    uniqueID: 3862750311
+    locked: 0
+  - name: RICO-PLAYER(6)
+    uniqueID: 4174662693
+    locked: 0
   - name: house01
     uniqueID: 1176207185
     locked: 0
   - name: ground
     uniqueID: 4055464163
     locked: 0
+  - name: RIDDLEBOX
+    uniqueID: 2793243315
+    locked: 0
   - name: FrontRock
     uniqueID: 2896179911
     locked: 0
-  - name: RICO(3)
+  - name: RICO-PLAYER(2)
     uniqueID: 3534096755
+    locked: 0
+  - name: P0RTAL
+    uniqueID: 2398406197
     locked: 0
   - name: 2018
     uniqueID: 535063923
@@ -208,352 +235,4 @@ TagManager:
     locked: 0
   - name: 4th
     uniqueID: 3375297181
-    locked: 0
-  - name: bgtree
-    uniqueID: 3759753443
-    locked: 0
-  - name: treecopy
-    uniqueID: 1748734511
-    locked: 0
-  - name: bgsky
-    uniqueID: 1112207869
-    locked: 0
-  - name: clouds
-    uniqueID: 3460108619
-    locked: 0
-  - name: grass
-    uniqueID: 857135231
-    locked: 0
-  - name: ground
-    uniqueID: 682422937
-    locked: 0
-  - name: ground
-    uniqueID: 4240190665
-    locked: 0
-  - name: rhouse
-    uniqueID: 2382869371
-    locked: 0
-  - name: lhouse
-    uniqueID: 4289040621
-    locked: 0
-  - name: midhouse
-    uniqueID: 428604443
-    locked: 0
-  - name: fronttree
-    uniqueID: 3676705237
-    locked: 0
-  - name: silouhetteTree
-    uniqueID: 109359891
-    locked: 0
-  - name: feet
-    uniqueID: 2211508591
-    locked: 0
-  - name: black
-    uniqueID: 2375931109
-    locked: 0
-  - name: black01
-    uniqueID: 2196473997
-    locked: 0
-  - name: rest
-    uniqueID: 3063796675
-    locked: 0
-  - name: dm
-    uniqueID: 2922357509
-    locked: 0
-  - name: guard
-    uniqueID: 1358962209
-    locked: 0
-  - name: bgsc02
-    uniqueID: 2689620501
-    locked: 0
-  - name: suitors01
-    uniqueID: 4106485357
-    locked: 0
-  - name: bgSecondsc02
-    uniqueID: 1622233139
-    locked: 0
-  - name: girl
-    uniqueID: 2032751813
-    locked: 0
-  - name: oldman
-    uniqueID: 3010296233
-    locked: 0
-  - name: boy
-    uniqueID: 2384020481
-    locked: 0
-  - name: dmsc02
-    uniqueID: 3564188801
-    locked: 0
-  - name: blacksc01
-    uniqueID: 390190055
-    locked: 0
-  - name: black011
-    uniqueID: 2893032169
-    locked: 0
-  - name: bgch2sc1
-    uniqueID: 1811943673
-    locked: 0
-  - name: s7
-    uniqueID: 1260817483
-    locked: 0
-  - name: s6
-    uniqueID: 576144391
-    locked: 0
-  - name: s5
-    uniqueID: 1609657619
-    locked: 0
-  - name: s4
-    uniqueID: 2004857103
-    locked: 0
-  - name: s3
-    uniqueID: 2757685277
-    locked: 0
-  - name: s2
-    uniqueID: 2447274407
-    locked: 0
-  - name: s1
-    uniqueID: 1895318901
-    locked: 0
-  - name: s7green
-    uniqueID: 249093165
-    locked: 0
-  - name: s6green
-    uniqueID: 2206406831
-    locked: 0
-  - name: s5green
-    uniqueID: 1420106953
-    locked: 0
-  - name: s5green2
-    uniqueID: 2234789229
-    locked: 0
-  - name: s4green
-    uniqueID: 3458816395
-    locked: 0
-  - name: s3green
-    uniqueID: 2497358305
-    locked: 0
-  - name: s2green
-    uniqueID: 919461703
-    locked: 0
-  - name: greenbox
-    uniqueID: 3006008317
-    locked: 0
-  - name: ds7box
-    uniqueID: 461449879
-    locked: 0
-  - name: ds6box
-    uniqueID: 859139931
-    locked: 0
-  - name: ds5box
-    uniqueID: 4005186139
-    locked: 0
-  - name: ds4box
-    uniqueID: 679059757
-    locked: 0
-  - name: ds3box
-    uniqueID: 1092033501
-    locked: 0
-  - name: ds2box
-    uniqueID: 1225394265
-    locked: 0
-  - name: ds1box
-    uniqueID: 2192847119
-    locked: 0
-  - name: bgs01ch2
-    uniqueID: 504720543
-    locked: 0
-  - name: kawal01
-    uniqueID: 73452955
-    locked: 0
-  - name: kawal02
-    uniqueID: 473904827
-    locked: 0
-  - name: pagtuga01
-    uniqueID: 3490094099
-    locked: 0
-  - name: kawal2textbox
-    uniqueID: 3208123663
-    locked: 0
-  - name: pagtuga1textbox
-    uniqueID: 4214526177
-    locked: 0
-  - name: bgs02ch2
-    uniqueID: 246965139
-    locked: 0
-  - name: dm01
-    uniqueID: 3512563117
-    locked: 0
-  - name: kawal03
-    uniqueID: 920194471
-    locked: 0
-  - name: makusog01
-    uniqueID: 2275520073
-    locked: 0
-  - name: makusog1textbox
-    uniqueID: 3751588209
-    locked: 0
-  - name: sailogsidm
-    uniqueID: 3224666551
-    locked: 0
-  - name: bg01p2
-    uniqueID: 2838395915
-    locked: 0
-  - name: kawal1p2
-    uniqueID: 579139585
-    locked: 0
-  - name: kawal2p2
-    uniqueID: 2799517885
-    locked: 0
-  - name: pagtuga2
-    uniqueID: 3782676997
-    locked: 0
-  - name: pagtuga2textbox
-    uniqueID: 856544751
-    locked: 0
-  - name: pagtuga2box2
-    uniqueID: 2175329685
-    locked: 0
-  - name: bg02p2
-    uniqueID: 1960072495
-    locked: 0
-  - name: magayonp2
-    uniqueID: 689046635
-    locked: 0
-  - name: kawal3p2
-    uniqueID: 2639832879
-    locked: 0
-  - name: makusogp2
-    uniqueID: 3734629025
-    locked: 0
-  - name: makusog2textbox
-    uniqueID: 3471344187
-    locked: 0
-  - name: bg1p3
-    uniqueID: 3333998457
-    locked: 0
-  - name: kawal1p3
-    uniqueID: 2435429393
-    locked: 0
-  - name: kawal2p3
-    uniqueID: 1307636429
-    locked: 0
-  - name: pagtugap3
-    uniqueID: 2511914301
-    locked: 0
-  - name: pagtuga3box1
-    uniqueID: 4294705157
-    locked: 0
-  - name: bg2p3
-    uniqueID: 2690475083
-    locked: 0
-  - name: magayonp3
-    uniqueID: 3605973509
-    locked: 0
-  - name: kawal3p3
-    uniqueID: 2824439199
-    locked: 0
-  - name: makusogp3
-    uniqueID: 524142089
-    locked: 0
-  - name: makusog3box1
-    uniqueID: 2723719409
-    locked: 0
-  - name: bg1p4
-    uniqueID: 915958059
-    locked: 0
-  - name: kawal1p4
-    uniqueID: 2587988377
-    locked: 0
-  - name: kawal2p4
-    uniqueID: 4280162717
-    locked: 0
-  - name: pagtugap4
-    uniqueID: 217983083
-    locked: 0
-  - name: pagtuga4box1
-    uniqueID: 3903459239
-    locked: 0
-  - name: bg2p4
-    uniqueID: 1023663513
-    locked: 0
-  - name: magayonp4
-    uniqueID: 1062200583
-    locked: 0
-  - name: kawal3p4
-    uniqueID: 526096191
-    locked: 0
-  - name: makusogp4
-    uniqueID: 2676657441
-    locked: 0
-  - name: makusog4box1
-    uniqueID: 2065954169
-    locked: 0
-  - name: Dm4box1
-    uniqueID: 2082586337
-    locked: 0
-  - name: bg1p5
-    uniqueID: 4093610403
-    locked: 0
-  - name: kawal1p5
-    uniqueID: 911975269
-    locked: 0
-  - name: kawal2p5
-    uniqueID: 550500145
-    locked: 0
-  - name: pagtugap5
-    uniqueID: 3646874873
-    locked: 0
-  - name: bg2p5
-    uniqueID: 4135943625
-    locked: 0
-  - name: magayonp5
-    uniqueID: 2516170223
-    locked: 0
-  - name: kawalp5
-    uniqueID: 3392273659
-    locked: 0
-  - name: makusogp5
-    uniqueID: 3494022699
-    locked: 0
-  - name: makusog5box1
-    uniqueID: 1630717769
-    locked: 0
-  - name: feetanimation
-    uniqueID: 427185561
-    locked: 0
-  - name: dminIlog
-    uniqueID: 3385739397
-    locked: 0
-  - name: blackch2
-    uniqueID: 1383228267
-    locked: 0
-  - name: blackagain
-    uniqueID: 3493186749
-    locked: 0
-  - name: PGfeet
-    uniqueID: 2583492891
-    locked: 0
-  - name: panganoronsneaks
-    uniqueID: 3178031857
-    locked: 0
-  - name: dmfeet01
-    uniqueID: 3164087977
-    locked: 0
-  - name: bathingdm
-    uniqueID: 3814285869
-    locked: 0
-  - name: fallingdm
-    uniqueID: 2547516653
-    locked: 0
-  - name: sinalo
-    uniqueID: 665718967
-    locked: 0
-  - name: ulapANDdm
-    uniqueID: 633909715
-    locked: 0
-  - name: black1
-    uniqueID: 883588737
-    locked: 0
-  - name: blacknaman
-    uniqueID: 1617539591
     locked: 0

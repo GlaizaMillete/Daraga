@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -135,7 +135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -156,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -177,7 +177,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -198,7 +198,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -218,8 +218,8 @@ TextureImporter:
       name: MC_5
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
+        x: 0
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -239,8 +239,8 @@ TextureImporter:
       name: MC_6
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
+        x: 256
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -260,8 +260,8 @@ TextureImporter:
       name: MC_7
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 0
+        x: 512
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -281,8 +281,8 @@ TextureImporter:
       name: MC_8
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
+        x: 768
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -302,8 +302,8 @@ TextureImporter:
       name: MC_9
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 1024
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -323,8 +323,8 @@ TextureImporter:
       name: MC_10
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
+        x: 1280
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -344,8 +344,8 @@ TextureImporter:
       name: MC_11
       rect:
         serializedVersion: 2
-        x: 2816
-        y: 0
+        x: 1536
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -365,8 +365,8 @@ TextureImporter:
       name: MC_12
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
+        x: 1792
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -386,8 +386,8 @@ TextureImporter:
       name: MC_13
       rect:
         serializedVersion: 2
-        x: 3328
-        y: 0
+        x: 2048
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -407,8 +407,8 @@ TextureImporter:
       name: MC_14
       rect:
         serializedVersion: 2
-        x: 3584
-        y: 0
+        x: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -428,7 +428,7 @@ TextureImporter:
       name: MC_15
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 0
         y: 0
         width: 256
         height: 256
@@ -449,7 +449,7 @@ TextureImporter:
       name: MC_16
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 256
         y: 0
         width: 256
         height: 256
@@ -470,7 +470,7 @@ TextureImporter:
       name: MC_17
       rect:
         serializedVersion: 2
-        x: 4352
+        x: 512
         y: 0
         width: 256
         height: 256
@@ -491,7 +491,7 @@ TextureImporter:
       name: MC_18
       rect:
         serializedVersion: 2
-        x: 4608
+        x: 768
         y: 0
         width: 256
         height: 256
@@ -512,7 +512,7 @@ TextureImporter:
       name: MC_19
       rect:
         serializedVersion: 2
-        x: 4864
+        x: 1024
         y: 0
         width: 256
         height: 256
@@ -533,7 +533,7 @@ TextureImporter:
       name: MC_20
       rect:
         serializedVersion: 2
-        x: 5120
+        x: 1280
         y: 0
         width: 256
         height: 256
@@ -554,7 +554,7 @@ TextureImporter:
       name: MC_21
       rect:
         serializedVersion: 2
-        x: 5376
+        x: 1536
         y: 0
         width: 256
         height: 256
@@ -575,7 +575,7 @@ TextureImporter:
       name: MC_22
       rect:
         serializedVersion: 2
-        x: 5632
+        x: 1792
         y: 0
         width: 256
         height: 256
@@ -596,7 +596,7 @@ TextureImporter:
       name: MC_23
       rect:
         serializedVersion: 2
-        x: 5888
+        x: 2048
         y: 0
         width: 256
         height: 256
@@ -617,7 +617,7 @@ TextureImporter:
       name: MC_24
       rect:
         serializedVersion: 2
-        x: 6144
+        x: 2304
         y: 0
         width: 256
         height: 256
