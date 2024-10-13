@@ -45,35 +45,33 @@ public class HookController : MonoBehaviour
                 isRising = false;
 
                 // If a fish is caught, notify the popup controller
-                if (isFishCaught)
+                if (isFishCaught && popupController != null)
                 {
-                    popupController.OnFishCaught(); // Notify the popup
+                    StartCoroutine(popupController.ShowPopupAfterDelay()); // Show popup after delay
                 }
             }
         }
     }
 
-   void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.CompareTag("Fish") && isRising)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        isFishCaught = true;
-        caughtFish = collision.gameObject;
-        caughtFish.transform.SetParent(transform);
-        caughtFish.transform.localPosition = Vector3.zero;
-        Debug.Log("Fish Caught!"); 
+        if (collision.gameObject.CompareTag("Fish") && isRising)
+        {
+            isFishCaught = true;
+            caughtFish = collision.gameObject;
+            caughtFish.transform.SetParent(transform);
+            caughtFish.transform.localPosition = Vector3.zero;
+            Debug.Log("Fish Caught!");
 
-        if (popupController != null)
-        {
-            // Start the popup delay from the HookController (which should be an active object)
-            StartCoroutine(popupController.ShowPopupAfterDelay()); 
-        }
-        else
-        {
-            Debug.LogWarning("PopupController is not assigned!");
+            if (popupController != null)
+            {
+                // Start the popup delay from the HookController (which should be an active object)
+                StartCoroutine(popupController.ShowPopupAfterDelay()); 
+            }
+            else
+            {
+                Debug.LogWarning("PopupController is not assigned!");
+            }
         }
     }
 }
-}
-
-

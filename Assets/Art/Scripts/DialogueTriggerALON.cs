@@ -24,12 +24,8 @@ public class DialogueALONSet
 
 public class DialogueTriggerALON : MonoBehaviour
 {
-    // The dialogue set containing the lines for this specific NPC
     public DialogueALONSet dialogue; // Ensure this is properly assigned in the inspector
     private Camera mainCamera;
-
-    // The quest scene name for triggering scene change after dialogue
-    public string questSceneName;
 
     private void Start()
     {
@@ -41,14 +37,12 @@ public class DialogueTriggerALON : MonoBehaviour
         }
     }
 
-    // This function triggers the dialogue using DialogueALON class
     public void TriggerDialogueALON()
     {
-        // Ensure that the dialogue system instance exists
         if (DialogueALON.Instance != null)
         {
             Debug.Log("Triggering DialogueALON...");
-            DialogueALON.Instance.StartDialogue(dialogue); // Use the proper DialogueALONSet
+            DialogueALON.Instance.StartDialogue(dialogue);
         }
         else
         {
@@ -73,7 +67,6 @@ public class DialogueTriggerALON : MonoBehaviour
             isInputDetected = true;
         }
 
-        // If no input is detected, return early
         if (!isInputDetected)
             return;
 
@@ -85,16 +78,16 @@ public class DialogueTriggerALON : MonoBehaviour
         }
 
         // Convert screen position to world position
-        inputPosition.z = 10; // Adjust based on camera setup
+        inputPosition.z = 10;
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(inputPosition);
-        worldPosition.z = 0; // For 2D setup
+        worldPosition.z = 0;
 
         // Detect if the touch/click hit the NPC
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
             Debug.Log("NPC Touched (ALON)!");
-            TriggerDialogueALON();  // Trigger the dialogue for ALON NPC
+            TriggerDialogueALON();
         }
         else
         {
