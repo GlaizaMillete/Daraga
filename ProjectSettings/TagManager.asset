@@ -13,6 +13,11 @@ TagManager:
   - QuestTrigger
   - Cassava
   - sicklePrefabPopup
+  - Door
+  - House
+  - Liwayway
+  - house
+  - door
   layers:
   - Default
   - TransparentFX
@@ -92,20 +97,20 @@ TagManager:
   - name: 5light-tree
     uniqueID: 3877985875
     locked: 0
-  - name: RICO-PLAYER
-    uniqueID: 1628624293
-    locked: 0
-  - name: 8foreground
-    uniqueID: 511692229
-    locked: 0
-  - name: PORTAL(3)
-    uniqueID: 4103942991
-    locked: 0
   - name: 6layer8
     uniqueID: 2558728131
     locked: 0
   - name: 7grass
     uniqueID: 790152663
+    locked: 0
+  - name: PORTAL(3)
+    uniqueID: 4103942991
+    locked: 0
+  - name: RICO-PLAYER
+    uniqueID: 1628624293
+    locked: 0
+  - name: 8foreground
+    uniqueID: 511692229
     locked: 0
   - name: Joystick
     uniqueID: 411643867
@@ -119,14 +124,14 @@ TagManager:
   - name: portal(1)
     uniqueID: 423342181
     locked: 0
-  - name: Ground
-    uniqueID: 4076306411
-    locked: 0
   - name: 3rdBackTree
     uniqueID: 2949668395
     locked: 0
   - name: BackTree
     uniqueID: 2081173075
+    locked: 0
+  - name: Ground
+    uniqueID: 4076306411
     locked: 0
   - name: PORTALS
     uniqueID: 3990781291
@@ -182,14 +187,26 @@ TagManager:
   - name: bangs
     uniqueID: 191254271
     locked: 0
+  - name: insidedoor
+    uniqueID: 3862750311
+    locked: 0
   - name: liwaywayH
     uniqueID: 3029343035
+    locked: 0
+  - name: insideground
+    uniqueID: 1465236251
+    locked: 0
+  - name: chair
+    uniqueID: 560364245
+    locked: 0
+  - name: table
+    uniqueID: 373015647
     locked: 0
   - name: liwayway
     uniqueID: 3282045439
     locked: 0
-  - name: insidedoor
-    uniqueID: 3862750311
+  - name: jar
+    uniqueID: 2286596547
     locked: 0
   - name: RICO-PLAYER(6)
     uniqueID: 4174662693
@@ -205,6 +222,9 @@ TagManager:
     locked: 0
   - name: FrontRock
     uniqueID: 2896179911
+    locked: 0
+  - name: door
+    uniqueID: 696632983
     locked: 0
   - name: RICO-PLAYER(2)
     uniqueID: 3534096755
@@ -235,4 +255,28 @@ TagManager:
     locked: 0
   - name: 4th
     uniqueID: 3375297181
+    locked: 0
+  - name: modalnotif
+    uniqueID: 3791085319
+    locked: 0
+  - name: bg1
+    uniqueID: 3839422039
+    locked: 0
+  - name: clouds1
+    uniqueID: 2932122657
+    locked: 0
+  - name: mountains01
+    uniqueID: 4048749037
+    locked: 0
+  - name: cassava01
+    uniqueID: 1087949567
+    locked: 0
+  - name: ground01
+    uniqueID: 1368846931
+    locked: 0
+  - name: leaves01
+    uniqueID: 2567935475
+    locked: 0
+  - name: arrow1
+    uniqueID: 3295450449
     locked: 0

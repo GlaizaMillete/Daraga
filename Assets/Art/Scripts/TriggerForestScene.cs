@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerForestScene : MonoBehaviour
 {
     public Dialogue dialogue;
+    //private AssetBundle assetBundle;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,10 @@ public class TriggerForestScene : MonoBehaviour
         {
             Debug.Log("Player entered trigger area!");
             TriggerDialogue();
+
         }
     }
-
+    
     private void TriggerDialogue()
     {
         if (DialogueManager.Instance != null)

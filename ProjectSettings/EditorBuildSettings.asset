@@ -4,5 +4,32 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Art/HomeScreen/Homescreen.unity
+    guid: e78c4bccc5bd31b4ba00277b3d53147d
+  - enabled: 1
+    path: Assets/Art/OpeningScene/OpeningScene.unity
+    guid: ee19afe5fa72acc42859abd1150b798f
+  - enabled: 1
+    path: Assets/Art/Chapter1/ForestScene/ForestScene.unity
+    guid: 80d9c05006994ed43b25addb0dc149ca
+  - enabled: 1
+    path: Assets/Art/Chapter1/RiverScene/RiverScene.unity
+    guid: 821dc5ec01d8b994084e7d9225e6a40a
+  - enabled: 1
+    path: Assets/Art/Chapter1/VillageScene/VillageScene.unity
+    guid: 2cca5ec2fbdfb8d4ebc51e1d89e034ca
+  - enabled: 1
+    path: Assets/Art/Chapter1/VillageScene/LiwaywayHouse.unity
+    guid: 5ad32d3390576db4fa362f80c0ad5632
+  - enabled: 1
+    path: Assets/Art/Chapter1/CassavaFields/CassavaFields.unity
+    guid: f313af0dd5246b44c91df22fa5b39cd1
+  - enabled: 1
+    path: Assets/Art/Chapter1/CassavaFields/InsideCassavaFields.unity
+    guid: 7c011ce9b0eb2cf4080a7d524071cdef
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: a355af3fc7e4b0d41813b961d5164cb8, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: db9d8b7118af3754db710988c8d8c9bc, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c33debb433ef07d4997638487c9e8ff2, type: 2}

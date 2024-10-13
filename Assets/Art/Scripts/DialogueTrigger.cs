@@ -68,7 +68,7 @@ public class DialogueTrigger : MonoBehaviour
                 if (mainCamera != null)
                 {
                     Vector3 touchPosition = Input.GetTouch(0).position;
-                    touchPosition.z = 10; // Adjust as necessary for your camera setup
+                    touchPosition.z = 10;  // Adjust as necessary for your camera setup
                     Vector3 worldPosition = mainCamera.ScreenToWorldPoint(touchPosition);
                     worldPosition.z = 0;  // Set Z position to 0 for 2D
 
@@ -76,14 +76,23 @@ public class DialogueTrigger : MonoBehaviour
 
                     Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
 
-                    if (hitCollider != null && hitCollider.gameObject == gameObject)
+                    if (hitCollider != null)
                     {
-                        Debug.Log("NPC Touched!");
-                        TriggerDialogue();  // Trigger the dialogue if NPC was clicked
+                        Debug.Log("Collider detected: " + hitCollider.gameObject.name);
+
+                        if (hitCollider.gameObject == gameObject)
+                        {
+                            Debug.Log("Liwayway NPC Touched!");
+                            TriggerDialogue();  // Trigger the dialogue if NPC was clicked
+                        }
+                        else
+                        {
+                            Debug.Log("Touched object is not Liwayway.");
+                        }
                     }
                     else
                     {
-                        Debug.Log("No collider detected or not on the correct GameObject.");
+                        Debug.Log("No collider detected at this position.");
                     }
                 }
                 else
@@ -96,5 +105,27 @@ public class DialogueTrigger : MonoBehaviour
                 Debug.LogError("Touch input is over a UI element or EventSystem is missing.");
             }
         }
+
+
+        // Check for mouse input in the editor for easier testing
+        /*if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = 10;
+            Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+            worldMousePosition.z = 0;
+
+            Collider2D hitCollider = Physics2D.OverlapPoint(worldMousePosition);
+
+            if (hitCollider != null && hitCollider.gameObject == gameObject)
+            {
+                Debug.Log("NPC Clicked with mouse!");
+                TriggerDialogue();
+            }
+        }*/
+
     }
+
+
+
 }

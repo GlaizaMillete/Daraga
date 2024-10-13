@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 0.6
+    volume: 1
 --- !u!114 &-8543006011348334045
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6993163683384283272}
     m_EaseInDuration: 0
-    m_EaseOutDuration: 0
+    m_EaseOutDuration: 2
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
@@ -875,6 +875,23 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &-5785271633027768515
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 6510ec13793e32e44be97b162ab28e05, type: 3}
+  m_Loop: 1
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &-5445662135018448314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,76 +969,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 40.59999999999997
-    m_ClipIn: 0
-    m_Asset: {fileID: 6842779457816310633}
-    m_Duration: 2.0636734693877585
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -4669304810890526734}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: dialogue sound effect
-  - m_Version: 1
-    m_Start: 48.049999999999976
+    m_Start: 43.63333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -8249071127370562537}
     m_Duration: 2.0636734693877585
@@ -1090,7 +1038,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: dialogue sound effect
   - m_Version: 1
-    m_Start: 56.116666666666646
+    m_Start: 51.833333333333336
     m_ClipIn: 0
     m_Asset: {fileID: 8113514931040603416}
     m_Duration: 2.0636734693877585
@@ -1159,7 +1107,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: dialogue sound effect
   - m_Version: 1
-    m_Start: 64.66666666666664
+    m_Start: 59.766666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 4008539191611367052}
     m_Duration: 2.0636734693877585
@@ -1228,7 +1176,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: dialogue sound effect
   - m_Version: 1
-    m_Start: 69.95000000000003
+    m_Start: 65.43333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 3525242612751644617}
     m_Duration: 2.0636734693877585
@@ -1504,9 +1452,147 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: dialogue sound effect
   - m_Version: 1
-    m_Start: 77.71666666666671
+    m_Start: 72.66666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 2530327373114855066}
+    m_Duration: 2.0636734693877585
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4669304810890526734}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: dialogue sound effect
+  - m_Version: 1
+    m_Start: 36.2
+    m_ClipIn: 0
+    m_Asset: {fileID: -3999372394997915205}
+    m_Duration: 2.0636734693877585
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4669304810890526734}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: dialogue sound effect
+  - m_Version: 1
+    m_Start: 145.7
+    m_ClipIn: 0
+    m_Asset: {fileID: -5785271633027768515}
     m_Duration: 2.0636734693877585
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4669304810890526734}
@@ -1578,6 +1664,23 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
+--- !u!114 &-3999372394997915205
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 6510ec13793e32e44be97b162ab28e05, type: 3}
+  m_Loop: 1
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &-3819553422198695674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,7 +1697,7 @@ MonoBehaviour:
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 0.6
+    volume: 1
 --- !u!114 &-3575771605713644186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1611,7 +1714,7 @@ MonoBehaviour:
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 0.6
+    volume: 1
 --- !u!114 &-3533936665301568542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2922,7 +3025,7 @@ MonoBehaviour:
     m_Start: 93.45
     m_ClipIn: 0
     m_Asset: {fileID: -3575771605713644186}
-    m_Duration: 10.997551020408164
+    m_Duration: 10.997551020408167
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1095609930647458974}
     m_EaseInDuration: 0
@@ -3738,7 +3841,7 @@ MonoBehaviour:
     m_Start: 105.53188280165196
     m_ClipIn: 0
     m_Asset: {fileID: -8680830343874340606}
-    m_Duration: 10.161632653061224
+    m_Duration: 10.161632653061218
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4600328887166597399}
     m_EaseInDuration: 0
@@ -4050,23 +4153,6 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &6842779457816310633
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 6510ec13793e32e44be97b162ab28e05, type: 3}
-  m_Loop: 1
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &6878919887673152323
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4105,7 +4191,7 @@ MonoBehaviour:
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 0.6
+    volume: 1
 --- !u!114 &7516818273704472885
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,7 +18,7 @@ public class DialogueALON : MonoBehaviour
     private Queue<DialogueLineALON> lines;
     private int totalDialogueLines;
     private int currentLineIndex = 0; // Track the current dialogue line
-    private int linesBeforeQuest = 3; // Number of lines before quest starts
+    private int linesBeforeQuest = 7; // Number of lines before quest starts
 
     public bool isDialogueActive = false;
     private bool isTyping = false;
