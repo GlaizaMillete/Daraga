@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
@@ -9,8 +8,8 @@ public class DialogueALON : MonoBehaviour
 {
     public static DialogueALON Instance;
 
-    public Image characterIcon;
     public TextMeshProUGUI dialogueArea;
+
     public GameObject Rico;
     public GameObject Joystick;
     public GameObject CMCam;
@@ -26,10 +25,18 @@ public class DialogueALON : MonoBehaviour
 
     public float typingSpeed = 0.05f;
 
+
+    public Image characterIcon;
     public Animator animator;
 
-    private bool questStarted = false;
-    public string questSceneName;
+    private Queue<DialogueLineALON> lines;
+    private bool isTyping = false;
+    private string currentSentence;
+    public float typingSpeed = 0.05f;
+
+    public bool isDialogueActive = false;
+
+    public PopupController popupController; // Reference to PopupController
 
     private void Awake()
     {
@@ -43,10 +50,7 @@ public class DialogueALON : MonoBehaviour
     {
         isDialogueActive = true;
         animator.Play("show");
-
         lines.Clear();
-        totalDialogueLines = dialogue.dialogueLines.Count; // Track the total number of lines
-        currentLineIndex = 0; // Reset the line index
 
         foreach (DialogueLineALON dialogueLine in dialogue.dialogueLines)
         {
@@ -66,17 +70,9 @@ public class DialogueALON : MonoBehaviour
             return;
         }
 
-        // Check if we've finished all the lines
         if (lines.Count == 0)
         {
             EndDialogue();
-            return;
-        }
-
-        // Check if we need to start the quest before showing the next dialogue line
-        if (!questStarted && currentLineIndex == linesBeforeQuest)
-        {
-            StartQuest();
             return;
         }
 
@@ -85,8 +81,6 @@ public class DialogueALON : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(currentLine));
-
-        currentLineIndex++; // Increment the dialogue line index after displaying
     }
 
     IEnumerator TypeSentence(DialogueLineALON dialogueLine)
@@ -109,51 +103,15 @@ public class DialogueALON : MonoBehaviour
         isDialogueActive = false;
         animator.Play("hide");
 
-        if (!questStarted && currentLineIndex == linesBeforeQuest)
+        // After the dialogue ends, show the popup message
+        if (popupController != null)
         {
-            StartQuest();
-        }
-        else if (questStarted && currentLineIndex == totalDialogueLines)
-        {
-            Debug.Log("Final dialogue complete!");
-        }
-        else if (currentLineIndex >= totalDialogueLines)
-        {
-            Debug.Log("Dialogue sequence complete!");
-        }
-    }
-
-    void StartQuest()
-    {
-        questStarted = true;
-        Debug.Log("Quest is starting.");
-
-        Destroy(Rico);
-        Destroy(Joystick);
-        Destroy(CMCam);
-
-        SceneManager.LoadScene(questSceneName);  // Transition to the quest scene
-    }
-
-    public void CompleteQuest()
-    {
-        questStarted = true;  // Mark quest as complete
-        Debug.Log("Quest complete, resuming post-quest dialogue.");
-
-        StartFinalDialogue();
-    }
-
-    void StartFinalDialogue()
-    {
-        if (lines.Count > 0)
-        {
-            isDialogueActive = true;
-            animator.Play("show");
-            DisplayNextDialogueLine();  // Resume post-quest dialogue
+            StartCoroutine(popupController.ShowPopupAfterDelay()); // Trigger the popup after the dialogue ends
         }
         else
         {
-            EndDialogue();  // End if no more lines
+            Debug.LogWarning("PopupController is not assigned in the inspector.");
         }
     }
+
 }
