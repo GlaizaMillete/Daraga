@@ -13,7 +13,7 @@ public class RicoController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  // Prevent Rico from being destroyed when switching scenes
+            DontDestroyOnLoad(this.gameObject); // Prevent Rico from being destroyed when switching scenes
             
             // Find and assign the Cinemachine camera's target at runtime
             CinemachineVirtualCamera vcam = FindObjectOfType<CinemachineVirtualCamera>();

@@ -1,55 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.SceneManagement;
 
-public class PersistCamera : MonoBehaviour
+public class PersistentCamera : MonoBehaviour
 {
-    private static PersistCamera instance;
+    public CinemachineVirtualCamera cinemachineCamera;  // Reference to the Cinemachine Virtual Camera
+    private GameObject player;  // Reference to the player object
 
-    void Awake()
+    private void Awake()
     {
-        // Ensure that only one instance of the camera exists
-        if (instance == null)
+        // Remove DontDestroyOnLoad to avoid camera persistence issues across scenes
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        // Set up the initial camera and player references
+        SetupCameraForCurrentScene();
+    }
+
+    // This method is called each time a new scene is loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetupCameraForCurrentScene();
+    }
+
+    private void SetupCameraForCurrentScene()
+    {
+        // Try to find the player in the current scene
+        player = GameObject.FindWithTag("Player");
+
+        // Try to find the Cinemachine camera in the scene
+        cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
+
+        if (cinemachineCamera == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);  // Prevent this GameObject from being destroyed between scenes
+            Debug.LogWarning("No Cinemachine camera found in the scene.");
+        }
+        else if (player != null)
+        {
+            FollowPlayer();  // Set the camera to follow the player
+        }
+    }
+
+    // Set the Cinemachine camera to follow and look at the player
+    private void FollowPlayer()
+    {
+        if (cinemachineCamera != null && player != null)
+        {
+            cinemachineCamera.Follow = player.transform;
+            cinemachineCamera.LookAt = player.transform;
         }
         else
         {
-            Destroy(gameObject);  // If another instance exists, destroy this one
+            Debug.LogWarning("Cinemachine camera or player is not set.");
         }
-    }
-
-    void Start()
-    {
-        // Ensure the camera is following the player in the new scene
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            Cinemachine.CinemachineVirtualCamera vcam = GetComponent<Cinemachine.CinemachineVirtualCamera>();
-            vcam.Follow = player.transform;
-        }
-    }
-
-    // Optional: Automatically find and follow Rico after scene load
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
+        // Remove the scene loaded listener when the script is disabled
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            Cinemachine.CinemachineVirtualCamera vcam = GetComponent<Cinemachine.CinemachineVirtualCamera>();
-            vcam.Follow = player.transform;
-        }
     }
 }

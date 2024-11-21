@@ -6,11 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-HEAD
     path: Assets/Art/HomeScreen/Homescreen.unity
-
-    path: Assets/Art/Homescreen/Homescreen.unity
-020b2614e0290a442acf1a55c4d7a86eab7a218c
     guid: e78c4bccc5bd31b4ba00277b3d53147d
   - enabled: 1
     path: Assets/Art/OpeningScene/OpeningScene.unity
@@ -22,33 +18,39 @@ HEAD
     path: Assets/Art/Chapter1/RiverScene/RiverScene.unity
     guid: 821dc5ec01d8b994084e7d9225e6a40a
   - enabled: 1
- HEAD
-
-    path: Assets/Art/Chapter1/RiverScene/fishing.unity
-    guid: 00e9083bd1dee2d40afe8715d9813b1d
-  - enabled: 1
-020b2614e0290a442acf1a55c4d7a86eab7a218c
     path: Assets/Art/Chapter1/VillageScene/VillageScene.unity
     guid: 2cca5ec2fbdfb8d4ebc51e1d89e034ca
   - enabled: 1
     path: Assets/Art/Chapter1/VillageScene/LiwaywayHouse.unity
     guid: 5ad32d3390576db4fa362f80c0ad5632
   - enabled: 1
+    path: Assets/Art/Chapter1/VillageScene/JarAssemble.unity
+    guid: 19a1cd8aa89ef5f4c96d7b03c7733c92
+  - enabled: 1
     path: Assets/Art/Chapter1/CassavaFields/CassavaFields.unity
     guid: f313af0dd5246b44c91df22fa5b39cd1
   - enabled: 1
- HEAD
-    path: Assets/Art/Chapter1/CassavaFields/InsideCassavaFields.unity
-    guid: 7c011ce9b0eb2cf4080a7d524071cdef
+    path: Assets/Art/Chapter1/DMhouse/DMhouse.unity
+    guid: d6369c3d3df06e64dbf2ca49539852dd
+  - enabled: 1
+    path: Assets/Art/Chapter1/CutScenes/Chapter1Custcenes/FirsceneINCutscene01/PasokCompound.unity
+    guid: 84b168e1d2fb52347abd84ffe0df7298
+  - enabled: 1
+    path: Assets/Art/Chapter1/DMhouse/insideDMhouse.unity
+    guid: 51230ef7d07ab2849a4c1c9e54ec81e4
+  - enabled: 1
+    path: Assets/Art/Chapter1/CutScenes/Chapter1Custcenes/Stranger/Stranger.unity
+    guid: 7ec5234bb59bbb74fa597105cb429faa
+  - enabled: 1
+    path: Assets/Art/Chapter1/CutScenes/Chapter1Custcenes/2ndsceneINCutscene01/ManliligawniDM.unity
+    guid: 158d997e0ff375041b1ecefa4155753b
+  - enabled: 1
+    path: Assets/Art/Chapter2/DMsuitors/DMsuitors.unity
+    guid: fcc290ff1cc5ab54598ab70262a4ca12
+  - enabled: 1
+    path: Assets/Art/Chapter2/ILOGSCENE/IlogScene.unity
+    guid: e4a849e86e10b2a4f918f0b094e626f4
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: a355af3fc7e4b0d41813b961d5164cb8, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: db9d8b7118af3754db710988c8d8c9bc, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c33debb433ef07d4997638487c9e8ff2, type: 2}
-
-    path: Assets/Art/Chapter1/DMhouse/DMhouse.unity
-    guid: d6369c3d3df06e64dbf2ca49539852dd
-  - enabled: 1
-    path: Assets/Art/Chapter1/DMhouse/insideDMhouse.unity
-    guid: 51230ef7d07ab2849a4c1c9e54ec81e4
-  m_configObjects: {}
-020b2614e0290a442acf1a55c4d7a86eab7a218c

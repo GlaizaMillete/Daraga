@@ -1,39 +1,78 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ToInsideDMhouse : MonoBehaviour
+public class ToInsideDMHouse : MonoBehaviour
 {
-    public SceneController sceneController; // Reference to your SceneController
-    public string targetTag = "YourSpriteTag"; // The tag for the clickable sprite
-    public string sceneToLoad = "CassavaFieldSceneName"; // The scene to load when the sprite is tapped
+    [SerializeField] private string cutsceneSceneName = "PasokCompound"; // Cutscene scene name
+    [SerializeField] private string targetSceneName = "insideDMhouse"; // Final target scene after cutscene
+    [SerializeField] private Vector3 playerSpawnPosition; // Player spawn position in InsideDMHouse
+    [SerializeField] private Vector3 cameraPosition; // Camera position in InsideDMHouse
+    [SerializeField] private GameObject arrowButton; // The button to trigger the scene change
+    [SerializeField] private string playerSortingLayerName = "PlayerLayer"; // Desired sorting layer for player in insideDMhouse scene
 
-    void Update()
+    private bool isCutscenePlayed = false;
+
+    private void Start()
     {
-        // Check for touch input
-        if (Input.touchCount > 0)
+        // Ensure the button is visible when the game starts
+        if (arrowButton != null)
         {
-            Touch touch = Input.GetTouch(0);
+            arrowButton.SetActive(true);
+        }
+    }
 
-            // Detect touch start
-            if (touch.phase == TouchPhase.Began)
+    private void Update()
+    {
+        // Handle the button click (mouse or touch input)
+        if (arrowButton != null && Input.GetMouseButtonDown(0)) // Mouse or touch input
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D clickedCollider = Physics2D.OverlapPoint(mousePosition);
+
+            if (clickedCollider != null && clickedCollider.gameObject == arrowButton && !isCutscenePlayed)
             {
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+                Debug.Log("Arrow Button Clicked: Playing cutscene and loading InsideDMHouse");
 
-                if (hit.collider != null && hit.collider.CompareTag(targetTag))
+                // Start the cutscene and scene transition
+                StartCoroutine(PlayCutsceneThenLoadScene());
+            }
+        }
+    }
+
+    private IEnumerator PlayCutsceneThenLoadScene()
+    {
+        // Play the cutscene scene
+        SceneController.instance.LoadSpecificScene(cutsceneSceneName, playerSpawnPosition, cameraPosition);
+
+        // Wait for the cutscene to finish
+        yield return new WaitForSeconds(5f); // Adjust this duration as needed
+
+        // Load the target scene (InsideDMHouse)
+        SceneController.instance.LoadSpecificScene(targetSceneName, playerSpawnPosition, cameraPosition);
+
+        // Register a callback to apply sorting layer once the scene is fully loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // Callback method to handle sorting layer after the scene has loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == targetSceneName)
+        {
+            // Find the player object and set its sorting layer
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                SpriteRenderer playerRenderer = player.GetComponent<SpriteRenderer>();
+                if (playerRenderer != null)
                 {
-                    Debug.Log("Sprite tapped!");
-                    if (sceneController != null)
-                    {
-                        sceneController.LoadSpecificScene(sceneToLoad); // Trigger scene transition with the specified scene name
-                    }
-                    else
-                    {
-                        Debug.LogWarning("SceneController reference is missing!");
-                    }
+                    playerRenderer.sortingLayerName = playerSortingLayerName;
                 }
             }
+
+            // Unsubscribe from the event to avoid repeated calls
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 }

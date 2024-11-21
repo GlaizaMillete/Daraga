@@ -4,23 +4,35 @@ using UnityEngine.UI;
 
 public class PopupController : MonoBehaviour
 {
-    public GameObject popupMessage; // Reference to the popup message GameObject
+    public GameObject popup;
+    public GameplayMenuManager gameplayMenuManager;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Ensure the popup is hidden at the start
-        popupMessage.SetActive(false);
+        popup.SetActive(false); // Ensure the popup is hidden at the start
     }
 
-    public IEnumerator ShowPopupAfterDelay()
+    public IEnumerator ShowPopup()
     {
-        // Activate the popup
-        popupMessage.SetActive(true);
-
-        // Wait for a few seconds
-        yield return new WaitForSeconds(3f); // Adjust delay as necessary
-
-        // Deactivate the popup after the delay
-        popupMessage.SetActive(false);
+        popup.SetActive(true); // Show the popup
+        yield return null; // You can add a delay here if needed
     }
+
+    public IEnumerator HidePopup()
+    {
+        popup.SetActive(false); // Hide the popup
+        yield return null;
+    }
+
+    /* private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+            // Unlock the "Alon" achievement
+            gameplayMenuManager.UnlockAchievement("tilapia");
+        }
+    }*/
 }
+
+

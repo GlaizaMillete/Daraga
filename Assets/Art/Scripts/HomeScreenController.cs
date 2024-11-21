@@ -1,33 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class HomeScreenController : MonoBehaviour
 {
-    public Button chapter1Button;
-
-    private void Start()
+    // Call this when the Play button is clicked
+    public void OnPlayButtonClick()
     {
-        if (PlayerPrefs.HasKey("SavedGame"))
+        // Check if the player has seen the cutscene
+        if (PlayerPrefs.HasKey("HasSeenCutscene") && PlayerPrefs.GetInt("HasSeenCutscene") == 1)
         {
-            chapter1Button.onClick.AddListener(ContinueChapter1);
+            // If they've seen the cutscene, load the saved progress scene
+            LoadSavedProgress();
         }
         else
         {
-            chapter1Button.onClick.AddListener(StartNewChapter1);
+            // If they haven't seen the cutscene, load the opening scene
+            SceneManager.LoadScene("OpeningScene");
         }
     }
 
-    private void ContinueChapter1()
+    private void LoadSavedProgress()
     {
-        // Load the scene or progress saved for Chapter 1
-        SceneManager.LoadScene("ForestScene"); // Replace with your scene name
-    }
-
-    private void StartNewChapter1()
-    {
-        // Start a new game from the beginning of Chapter 1
-        PlayerPrefs.DeleteKey("SavedGame"); // Clear any existing save
-        SceneManager.LoadScene("ForestScene"); // Replace with your scene name
+        // Load the player's saved progress
+        string savedScene = PlayerPrefs.GetString("LastSavedScene", "DefaultScene");  // Default scene if no save
+        SceneManager.LoadScene(savedScene);
     }
 }

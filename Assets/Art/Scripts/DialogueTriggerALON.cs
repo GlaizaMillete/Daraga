@@ -70,17 +70,10 @@ public class DialogueTriggerALON : MonoBehaviour
         if (!isInputDetected)
             return;
 
-        // Check if the input is over a UI element
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            Debug.Log("Pointer is over a UI element.");
-            return;
-        }
-
         // Convert screen position to world position
-        inputPosition.z = 10;
+        inputPosition.z = 10; // Distance from the camera to where the world point should be calculated
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(inputPosition);
-        worldPosition.z = 0;
+        worldPosition.z = 0; // Ensures it's at the correct z-position for 2D interaction
 
         // Detect if the touch/click hit the NPC
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
@@ -95,3 +88,7 @@ public class DialogueTriggerALON : MonoBehaviour
         }
     }
 }
+
+
+
+

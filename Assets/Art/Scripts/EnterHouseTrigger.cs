@@ -1,63 +1,83 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // For scene loading
-using UnityEngine.UI;  // For UI components
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnterHouseTrigger : MonoBehaviour
 {
-    public string houseSceneName = "LiwaywayHouse";  // The scene name to load when Rico enters the house
-    public GameObject arrowhouseImage;  // The arrow image to indicate the entrance
+    public GameObject rico;  // Reference to Rico
+    public string houseSceneName = "LiwaywayHouse";  // The scene to load when Rico enters the house
+    public Button arrowhouseButton;  // The arrow button (UI) for entrance
+    public GameObject door;  // Reference to the door GameObject for alignment
+    public float offsetY = 50f;  // Vertical offset for the button position above the door
+    
+    private Vector3 ricoInitialPosition;  // Stores Rico's initial position
+    private RectTransform buttonRectTransform;  // Reference to the button's RectTransform
     private bool isNearDoor = false;  // To check if Rico is near the door
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (arrowhouseImage != null)
+        // Ensure references are set and objects exist
+        if (arrowhouseButton != null)
         {
-            // Ensure the arrow is hidden at the start
-            arrowhouseImage.SetActive(false);
+            arrowhouseButton.gameObject.SetActive(false);  // Initially hide the button
+            arrowhouseButton.onClick.AddListener(OnArrowButtonClicked);  // Add click listener
+
+            // Get RectTransform for adjusting position
+            buttonRectTransform = arrowhouseButton.GetComponent<RectTransform>();
         }
     }
 
-    // Detect when Rico enters the trigger zone (door area)
+    void Update()
+    {
+        // Update the button position if Rico is near the door
+        if (isNearDoor && buttonRectTransform != null && door != null)
+        {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(door.transform.position);
+            screenPosition.y += offsetY;  // Apply offset to position the button above the door
+            buttonRectTransform.position = screenPosition;
+        }
+    }
+
+    // Trigger when Rico enters the door zone
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))  // Ensure the player is tagged as "Player"
+        if (other.CompareTag("Player"))
         {
             isNearDoor = true;
-            if (arrowhouseImage != null)
+            if (arrowhouseButton != null)
             {
-                arrowhouseImage.SetActive(true);  // Show the arrow image when near the door
+                arrowhouseButton.gameObject.SetActive(true);  // Show the button
             }
         }
     }
 
-    // Detect when Rico exits the trigger zone
+    // Trigger when Rico exits the door zone
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isNearDoor = false;
-            if (arrowhouseImage != null)
+            if (arrowhouseButton != null)
             {
-                arrowhouseImage.SetActive(false);  // Hide the arrow when leaving the door area
+                arrowhouseButton.gameObject.SetActive(false);  // Hide the button
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Called when the arrow button is clicked
+    void OnArrowButtonClicked()
     {
-        // Check if Rico is near the door and the player touches the arrowhouse image
-        if (isNearDoor && Input.GetMouseButtonDown(0))  // Left mouse button or touch input
+        // Store Rico's current position
+        if (rico != null)
         {
-            Vector3 mousePos = Input.mousePosition;
-            RectTransform arrowRect = arrowhouseImage.GetComponent<RectTransform>();
-
-            if (RectTransformUtility.RectangleContainsScreenPoint(arrowRect, mousePos, null))
-            {
-                // Load the house scene or perform the house entry action
-                SceneManager.LoadScene(houseSceneName);  // Transition to Liwayway's house
-            }
+            ricoInitialPosition = rico.transform.position;
+            PlayerPrefs.SetFloat("RicoX", ricoInitialPosition.x);
+            PlayerPrefs.SetFloat("RicoY", ricoInitialPosition.y);
+            PlayerPrefs.SetFloat("RicoZ", ricoInitialPosition.z);
         }
+
+        // Load the specified house scene
+        SceneManager.LoadScene(houseSceneName);
     }
 }

@@ -5,6 +5,8 @@ public class ToInsideCassavaFields : MonoBehaviour
     public SceneController sceneController; // Reference to your SceneController
     public string targetTag = "YourSpriteTag"; // The tag for the clickable sprite
     public string sceneToLoad = "CassavaFieldSceneName"; // The scene to load when the sprite is tapped
+    public Vector3 playerSpawnPosition; // Position to spawn the player in the new scene
+    public Vector3 cameraPosition; // Position for the camera in the new scene
 
     void Update()
     {
@@ -24,7 +26,8 @@ public class ToInsideCassavaFields : MonoBehaviour
                     Debug.Log("Sprite tapped!");
                     if (sceneController != null)
                     {
-                        sceneController.LoadSpecificScene(sceneToLoad); // Trigger scene transition with the specified scene name
+                        // Call LoadSpecificScene with the required parameters
+                        sceneController.LoadSpecificScene(sceneToLoad, playerSpawnPosition, cameraPosition);
                     }
                     else
                     {

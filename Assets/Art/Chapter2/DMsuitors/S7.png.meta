@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,8 +118,8 @@ TextureImporter:
         width: 1920
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 180, z: 1731, w: 388}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -136,11 +136,11 @@ TextureImporter:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 1920
+        width: 1913
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 186, z: 1704, w: 388}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -160,8 +160,8 @@ TextureImporter:
         width: 1920
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 186, z: 1698, w: 395}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -176,13 +176,13 @@ TextureImporter:
       name: S7_3
       rect:
         serializedVersion: 2
-        x: 5760
+        x: 5747
         y: 0
-        width: 1920
+        width: 1933
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 180, z: 1691, w: 395}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -202,8 +202,8 @@ TextureImporter:
         width: 1920
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 186, z: 1738, w: 395}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -223,8 +223,8 @@ TextureImporter:
         width: 1920
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 193, z: 1704, w: 395}
       outline: []
       physicsShape: []
       tessellationDetail: 0

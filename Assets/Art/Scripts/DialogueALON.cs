@@ -7,26 +7,10 @@ using UnityEngine.UI;
 public class DialogueALON : MonoBehaviour
 {
     public static DialogueALON Instance;
-
+    public GameplayMenuManager gameplayMenuManager;
     public TextMeshProUGUI dialogueArea;
-
-    public GameObject Rico;
-    public GameObject Joystick;
-    public GameObject CMCam;
-
-    private Queue<DialogueLineALON> lines;
-    private int totalDialogueLines;
-    private int currentLineIndex = 0; // Track the current dialogue line
-    private int linesBeforeQuest = 7; // Number of lines before quest starts
-
-    public bool isDialogueActive = false;
-    private bool isTyping = false;
-    private string currentSentence;
-
-    public float typingSpeed = 0.05f;
-
-
-    public Image characterIcon;
+    public Image ricoImage; // Rico's image on the left
+    public Image alonImage; // Alon's image on the right
     public Animator animator;
 
     private Queue<DialogueLineALON> lines;
@@ -37,6 +21,8 @@ public class DialogueALON : MonoBehaviour
     public bool isDialogueActive = false;
 
     public PopupController popupController; // Reference to PopupController
+
+    private bool dialogueCompleted = false; // Tracks if the dialogue has been completed
 
     private void Awake()
     {
@@ -49,6 +35,7 @@ public class DialogueALON : MonoBehaviour
     public void StartDialogue(DialogueALONSet dialogue)
     {
         isDialogueActive = true;
+        dialogueCompleted = false; // Reset completion flag
         animator.Play("show");
         lines.Clear();
 
@@ -77,10 +64,25 @@ public class DialogueALON : MonoBehaviour
         }
 
         DialogueLineALON currentLine = lines.Dequeue();
-        characterIcon.sprite = currentLine.character.icon;
+
+        // Update the character images based on who is speaking
+        if (currentLine.character.icon == ricoImage.sprite) // Assuming Rico's icon is assigned in inspector
+        {
+            ShowRicoImage();
+        }
+        else if (currentLine.character.icon == alonImage.sprite) // Assuming Alon's icon is assigned in inspector
+        {
+            ShowAlonImage();
+        }
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(currentLine));
+
+        // Check if the dialogue contains "Here, take this." and trigger the popup
+        if (currentLine.line == "Here, take this.")
+        {
+            TriggerPopup();
+        }
     }
 
     IEnumerator TypeSentence(DialogueLineALON dialogueLine)
@@ -89,6 +91,12 @@ public class DialogueALON : MonoBehaviour
         currentSentence = dialogueLine.line;
         isTyping = true;
 
+        // Show the popup when typing "Here, take this."
+        if (currentSentence == "Here, take this.")
+        {
+            StartCoroutine(popupController.ShowPopup()); // Show the popup when starting to type
+        }
+
         foreach (char letter in dialogueLine.line.ToCharArray())
         {
             dialogueArea.text += letter;
@@ -96,22 +104,57 @@ public class DialogueALON : MonoBehaviour
         }
 
         isTyping = false;
+
+        // Hide the popup after the line is fully typed
+        if (currentSentence == "Here, take this.")
+        {
+            StartCoroutine(popupController.HidePopup()); // Hide the popup after typing is done
+        }
     }
+
+
+    /*private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+            // Unlock the "Alon" achievement
+            gameplayMenuManager.UnlockAchievement("alon");
+
+            
+        }
+
+        
+    }*/
+
 
     void EndDialogue()
     {
         isDialogueActive = false;
         animator.Play("hide");
+        dialogueCompleted = true; // Mark dialogue as completed
+    }
 
-        // After the dialogue ends, show the popup message
+    private void ShowRicoImage()
+    {
+        ricoImage.gameObject.SetActive(true);
+        alonImage.gameObject.SetActive(false); // Hide Alon's image
+    }
+
+    private void ShowAlonImage()
+    {
+        ricoImage.gameObject.SetActive(false); // Hide Rico's image
+        alonImage.gameObject.SetActive(true);
+    }
+
+    private void TriggerPopup()
+    {
         if (popupController != null)
         {
-            StartCoroutine(popupController.ShowPopupAfterDelay()); // Trigger the popup after the dialogue ends
+            StartCoroutine(popupController.ShowPopup()); // Start the coroutine for the popup
         }
         else
         {
-            Debug.LogWarning("PopupController is not assigned in the inspector.");
+            Debug.LogWarning("PopupController is not assigned.");
         }
     }
-
 }

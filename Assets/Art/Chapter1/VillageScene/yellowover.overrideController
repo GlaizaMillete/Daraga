@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: yellowover
+  m_Controller: {fileID: 9100000, guid: c36ea75fdff737e4aa394a6034610f7c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a48516e77e52b574cb8426a5b5e98f18, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a48516e77e52b574cb8426a5b5e98f18, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 26801e0d34e0e834db7e5ec3dc482bc3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 26801e0d34e0e834db7e5ec3dc482bc3, type: 2}

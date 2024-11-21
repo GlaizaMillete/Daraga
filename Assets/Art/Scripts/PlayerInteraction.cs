@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject[] itemPrefabs;  // Array of item prefab references
-    private NPCInteraction npc;
+    private NpcsInteraction01 npc;
     private bool nearNPC = false;
     private string npcName = "";
 
@@ -58,7 +58,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
-            npc = other.GetComponent<NPCInteraction>();
+            npc = other.GetComponent<NpcsInteraction01>();
             npcName = other.gameObject.name;
             nearNPC = true;
         }

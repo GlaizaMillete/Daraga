@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,10 +113,10 @@ TextureImporter:
       name: message_0
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 1920
-        height: 1080
+        x: 0
+        y: 4
+        width: 256
+        height: 175
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: message_1
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 256
         y: 0
-        width: 1920
-        height: 1080
+        width: 577
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: message_2
       rect:
         serializedVersion: 2
-        x: 5760
+        x: 833
         y: 0
-        width: 1920
-        height: 1080
+        width: 1067
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 704facc077a112d4ba1bcbd6365a2fc3
+      spriteID: 77cb840d9b76b604fb7b3bc570810161
       internalID: 998429640
       vertices: []
       indices: 

@@ -18,6 +18,16 @@ TagManager:
   - Liwayway
   - house
   - door
+  - Nextscene
+  - RightBoundary
+  - LeftBoundary
+  - Clothes
+  - JarOutline
+  - JarPiece
+  - Joystick
+  - SnapPosition
+  - Background
+  - OutsideUI
   layers:
   - Default
   - TransparentFX
@@ -26,7 +36,7 @@ TagManager:
   - Water
   - UI
   - ground
-  - 
+  - wall
   - 
   - 
   - 
@@ -63,6 +73,9 @@ TagManager:
     locked: 0
   - name: tree
     uniqueID: 887151399
+    locked: 0
+  - name: PORTALS
+    uniqueID: 3990781291
     locked: 0
   - name: mc
     uniqueID: 454220595
@@ -103,14 +116,20 @@ TagManager:
   - name: 7grass
     uniqueID: 790152663
     locked: 0
-  - name: PORTAL(3)
-    uniqueID: 4103942991
+  - name: P0RTAL
+    uniqueID: 2398406197
     locked: 0
   - name: RICO-PLAYER
     uniqueID: 1628624293
     locked: 0
   - name: 8foreground
     uniqueID: 511692229
+    locked: 0
+  - name: 9foreground
+    uniqueID: 297993131
+    locked: 0
+  - name: 10foreground
+    uniqueID: 3929325127
     locked: 0
   - name: Joystick
     uniqueID: 411643867
@@ -121,9 +140,6 @@ TagManager:
   - name: MenuButton
     uniqueID: 2947076063
     locked: 0
-  - name: portal(1)
-    uniqueID: 423342181
-    locked: 0
   - name: 3rdBackTree
     uniqueID: 2949668395
     locked: 0
@@ -133,17 +149,32 @@ TagManager:
   - name: Ground
     uniqueID: 4076306411
     locked: 0
-  - name: PORTALS
-    uniqueID: 3990781291
-    locked: 0
-  - name: RICO-PLAYER(1)
-    uniqueID: 3977116491
-    locked: 0
   - name: River
     uniqueID: 2565057269
     locked: 0
   - name: Front-Tree
     uniqueID: 3161498985
+    locked: 0
+  - name: portal(1)
+    uniqueID: 423342181
+    locked: 0
+  - name: RICO-PLAYER(1)
+    uniqueID: 3977116491
+    locked: 0
+  - name: leftblockriver
+    uniqueID: 1593367321
+    locked: 0
+  - name: rightblockriver
+    uniqueID: 1008205103
+    locked: 0
+  - name: TILAPIA
+    uniqueID: 2298807955
+    locked: 0
+  - name: MESSAGEPOPUP
+    uniqueID: 2083623265
+    locked: 0
+  - name: TILAPIATEXT
+    uniqueID: 3636544733
     locked: 0
   - name: Bucket
     uniqueID: 228781221
@@ -187,9 +218,6 @@ TagManager:
   - name: bangs
     uniqueID: 191254271
     locked: 0
-  - name: insidedoor
-    uniqueID: 3862750311
-    locked: 0
   - name: liwaywayH
     uniqueID: 3029343035
     locked: 0
@@ -205,12 +233,6 @@ TagManager:
   - name: liwayway
     uniqueID: 3282045439
     locked: 0
-  - name: jar
-    uniqueID: 2286596547
-    locked: 0
-  - name: RICO-PLAYER(6)
-    uniqueID: 4174662693
-    locked: 0
   - name: house01
     uniqueID: 1176207185
     locked: 0
@@ -220,17 +242,83 @@ TagManager:
   - name: RIDDLEBOX
     uniqueID: 2793243315
     locked: 0
-  - name: FrontRock
-    uniqueID: 2896179911
+  - name: DalisayButton
+    uniqueID: 3239130157
+    locked: 0
+  - name: MarinaButton
+    uniqueID: 3115773803
+    locked: 0
+  - name: MarisaButton
+    uniqueID: 1262842895
+    locked: 0
+  - name: BagwisButton
+    uniqueID: 2220224575
+    locked: 0
+  - name: NeroButton
+    uniqueID: 2194857733
     locked: 0
   - name: door
     uniqueID: 696632983
     locked: 0
+  - name: arrowbutton
+    uniqueID: 4203605963
+    locked: 0
+  - name: portals2
+    uniqueID: 238840441
+    locked: 0
+  - name: arrowtableliwaway
+    uniqueID: 580837979
+    locked: 0
+  - name: insidedoor
+    uniqueID: 3862750311
+    locked: 0
+  - name: jar
+    uniqueID: 2286596547
+    locked: 0
   - name: RICO-PLAYER(2)
     uniqueID: 3534096755
     locked: 0
-  - name: P0RTAL
-    uniqueID: 2398406197
+  - name: arrowexitbutton
+    uniqueID: 3084118951
+    locked: 0
+  - name: topTable
+    uniqueID: 2153452467
+    locked: 0
+  - name: jar1
+    uniqueID: 949614403
+    locked: 0
+  - name: jar2
+    uniqueID: 1567689299
+    locked: 0
+  - name: jar3
+    uniqueID: 1954754055
+    locked: 0
+  - name: jar4
+    uniqueID: 267506871
+    locked: 0
+  - name: jar5
+    uniqueID: 1546216461
+    locked: 0
+  - name: jar6
+    uniqueID: 4042605925
+    locked: 0
+  - name: jar7
+    uniqueID: 3302641429
+    locked: 0
+  - name: jarOutline
+    uniqueID: 3543849315
+    locked: 0
+  - name: FrontRock
+    uniqueID: 2896179911
+    locked: 0
+  - name: blockvillage1
+    uniqueID: 1033712949
+    locked: 0
+  - name: blockvillage2
+    uniqueID: 4034482881
+    locked: 0
+  - name: Blackvillagebg
+    uniqueID: 4269878525
     locked: 0
   - name: 2018
     uniqueID: 535063923
@@ -253,44 +341,435 @@ TagManager:
   - name: 4th
     uniqueID: 3375297181
     locked: 0
-HEAD
-  - name: modalnotif
-    uniqueID: 3791085319
+  - name: resthouse
+    uniqueID: 591100337
     locked: 0
-  - name: bg1
-    uniqueID: 3839422039
+  - name: skycassava
+    uniqueID: 83166693
     locked: 0
-  - name: clouds1
-    uniqueID: 2932122657
+  - name: mountaincassava
+    uniqueID: 3542081855
     locked: 0
-  - name: mountains01
-    uniqueID: 4048749037
+  - name: cassasva
+    uniqueID: 1562020879
     locked: 0
-  - name: cassava01
-    uniqueID: 1087949567
-    locked: 0
-  - name: ground01
-    uniqueID: 1368846931
+  - name: groundcassava
+    uniqueID: 3471938685
     locked: 0
   - name: leaves01
-    uniqueID: 2567935475
+    uniqueID: 700311971
     locked: 0
-  - name: arrow1
-    uniqueID: 3295450449
-
-  - name: lava
-    uniqueID: 90027357
+  - name: Portal3(previous)
+    uniqueID: 2265444257
     locked: 0
-  - name: skip
-    uniqueID: 1953662647
+  - name: PORTAL(3)
+    uniqueID: 4103942991
     locked: 0
-  - name: TILAPIA
-    uniqueID: 597617327
+  - name: RICO-PLAYER(3)
+    uniqueID: 370608389
     locked: 0
-  - name: MESSAGEPOPUP
-    uniqueID: 770061193
+  - name: RICOPLAYER(8)
+    uniqueID: 931252449
     locked: 0
-  - name: TILAPIATEXT
-    uniqueID: 631218155
-020b2614e0290a442acf1a55c4d7a86eab7a218c
+  - name: grassbridge
+    uniqueID: 569244999
+    locked: 0
+  - name: RICOPLAYER(9)
+    uniqueID: 1347270809
+    locked: 0
+  - name: receivebox
+    uniqueID: 1895738209
+    locked: 0
+  - name: leftcolliderlihouse
+    uniqueID: 4247808093
+    locked: 0
+  - name: rightcolliderlihouse
+    uniqueID: 2597202809
+    locked: 0
+  - name: riddlebox
+    uniqueID: 3263668533
+    locked: 0
+  - name: newplayer02
+    uniqueID: 684906357
+    locked: 0
+  - name: bg_dmhouse
+    uniqueID: 3307891079
+    locked: 0
+  - name: clouds_dmhouse
+    uniqueID: 3095777441
+    locked: 0
+  - name: grass_dmhouse
+    uniqueID: 1403011987
+    locked: 0
+  - name: HofDM_dmhouse
+    uniqueID: 1458359435
+    locked: 0
+  - name: house1_dmhouse
+    uniqueID: 2963878861
+    locked: 0
+  - name: house2_dmhouse
+    uniqueID: 300707949
+    locked: 0
+  - name: house4_dmhouse
+    uniqueID: 906870755
+    locked: 0
+  - name: house3_dmhouse
+    uniqueID: 3200419519
+    locked: 0
+  - name: filter_dmhouse
+    uniqueID: 2769496867
+    locked: 0
+  - name: shadow_dmhouse
+    uniqueID: 1671172027
+    locked: 0
+  - name: ground_dmhouse
+    uniqueID: 4013128557
+    locked: 0
+  - name: arrow_dmhouse
+    uniqueID: 1073172201
+    locked: 0
+  - name: portal4
+    uniqueID: 3802360119
+    locked: 0
+  - name: bg_insidedm
+    uniqueID: 2818047807
+    locked: 0
+  - name: clouds_insidedm
+    uniqueID: 3061878647
+    locked: 0
+  - name: grass_insidedm
+    uniqueID: 1247487913
+    locked: 0
+  - name: stranger_insidedm
+    uniqueID: 1662460637
+    locked: 0
+  - name: firsthouse_insidedm
+    uniqueID: 533612695
+    locked: 0
+  - name: secondhouse_insidedm
+    uniqueID: 3591658439
+    locked: 0
+  - name: thridhouse_insidedm
+    uniqueID: 1995878105
+    locked: 0
+  - name: lasthouse_insidedm
+    uniqueID: 3167450587
+    locked: 0
+  - name: ground_insisdedm
+    uniqueID: 767541517
+    locked: 0
+  - name: ground1_insisdedm
+    uniqueID: 1753114789
+    locked: 0
+  - name: ground2_insisdedm
+    uniqueID: 2407584429
+    locked: 0
+  - name: middlehouse_insidedm
+    uniqueID: 863521031
+    locked: 0
+  - name: arrow_insidedm
+    uniqueID: 2230281195
+    locked: 0
+  - name: throne_insidedm
+    uniqueID: 1322136737
+    locked: 0
+  - name: shadow1_insidedm
+    uniqueID: 921919371
+    locked: 0
+  - name: makusogsitting_insidedm
+    uniqueID: 3898582447
+    locked: 0
+  - name: arrowmakusog_insidedm
+    uniqueID: 2765555555
+    locked: 0
+  - name: dm_insidedm
+    uniqueID: 887069715
+    locked: 0
+  - name: arrowdm_insidedm
+    uniqueID: 1278141109
+    locked: 0
+  - name: fangirl_insidedm
+    uniqueID: 3026745725
+    locked: 0
+  - name: guard1_insidedm
+    uniqueID: 3200063435
+    locked: 0
+  - name: guard2_insidedm
+    uniqueID: 1369530841
+    locked: 0
+  - name: cooking_insidedm
+    uniqueID: 3115185363
+    locked: 0
+  - name: dalisay_inside
+    uniqueID: 3474387915
+    locked: 0
+  - name: nero_inside
+    uniqueID: 3815154607
+    locked: 0
+  - name: marisa_inside
+    uniqueID: 1349362361
+    locked: 0
+  - name: bagwis_inside
+    uniqueID: 2053377153
+    locked: 0
+  - name: marina_inside
+    uniqueID: 2797371647
+    locked: 0
+  - name: RICOPLAYER(5)
+    uniqueID: 3421383959
+    locked: 0
+  - name: RICO-PLAYER(4)
+    uniqueID: 2128793391
+    locked: 0
+  - name: leaves_insidedm
+    uniqueID: 900108731
+    locked: 0
+  - name: leaves_dmhouse
+    uniqueID: 2599967947
+    locked: 0
+  - name: portal5
+    uniqueID: 2039000095
+    locked: 0
+  - name: cutsc01_bg
+    uniqueID: 1520206897
+    locked: 0
+  - name: cutsc01_s1
+    uniqueID: 303565129
+    locked: 0
+  - name: s1box
+    uniqueID: 3121226769
+    locked: 0
+  - name: dms1box
+    uniqueID: 224520303
+    locked: 0
+  - name: cutsc01_s2
+    uniqueID: 1607871981
+    locked: 0
+  - name: s2box
+    uniqueID: 4097360981
+    locked: 0
+  - name: dms2box
+    uniqueID: 949955001
+    locked: 0
+  - name: cutsc01_s3
+    uniqueID: 1883003465
+    locked: 0
+  - name: s3box
+    uniqueID: 121661275
+    locked: 0
+  - name: dms3box
+    uniqueID: 1639999365
+    locked: 0
+  - name: cutsc01_s4
+    uniqueID: 498433849
+    locked: 0
+  - name: s4box
+    uniqueID: 3382078477
+    locked: 0
+  - name: dms4box
+    uniqueID: 389292367
+    locked: 0
+  - name: cutsc01_s5
+    uniqueID: 1762267201
+    locked: 0
+  - name: s5box1
+    uniqueID: 4024442087
+    locked: 0
+  - name: dms5box
+    uniqueID: 3246349615
+    locked: 0
+  - name: s5box2
+    uniqueID: 2478678305
+    locked: 0
+  - name: cutsc01_s6
+    uniqueID: 765970555
+    locked: 0
+  - name: s6box
+    uniqueID: 4202215797
+    locked: 0
+  - name: dms6box
+    uniqueID: 1639038361
+    locked: 0
+  - name: cutsc01_s7
+    uniqueID: 3513629727
+    locked: 0
+  - name: s7box
+    uniqueID: 1708413067
+    locked: 0
+  - name: dms7box
+    uniqueID: 2802259135
+    locked: 0
+  - name: comp_bgtree
+    uniqueID: 4179992481
+    locked: 0
+  - name: comp_treecopy
+    uniqueID: 3807803689
+    locked: 0
+  - name: comp_silouhette
+    uniqueID: 389892449
+    locked: 0
+  - name: comp_bgsky
+    uniqueID: 966438719
+    locked: 0
+  - name: comp_clouds
+    uniqueID: 1435729277
+    locked: 0
+  - name: comp_grass
+    uniqueID: 2449636233
+    locked: 0
+  - name: comp_ground
+    uniqueID: 1143416557
+    locked: 0
+  - name: comp_midhouse
+    uniqueID: 322783431
+    locked: 0
+  - name: comp_rhouse
+    uniqueID: 3493696583
+    locked: 0
+  - name: comp_lhouse
+    uniqueID: 26486097
+    locked: 0
+  - name: comp_ftreerico
+    uniqueID: 2812041821
+    locked: 0
+  - name: comp_black01
+    uniqueID: 2313047435
+    locked: 0
+  - name: comp_black
+    uniqueID: 4265958567
+    locked: 0
+  - name: comp_feet
+    uniqueID: 1771641105
+    locked: 0
+  - name: comp_rest
+    uniqueID: 3203716769
+    locked: 0
+  - name: comp_dm
+    uniqueID: 1129407115
+    locked: 0
+  - name: comp_guard
+    uniqueID: 3174620265
+    locked: 0
+  - name: suitors_bg1
+    uniqueID: 3595844851
+    locked: 0
+  - name: suitors_suitors
+    uniqueID: 4114254391
+    locked: 0
+  - name: suitors_black01
+    uniqueID: 3600084437
+    locked: 0
+  - name: suitors_bg2
+    uniqueID: 3087194121
+    locked: 0
+  - name: suitors_girl
+    uniqueID: 2326376419
+    locked: 0
+  - name: suitors_oldman
+    uniqueID: 2729077203
+    locked: 0
+  - name: suitors_boy
+    uniqueID: 1780299369
+    locked: 0
+  - name: suitors_dm
+    uniqueID: 2154143989
+    locked: 0
+  - name: suitors_black2
+    uniqueID: 2392567183
+    locked: 0
+  - name: stranger_bg
+    uniqueID: 3838080359
+    locked: 0
+  - name: stranger_stranger
+    uniqueID: 3502842575
+    locked: 0
+  - name: bg_dmsuitors
+    uniqueID: 2761816091
+    locked: 0
+  - name: mountain_dmsuitors
+    uniqueID: 2659058105
+    locked: 0
+  - name: grassbehind_dmsuitors
+    uniqueID: 3339741833
+    locked: 0
+  - name: firsthouse_dmsuitors
+    uniqueID: 3887842089
+    locked: 0
+  - name: secondhouse_dmsuitors
+    uniqueID: 3277936725
+    locked: 0
+  - name: thirdhouse_dmsuitors
+    uniqueID: 2684057311
+    locked: 0
+  - name: lasthouse_dmsuitors
+    uniqueID: 2516842893
+    locked: 0
+  - name: ground_dmsuitors
+    uniqueID: 2279091783
+    locked: 0
+  - name: middlehouse_dmsuitors
+    uniqueID: 3870591089
+    locked: 0
+  - name: throne_dmsuitors
+    uniqueID: 1015224895
+    locked: 0
+  - name: makusog_dmsuitors
+    uniqueID: 2983210213
+    locked: 0
+  - name: fangirl_dmsuitors
+    uniqueID: 1054824811
+    locked: 0
+  - name: dm_dmsuitors
+    uniqueID: 2117301077
+    locked: 0
+  - name: gifts_dmsuitors
+    uniqueID: 2662731397
+    locked: 0
+  - name: s1_dmsuitors
+    uniqueID: 1406859797
+    locked: 0
+  - name: s2_dmsuitors
+    uniqueID: 2511176355
+    locked: 0
+  - name: s3_dmsuitors
+    uniqueID: 1702475237
+    locked: 0
+  - name: s4_dmsuitors
+    uniqueID: 2125464277
+    locked: 0
+  - name: s5_dmsuitors
+    uniqueID: 915155543
+    locked: 0
+  - name: s6_dmsuitors
+    uniqueID: 2349675317
+    locked: 0
+  - name: s7_dmsuitors
+    uniqueID: 74772299
+    locked: 0
+  - name: gurad1_dmsuitors
+    uniqueID: 3835538809
+    locked: 0
+  - name: gurad2_dmsuitors
+    uniqueID: 3623076843
+    locked: 0
+  - name: RICO-PLAYER(6)
+    uniqueID: 4174662693
+    locked: 0
+  - name: ulap_dmsuitors
+    uniqueID: 3561486611
+    locked: 0
+  - name: leaves_dmsuitors
+    uniqueID: 2851546285
+    locked: 0
+  - name: portal6
+    uniqueID: 3523556665
+    locked: 0
+  - name: portal7
+    uniqueID: 3184912607
+    locked: 0
+  - name: AboveUI
+    uniqueID: 2125864673
+    locked: 0
+  - name: stamp
+    uniqueID: 507952853
     locked: 0
