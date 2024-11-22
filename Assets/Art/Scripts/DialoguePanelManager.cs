@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class DialoguePanelManager : MonoBehaviour
 {
@@ -13,161 +14,198 @@ public class DialoguePanelManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI riddleQuestionText;
 
-    // NPC button references
-    public GameObject neroButton, marinaButton, marisaButton, bagwisButton, dalisayButton;
-
-    // NPC references to keep buttons attached to them
-    public Transform nero, marina, marisa, bagwis, dalisay;
+    // NPC references
+    public GameObject nero, marina, marisa, bagwis, dalisay, ramon, domingo, reynaldo, rosita;
 
     // Character Icons for each NPC
-    public Image neroIcon, marinaIcon, marisaIcon, bagwisIcon, dalisayIcon;
-
-    // Current character icon that will be displayed
-    private Image currentCharacterIcon;
-
-    public GameObject arrowButton;
+    public Image neroIcon, marinaIcon, marisaIcon, bagwisIcon, dalisayIcon,  ramonIcon, domingoIcon, reynaldoIcon, rositaIcon;
 
     // Riddle options
     public GameObject buttonA, buttonB, buttonC;
+    public GameObject arrowButton;
 
     private string correctAnswer;
+    private string currentNPC;
+
+    // Riddle data structure
+    private Dictionary<string, (string question, string answerA, string answerB, string answerC, string correctAns)> npcRiddles;
+
+    // State variable to manage dialogue flow
+    private enum DialogueState { None, DialogueBeforeRiddle, RiddleActive, DialogueAfterRiddle }
+    private DialogueState currentState = DialogueState.None;
 
     private void Start()
     {
-        // Initially, hide all UI elements
-        dialoguePanel.SetActive(false);
-        riddleBox.SetActive(false);
-        dialogueBeforeRiddle.SetActive(false);
-        dialogueAfterRiddle.SetActive(false);
+        // Initialize UI
+        ResetUI();
+
+        // Initialize riddles
+        npcRiddles = new Dictionary<string, (string, string, string, string, string)>()
+        {
+            { "Nero", ("A warrior brave, a lover true, His heart for Magayon, ever new. Who is this hero, strong and bold?", "Panganoron", "Pagtuga", "Baltog", "A") },
+            { "Marina", ("A fiery mount, a tragic sight, A lover’s curse, a mournful plight. What is this place, where legends reside?", "Bulusan Volcano", "Taal Volcano", "Mayon Volcano", "C") },
+            { "Marisa", ("A symbol of love, a tragic end,A tale forever, a faithful friend.What is this love story, pure and deep?", "Maria Clara and Ibarra", "Romeo and Juliet", "Magayon and Panganoron", "C") },
+            { "Bagwis", ("A tragic fate, a lover’s cry, A mountain’s tears, beneath the sky. What is this sorrow, a heart’s deep sigh?", "The loss of a friend", "A forbidden love", "The death of a hero", "B") },
+            { "Dalisay", ("I am a place of beauty, serene and calm.A place where lovers meet, safe from harm", "The forest", "The spring", "The village", "B") },
+            { "Ramon", ("A maiden fair, a heart pure and bright,Her beauty unmatched, a dazzling sight.A tragic love, a tale untold, A volcano's birth, a legend bold.", "Daragang Magayon", "Maria Makiling", "Concepcion", "A") },
+            { "Domingo", ("A jealous heart, a wicked mind,A villain's plot, of cruelest kind. A tragic fate, a bitter end, A legend's tale, to comprehend. Who is this villain, dark and cold?", "Makusog", "Pagtuga", "Panganoron", "B") },
+            { "Reynaldo", ("A father's love, a daughter's pride,A chieftain's heart, a noble guide. A tragic loss, a mournful sigh, A legend's tale, soaring high. Who is Magayon's father, strong and wise?", "Makusog", "Lakas", "Luya", "A") },
+            { "Rosita", ("A golden arrow, a deadly sight,A lover's heart, extinguished light. A tragic loss, a mournful sigh,A legend born, beneath the sky. What caused the hero's fatal plight?", "A sword", "A spear", "An arrow", "C") }
+        };
 
         // Assign button click listeners
-        arrowButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(OnArrowClicked);
-        buttonA.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnAnswerSelected("A"));
-        buttonB.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnAnswerSelected("B"));
-        buttonC.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnAnswerSelected("C"));
-
-        // Assign NPC buttons
-        neroButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ShowDialoguePanel("Nero"));
-        marinaButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ShowDialoguePanel("Marina"));
-        marisaButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ShowDialoguePanel("Marisa"));
-        bagwisButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ShowDialoguePanel("Bagwis"));
-        dalisayButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ShowDialoguePanel("Dalisay"));
+        arrowButton.GetComponent<Button>().onClick.AddListener(OnArrowClicked);
+        buttonA.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("A"));
+        buttonB.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("B"));
+        buttonC.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("C"));
     }
 
     private void Update()
     {
-        // Keep buttons aligned with their respective NPCs
-        KeepButtonPosition(neroButton, nero);
-        KeepButtonPosition(marinaButton, marina);
-        KeepButtonPosition(marisaButton, marisa);
-        KeepButtonPosition(bagwisButton, bagwis);
-        KeepButtonPosition(dalisayButton, dalisay);
-    }
-
-    // Function to align button positions with NPCs
-    public void KeepButtonPosition(GameObject button, Transform npc)
-    {
-        if (npc != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            // Define the offset above the NPC's head in world space
-            Vector3 offset = new Vector3(2, 2f, 0); // Adjust the y-value as needed
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(npc.position + offset);
-            button.transform.position = screenPosition;
+            HandleTouch(Input.mousePosition);
+        }
+        else if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                HandleTouch(touch.position);
+            }
         }
     }
 
-    // Show Dialogue Panel based on the NPC selected
-    public void ShowDialoguePanel(string npcName)
+    private void HandleTouch(Vector3 screenPosition)
     {
-        // Activate the Dialogue Panel and set NPC-specific dialogue
+        if (currentState != DialogueState.None) return; // Block new touches during interactions
+
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(screenPosition);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            GameObject touchedObject = hit.collider.gameObject;
+
+            if (touchedObject == nero)
+                OpenDialoguePanel("Nero");
+            else if (touchedObject == marina)
+                OpenDialoguePanel("Marina");
+            else if (touchedObject == marisa)
+                OpenDialoguePanel("Marisa");
+            else if (touchedObject == bagwis)
+                OpenDialoguePanel("Bagwis");
+            else if (touchedObject == dalisay)
+                OpenDialoguePanel("Dalisay");
+            else if (touchedObject == ramon)
+                OpenDialoguePanel("Ramon");
+            else if (touchedObject == domingo)
+                OpenDialoguePanel("Domingo");
+            else if (touchedObject == reynaldo)
+                OpenDialoguePanel("Reynaldo");
+            else if (touchedObject == rosita)
+                OpenDialoguePanel("Rosita");
+        }
+    }
+
+    private void OpenDialoguePanel(string npcName)
+    {
+        if (currentState != DialogueState.None) return; // Prevent opening multiple panels
+
+        ResetUI();
+
         dialoguePanel.SetActive(true);
         dialogueBeforeRiddle.SetActive(true);
-        dialogueText.text = $"Are you ready to test your mind?";
-
-        // Display the corresponding Character Icon based on the NPC selected
+        dialogueText.text = $"Hello! I am {npcName}. Are you ready for a challenge?";
         DisplayCharacterIcon(npcName);
 
-        // Set up the riddle based on NPC (For demo purposes, we'll assume all NPCs share the same riddle)
-        SetRiddle("What is the capital of France?", "A", "B", "C", "A");
-    }
+        currentNPC = npcName;
 
-    // This function displays the appropriate character icon for the selected NPC
-    private void DisplayCharacterIcon(string npcName)
-    {
-        // Hide all icons first
-        neroIcon.gameObject.SetActive(false);
-        marinaIcon.gameObject.SetActive(false);
-        marisaIcon.gameObject.SetActive(false);
-        bagwisIcon.gameObject.SetActive(false);
-        dalisayIcon.gameObject.SetActive(false);
-
-        // Set the correct character icon based on the NPC
-        switch (npcName)
+        // Assign riddle based on the NPC
+        if (npcRiddles.TryGetValue(npcName, out var riddle))
         {
-            case "Nero":
-                neroIcon.gameObject.SetActive(true);
-                break;
-            case "Marina":
-                marinaIcon.gameObject.SetActive(true);
-                break;
-            case "Marisa":
-                marisaIcon.gameObject.SetActive(true);
-                break;
-            case "Bagwis":
-                bagwisIcon.gameObject.SetActive(true);
-                break;
-            case "Dalisay":
-                dalisayIcon.gameObject.SetActive(true);
-                break;
+            SetRiddle(riddle.question, riddle.answerA, riddle.answerB, riddle.answerC, riddle.correctAns);
         }
+
+        currentState = DialogueState.DialogueBeforeRiddle;
     }
 
-    // Trigger when the arrow button is clicked
     public void OnArrowClicked()
     {
-        // Hide the dialogue before the riddle and show the riddle box
+        if (currentState != DialogueState.DialogueBeforeRiddle) return;
+
         dialogueBeforeRiddle.SetActive(false);
         riddleBox.SetActive(true);
+        currentState = DialogueState.RiddleActive;
     }
 
-    // Set up the riddle for the player
-    public void SetRiddle(string question, string answerA, string answerB, string answerC, string correctAns)
+    private void SetRiddle(string question, string answerA, string answerB, string answerC, string correctAns)
     {
         riddleQuestionText.text = question;
         buttonA.GetComponentInChildren<TextMeshProUGUI>().text = answerA;
         buttonB.GetComponentInChildren<TextMeshProUGUI>().text = answerB;
         buttonC.GetComponentInChildren<TextMeshProUGUI>().text = answerC;
-
         correctAnswer = correctAns;
     }
 
-    // Handle when the player selects an answer
     public void OnAnswerSelected(string selectedAnswer)
     {
-        // Hide the riddle box
-        riddleBox.SetActive(false);
+        if (currentState != DialogueState.RiddleActive) return;
 
-        // Show the after-riddle dialogue based on the player's answer
+        riddleBox.SetActive(false);
         dialogueAfterRiddle.SetActive(true);
 
-        // Check if the selected answer is correct
         if (selectedAnswer == correctAnswer)
         {
-            dialogueText.text = "You got it right!";
+            dialogueText.text = "Correct! Well done.";
         }
         else
         {
-            dialogueText.text = "Keep it up, soon you'll know the answer!";
+            dialogueText.text = "Incorrect. Better luck next time.";
         }
 
-        // Wait for a moment before hiding the after-riddle dialogue
-        Invoke("HideDialogueAfterRiddle", 2f); // Hide after 2 seconds
+        currentState = DialogueState.DialogueAfterRiddle;
+
+        Invoke("HideDialogueAfterRiddle", 2f);
     }
 
-    // Hide the after-riddle dialogue and reset for the next interaction
     private void HideDialogueAfterRiddle()
     {
+        ResetUI();
+        currentState = DialogueState.None; // Reset state
+    }
+
+    private void ResetUI()
+    {
+        dialoguePanel.SetActive(false);
+        riddleBox.SetActive(false);
+        dialogueBeforeRiddle.SetActive(false);
         dialogueAfterRiddle.SetActive(false);
-        dialoguePanel.SetActive(false); // Hide the whole panel after interaction
+    }
+
+    private void DisplayCharacterIcon(string npcName)
+    {
+        neroIcon.gameObject.SetActive(false);
+        marinaIcon.gameObject.SetActive(false);
+        marisaIcon.gameObject.SetActive(false);
+        bagwisIcon.gameObject.SetActive(false);
+        dalisayIcon.gameObject.SetActive(false);
+        ramonIcon.gameObject.SetActive(false);
+        domingoIcon.gameObject.SetActive(false);
+        reynaldoIcon.gameObject.SetActive(false);
+        rositaIcon.gameObject.SetActive(false);
+
+        switch (npcName)
+        {
+            case "Nero": neroIcon.gameObject.SetActive(true); break;
+            case "Marina": marinaIcon.gameObject.SetActive(true); break;
+            case "Marisa": marisaIcon.gameObject.SetActive(true); break;
+            case "Bagwis": bagwisIcon.gameObject.SetActive(true); break;
+            case "Dalisay": dalisayIcon.gameObject.SetActive(true); break;
+            case "Ramon": ramonIcon.gameObject.SetActive(true); break;
+            case "Domingo": domingoIcon.gameObject.SetActive(true); break;
+            case "Reynaldo": reynaldoIcon.gameObject.SetActive(true); break;
+            case "Rosita": rositaIcon.gameObject.SetActive(true); break;
+        }
     }
 }
