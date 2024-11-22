@@ -29,6 +29,11 @@ public class GameplayMenuManager : MonoBehaviour
         "ForestScene", "RiverScene", "VillageScene", "LiwaywayScene", "CassavaFieldsScene", "DMhouse", "InsideDMHouse"
     };
     
+    private List<string> chapter2Scenes = new List<string>
+    {
+        "DMsuitors", "IlogScene"
+    };
+
     private CinemachineVirtualCamera cinemachineCamera;
 
     private void Start()
@@ -142,16 +147,25 @@ public class GameplayMenuManager : MonoBehaviour
 
     private void SaveProgress()
     {
-        // Calculate progress based on the scene index
-        int sceneIndex = chapter1Scenes.IndexOf(currentScene);
-        if (sceneIndex != -1)
+        // Get the current scene
+        currentScene = SceneManager.GetActiveScene().name;
+
+        // Determine progress for Chapter 1 or Chapter 2
+        if (chapter1Scenes.Contains(currentScene))
         {
+            int sceneIndex = chapter1Scenes.IndexOf(currentScene);
             progress = ((float)(sceneIndex + 1) / chapter1Scenes.Count) * 100f;
+            PlayerPrefs.SetFloat("Chapter1Progress", progress);
+            PlayerPrefs.SetString("LastSavedSceneCh1", currentScene);
+        }
+        else if (chapter2Scenes.Contains(currentScene))
+        {
+            int sceneIndex = chapter2Scenes.IndexOf(currentScene);
+            progress = ((float)(sceneIndex + 1) / chapter2Scenes.Count) * 100f;
+            PlayerPrefs.SetFloat("Chapter2Progress", progress);
+            PlayerPrefs.SetString("LastSavedSceneCh2", currentScene);
         }
 
-        // Save progress and current scene to PlayerPrefs
-        PlayerPrefs.SetFloat("Chapter1Progress", progress);
-        PlayerPrefs.SetString("LastSavedScene", currentScene);
         PlayerPrefs.Save();
     }
 

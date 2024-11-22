@@ -28,6 +28,7 @@ TagManager:
   - SnapPosition
   - Background
   - OutsideUI
+  - GameObject
   layers:
   - Default
   - TransparentFX
@@ -118,6 +119,9 @@ TagManager:
     locked: 0
   - name: P0RTAL
     uniqueID: 2398406197
+    locked: 0
+  - name: credits
+    uniqueID: 987962509
     locked: 0
   - name: RICO-PLAYER
     uniqueID: 1628624293
@@ -373,9 +377,6 @@ TagManager:
     locked: 0
   - name: grassbridge
     uniqueID: 569244999
-    locked: 0
-  - name: RICOPLAYER(9)
-    uniqueID: 1347270809
     locked: 0
   - name: receivebox
     uniqueID: 1895738209
@@ -704,9 +705,6 @@ TagManager:
   - name: lasthouse_dmsuitors
     uniqueID: 2516842893
     locked: 0
-  - name: ground_dmsuitors
-    uniqueID: 2279091783
-    locked: 0
   - name: middlehouse_dmsuitors
     uniqueID: 3870591089
     locked: 0
@@ -746,11 +744,29 @@ TagManager:
   - name: s7_dmsuitors
     uniqueID: 74772299
     locked: 0
+  - name: nero_dmsuitors
+    uniqueID: 2813227323
+    locked: 0
   - name: gurad1_dmsuitors
     uniqueID: 3835538809
     locked: 0
   - name: gurad2_dmsuitors
     uniqueID: 3623076843
+    locked: 0
+  - name: ground_dmsuitors
+    uniqueID: 2279091783
+    locked: 0
+  - name: maria_dmsuitors
+    uniqueID: 2096746025
+    locked: 0
+  - name: marina_dmsuitors
+    uniqueID: 347864425
+    locked: 0
+  - name: bagwis_dmsuitors
+    uniqueID: 3575566007
+    locked: 0
+  - name: dalisay_dmsuitors
+    uniqueID: 419727263
     locked: 0
   - name: RICO-PLAYER(6)
     uniqueID: 4174662693
@@ -761,9 +777,6 @@ TagManager:
   - name: leaves_dmsuitors
     uniqueID: 2851546285
     locked: 0
-  - name: portal6
-    uniqueID: 3523556665
-    locked: 0
   - name: portal7
     uniqueID: 3184912607
     locked: 0
@@ -772,4 +785,241 @@ TagManager:
     locked: 0
   - name: stamp
     uniqueID: 507952853
+    locked: 0
+  - name: bg_iloscene
+    uniqueID: 3742511967
+    locked: 0
+  - name: bluemount_ilogscene
+    uniqueID: 3980539695
+    locked: 0
+  - name: grassinlast_ilogscene
+    uniqueID: 1212956465
+    locked: 0
+  - name: pinetree1_ilogscene
+    uniqueID: 3692405121
+    locked: 0
+  - name: ulap_ilogscene
+    uniqueID: 1004168433
+    locked: 0
+  - name: pinetree2_ilogscene
+    uniqueID: 3186578787
+    locked: 0
+  - name: grassside1_ilogscene
+    uniqueID: 207435651
+    locked: 0
+  - name: grassside2_ilogscene
+    uniqueID: 2888050555
+    locked: 0
+  - name: detailedwater_ilogscene
+    uniqueID: 2045319915
+    locked: 0
+  - name: shadow_ilogscene
+    uniqueID: 1402224601
+    locked: 0
+  - name: rock_ilogscene
+    uniqueID: 776616607
+    locked: 0
+  - name: dm_ilogscene
+    uniqueID: 2090382227
+    locked: 0
+  - name: grassbridge_ilogscene
+    uniqueID: 3606145311
+    locked: 0
+  - name: angmgasuitors
+    uniqueID: 2689108157
+    locked: 0
+  - name: RICO-PLAYER(7)
+    uniqueID: 1347270809
+    locked: 0
+  - name: portal6
+    uniqueID: 3523556665
+    locked: 0
+  - name: bg1_visit
+    uniqueID: 3635254839
+    locked: 0
+  - name: pagtuga_visit
+    uniqueID: 3242576479
+    locked: 0
+  - name: kawal1_visit
+    uniqueID: 499347525
+    locked: 0
+  - name: pagtuga1box1_visit
+    uniqueID: 1527113543
+    locked: 0
+  - name: kawal2_visit
+    uniqueID: 1526659569
+    locked: 0
+  - name: kawal2box1_visit
+    uniqueID: 421056559
+    locked: 0
+  - name: bg2_visit
+    uniqueID: 3833719613
+    locked: 0
+  - name: makusog_visit
+    uniqueID: 1851867555
+    locked: 0
+  - name: magayon_visit
+    uniqueID: 3598598597
+    locked: 0
+  - name: kawal03
+    uniqueID: 1962962725
+    locked: 0
+  - name: makusog1box1_vsit
+    uniqueID: 3425382357
+    locked: 0
+  - name: bg1p2_visit
+    uniqueID: 1646638019
+    locked: 0
+  - name: pagtugap2_visit
+    uniqueID: 579527919
+    locked: 0
+  - name: kawal1p2_visit
+    uniqueID: 2508264459
+    locked: 0
+  - name: pagtuga2box2_visit
+    uniqueID: 1327007825
+    locked: 0
+  - name: kawal2p2_visit
+    uniqueID: 3413424629
+    locked: 0
+  - name: bg2p2_visit
+    uniqueID: 1128372197
+    locked: 0
+  - name: makusog2p2_visit
+    uniqueID: 4244336241
+    locked: 0
+  - name: magayonp2
+    uniqueID: 3987744175
+    locked: 0
+  - name: kawal3p2
+    uniqueID: 295257097
+    locked: 0
+  - name: makusog2box2_visit
+    uniqueID: 4276405463
+    locked: 0
+  - name: bg1p3
+    uniqueID: 2924459179
+    locked: 0
+  - name: pagtugap3
+    uniqueID: 109526825
+    locked: 0
+  - name: kawal1p3
+    uniqueID: 2138820293
+    locked: 0
+  - name: pagtuga3bbox1
+    uniqueID: 4049709615
+    locked: 0
+  - name: kawal2p3
+    uniqueID: 2767577603
+    locked: 0
+  - name: bg2p3
+    uniqueID: 3590714627
+    locked: 0
+  - name: makusogp3
+    uniqueID: 1612611753
+    locked: 0
+  - name: magayonp3
+    uniqueID: 2418379879
+    locked: 0
+  - name: kawal3p3
+    uniqueID: 3017827327
+    locked: 0
+  - name: makusog3box1
+    uniqueID: 3852629187
+    locked: 0
+  - name: bg1p4
+    uniqueID: 691114111
+    locked: 0
+  - name: pagtugap4
+    uniqueID: 2203944379
+    locked: 0
+  - name: kawal1p4
+    uniqueID: 2994253067
+    locked: 0
+  - name: pagtugaboxp4
+    uniqueID: 3721462771
+    locked: 0
+  - name: kawal2p4
+    uniqueID: 386684367
+    locked: 0
+  - name: bg2p4
+    uniqueID: 2274541159
+    locked: 0
+  - name: makusogp4
+    uniqueID: 2467916755
+    locked: 0
+  - name: magayon4
+    uniqueID: 3127146631
+    locked: 0
+  - name: magayonbox1p4
+    uniqueID: 3250429329
+    locked: 0
+  - name: kawal3p4
+    uniqueID: 3191976455
+    locked: 0
+  - name: makusogbox1p4
+    uniqueID: 719881083
+    locked: 0
+  - name: bg1p5
+    uniqueID: 2157400119
+    locked: 0
+  - name: pagtugap5
+    uniqueID: 3572572727
+    locked: 0
+  - name: kawal1p5
+    uniqueID: 3410165119
+    locked: 0
+  - name: kawal2p5
+    uniqueID: 510962837
+    locked: 0
+  - name: bg2p5
+    uniqueID: 1140393451
+    locked: 0
+  - name: makusogp5
+    uniqueID: 1495180155
+    locked: 0
+  - name: magayonp5
+    uniqueID: 606774639
+    locked: 0
+  - name: kawal3p5
+    uniqueID: 178581483
+    locked: 0
+  - name: makusogboxp5
+    uniqueID: 687698005
+    locked: 0
+  - name: feetanimation
+    uniqueID: 3131340485
+    locked: 0
+  - name: dminilog
+    uniqueID: 3428758295
+    locked: 0
+  - name: blackch2
+    uniqueID: 4137760521
+    locked: 0
+  - name: pgfeetanim
+    uniqueID: 1409637969
+    locked: 0
+  - name: pgsneak
+    uniqueID: 1811799045
+    locked: 0
+  - name: dmfeet
+    uniqueID: 891433603
+    locked: 0
+  - name: dmbathing
+    uniqueID: 2524041247
+    locked: 0
+  - name: fallingdm
+    uniqueID: 2921700415
+    locked: 0
+  - name: cathingdm
+    uniqueID: 310443387
+    locked: 0
+  - name: ulapanddm
+    uniqueID: 36415745
+    locked: 0
+  - name: black
+    uniqueID: 1234775889
+    locked: 0
+  - name: blacknanaman
+    uniqueID: 922451863
     locked: 0

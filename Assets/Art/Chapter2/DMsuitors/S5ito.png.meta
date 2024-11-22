@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e80dce513713af4091af8f2a6e14d99
+guid: 5646cba1a6533dc4996538b69cff9817
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fangirl_0
+      name: S5ito_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfa501775710b3947b3332481a2fb728
-      internalID: -131100976
+      spriteID: f737f52afbf9e794e8ea5cc46f90cb89
+      internalID: -1345465380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fangirl_1
+      name: S5ito_1
       rect:
         serializedVersion: 2
-        x: 2240
+        x: 167
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7ab6863a80a2b04cbcf5693f7c3cf5e
-      internalID: 1975632191
+      spriteID: 3055aee2eeae8f34b8811afc140d0e81
+      internalID: 259056359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fangirl_2
+      name: S5ito_2
       rect:
         serializedVersion: 2
-        x: 4480
+        x: 334
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f41223fbb33e904f918a730c65e28c8
-      internalID: 1361783700
+      spriteID: b401e18aa94b57e40bc2ec62894fceda
+      internalID: 170348149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fangirl_3
+      name: S5ito_3
       rect:
         serializedVersion: 2
-        x: 6720
+        x: 501
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd13dd7868d63b74e99b8204c06c9a5f
-      internalID: 187505939
+      spriteID: 79e8308f6598407479be9b34f09f9336
+      internalID: 1462495481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fangirl_4
+      name: S5ito_4
       rect:
         serializedVersion: 2
-        x: 8960
+        x: 668
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c75dcb80beec46e41b8bd68f5b5a3243
-      internalID: 1857478263
+      spriteID: 7c27c44499a3e854e8a1238355d7eb33
+      internalID: 1085936593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fangirl_5
+      name: S5ito_5
       rect:
         serializedVersion: 2
-        x: 11200
+        x: 835
         y: 0
-        width: 2240
-        height: 1080
+        width: 167
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb11cbec170fd1147b81ef34ccb90dcc
-      internalID: 705919712
+      spriteID: 241283d2d70006b4a8727c6355651a37
+      internalID: -1786433560
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fangirl_0: -131100976
-      fangirl_1: 1975632191
-      fangirl_2: 1361783700
-      fangirl_3: 187505939
-      fangirl_4: 1857478263
-      fangirl_5: 705919712
+      S5ito_0: -1345465380
+      S5ito_1: 259056359
+      S5ito_2: 170348149
+      S5ito_3: 1462495481
+      S5ito_4: 1085936593
+      S5ito_5: -1786433560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

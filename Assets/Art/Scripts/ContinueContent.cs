@@ -6,13 +6,13 @@ public class ContinueContent : MonoBehaviour
 {
      public GameObject continueContent;
 
-public void ShowContent()
-{
-    continueContent.SetActive(true);
-}
+    public void ShowContent()
+    {
+        continueContent.SetActive(true);
+    }
 
-public void HideContent()
-{
-    continueContent.SetActive(false);
-}
+    public void HideContent()
+    {
+        continueContent.SetActive(false);
+    }
 }

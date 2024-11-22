@@ -480,7 +480,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297993131
-  m_SortingLayer: 21
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6aaa9eac0f6f03e47a25e41eae593fb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -911,14 +911,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5689745181142944413, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: sceneSortingLayers.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5689745181142944413, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: sceneSortingLayers.Array.data[7].sceneName
-      value: DMsuitors
-      objectReference: {fileID: 0}
-    - target: {fileID: 5689745181142944413, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
-      propertyPath: sceneSortingLayers.Array.data[8].sceneName
       value: DMsuitors
       objectReference: {fileID: 0}
     - target: {fileID: 5689745181142944413, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
@@ -941,13 +937,9 @@ PrefabInstance:
       propertyPath: sceneSortingLayers.Array.data[7].sortingLayerName
       value: RICOP-LAYER(6)
       objectReference: {fileID: 0}
-    - target: {fileID: 5689745181142944413, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
-      propertyPath: sceneSortingLayers.Array.data[8].sortingLayerName
-      value: RICOP-LAYER(6)
-      objectReference: {fileID: 0}
     - target: {fileID: 8649979541724048061, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: m_SortingLayer
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8649979541724048061, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: m_SortingLayerID
@@ -1952,7 +1944,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297993131
-  m_SortingLayer: 21
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6aaa9eac0f6f03e47a25e41eae593fb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2036,7 +2028,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297993131
-  m_SortingLayer: 21
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6aaa9eac0f6f03e47a25e41eae593fb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4281,7 +4273,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 511692229
-  m_SortingLayer: 20
+  m_SortingLayer: 21
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6aaa9eac0f6f03e47a25e41eae593fb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4566,7 +4558,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297993131
-  m_SortingLayer: 21
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09295e73d57cc044b8ab11549016e6cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6969,12 +6961,15 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
+        name: 
         icon: {fileID: 21300000, guid: 32474be919b04d246a4656f56ea5b522, type: 3}
       line: So, this is the world of Daragang Magayon that lola told us!
     - character:
+        name: 
         icon: {fileID: 21300000, guid: 32474be919b04d246a4656f56ea5b522, type: 3}
       line: "\rThis can't be real. The colors, the light"
     - character:
+        name: 
         icon: {fileID: 21300000, guid: 32474be919b04d246a4656f56ea5b522, type: 3}
       line: everything is so....incredible!- but how did I get Here?
 --- !u!1 &1936426705
@@ -7489,7 +7484,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297993131
-  m_SortingLayer: 21
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09295e73d57cc044b8ab11549016e6cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8075,7 +8070,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 511692229
-  m_SortingLayer: 20
+  m_SortingLayer: 21
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09295e73d57cc044b8ab11549016e6cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5187694745750272802}
   - component: {fileID: 8649979541724048061}
-  - component: {fileID: 2653681087894387317}
   - component: {fileID: 9094472372024093055}
   - component: {fileID: 4434061882769352836}
   - component: {fileID: 7213330813660166533}
@@ -78,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -760870541
-  m_SortingLayer: 71
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2055833505, guid: 6f4c2b265e4b3db4c94507f14a47bbbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -92,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2653681087894387317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953182457165762588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b22731e968324044a6ebefdda1029b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  padding: 0.1
 --- !u!61 &9094472372024093055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265,7 +250,10 @@ MonoBehaviour:
     sortingLayerName: RICOPLAYER(5)
     sortingOrder: 0
   - sceneName: DMsuitors
-    sortingLayerName: RICOP-LAYER(6)
+    sortingLayerName: RICOP-PLAYER(6)
+    sortingOrder: 0
+  - sceneName: IlogScene
+    sortingLayerName: RICOP-LAYER(7)
     sortingOrder: 0
 --- !u!1 &4114011736974096873
 GameObject:

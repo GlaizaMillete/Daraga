@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a836490f18e68c54ead3eebca727b01b
+guid: 647d0a989ad52f4478f07a4e4f8e4251
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: makusog_0
+      name: dm 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 003f92fc00f9c434f85fa0445aaea6ac
-      internalID: 1109785702
+      spriteID: b5fadc64cb5c7f140997c66288d80245
+      internalID: 1712605027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: makusog_1
+      name: dm 1_1
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 263
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcd74f6ef22a95f48b52509a550ee3e9
-      internalID: 2129348525
+      spriteID: cbd0daab75bef46418b194df948d0783
+      internalID: -855955505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: makusog_2
+      name: dm 1_2
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 526
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c13c2fd48528eb040bc702f3552c6cc1
-      internalID: -1028716207
+      spriteID: 0f26e82f18400f84baf0c9b3fc1add85
+      internalID: -815158511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: makusog_3
+      name: dm 1_3
       rect:
         serializedVersion: 2
-        x: 5760
+        x: 789
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64e585165c337b243a80a8304abb290f
-      internalID: 1384044888
+      spriteID: 56ff8612e9cdec1498ac3f55a140ddc4
+      internalID: 1782351848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: makusog_4
+      name: dm 1_4
       rect:
         serializedVersion: 2
-        x: 7680
+        x: 1052
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77935ea5ff87a794d9c023db49018e9e
-      internalID: -452713679
+      spriteID: edbe8d03791d7d24aaa4ba2239d4ef6f
+      internalID: 452161112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: makusog_5
+      name: dm 1_5
       rect:
         serializedVersion: 2
-        x: 9600
+        x: 1315
         y: 0
-        width: 1920
-        height: 1080
+        width: 263
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a196308e624808b4caf365c94a9856e5
-      internalID: 1367253772
+      spriteID: 6b3fb01c51119764d857882fd01a46eb
+      internalID: -386318665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dm 1_6
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 0
+        width: 263
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce12bbc44a2b6154894659dee1570efa
+      internalID: -836908418
       vertices: []
       indices: 
       edges: []
@@ -246,12 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      makusog_0: 1109785702
-      makusog_1: 2129348525
-      makusog_2: -1028716207
-      makusog_3: 1384044888
-      makusog_4: -452713679
-      makusog_5: 1367253772
+      dm 1_0: 1712605027
+      dm 1_1: -855955505
+      dm 1_2: -815158511
+      dm 1_3: 1782351848
+      dm 1_4: 452161112
+      dm 1_5: -386318665
+      dm 1_6: -836908418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

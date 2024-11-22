@@ -8,19 +8,14 @@ public class ArrowMiddleHouseButton : MonoBehaviour
     [SerializeField] private string cutsceneSceneName = "ManliligawniDM"; // Name of the cutscene scene to play
     [SerializeField] private GameObject player; // Reference to the player GameObject
     [SerializeField] private GameObject middlehouse; // Reference to the middlehouse GameObject
-    [SerializeField] private GameObject arrowMakusog; // Reference to the arrowmakusog button
-    [SerializeField] private GameObject arrowDM; // Reference to the arrowdm button
-    [SerializeField] private float offsetY = 50f; // Vertical offset for placing the button at the top of middlehouse
+        [SerializeField] private float offsetY = 50f; // Vertical offset for placing the button at the top of middlehouse
     
     private Vector3 playerInitialPosition; // Store player's position
     private RectTransform buttonRectTransform; // Reference to the button's RectTransform
 
     private void Start()
     {
-        // Ensure references are set and objects exist
-        if (arrowMakusog != null) arrowMakusog.SetActive(false);
-        if (arrowDM != null) arrowDM.SetActive(false);
-
+       
         // Get the RectTransform of this button
         buttonRectTransform = GetComponent<RectTransform>();
 
@@ -29,8 +24,6 @@ public class ArrowMiddleHouseButton : MonoBehaviour
         
         // Ensure player and buttons persist across scenes
         if (player != null) DontDestroyOnLoad(player);
-        if (arrowMakusog != null) DontDestroyOnLoad(arrowMakusog);
-        if (arrowDM != null) DontDestroyOnLoad(arrowDM);
         
         // Subscribe to scene load event to handle button activation
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -66,7 +59,7 @@ public class ArrowMiddleHouseButton : MonoBehaviour
         SceneController.instance.LoadSpecificScene(cutsceneSceneName, Vector3.zero, Vector3.zero);
 
         // Wait for the duration of the cutscene
-        yield return new WaitForSeconds(5f); // Adjust time based on cutscene duration
+        yield return new WaitForSeconds(4f); // Adjust time based on cutscene duration
 
         // Return to the insideDMhouse scene
         SceneManager.LoadScene("insideDMhouse");
@@ -82,8 +75,7 @@ public class ArrowMiddleHouseButton : MonoBehaviour
             {
                 player.transform.position = playerInitialPosition;
             }
-            if (arrowMakusog != null) arrowMakusog.SetActive(true);
-            if (arrowDM != null) arrowDM.SetActive(true);
+            
         }
     }
 
