@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class AchievementManager1 : MonoBehaviour
 {
@@ -9,46 +7,92 @@ public class AchievementManager1 : MonoBehaviour
     public class AchievementUI
     {
         public string questName; // Name of the quest
-        public GameObject stamp; // Stamp GameObject (UI element)
+        public GameObject stampPrefab; // Reference to the stamp prefab
+        [HideInInspector] public GameObject stampInstance; // Instance of the stamp in the scene
     }
 
-    public List<Achievements> achievements; // List of achievements (Scriptable Objects)
-    public List<AchievementUI> achievementUIs; // UI mapping for quests and their stamps
+    [Header("Achievements")]
+    public List<Achievements> achievements; // List of all achievements
+    public List<AchievementUI> achievementUIs; // UI references for achievements
 
-    // Initialize the achievement system
+    public Transform achievementTabParent; // Parent object for achievement tab stamps
+
     private void Start()
+    {
+        InitializeUI(); // Ensure all stamps are created and hidden initially
+        LoadAchievements();
+    }
+
+    private void InitializeUI()
     {
         foreach (var ui in achievementUIs)
         {
-            // Hide all stamps initially
-            if (ui.stamp != null)
+            if (ui.stampPrefab != null && achievementTabParent != null)
             {
-                ui.stamp.SetActive(false);
+                if (ui.stampInstance == null) // Only instantiate if not already instantiated
+                {
+                    ui.stampInstance = Instantiate(ui.stampPrefab, achievementTabParent);
+                    ui.stampInstance.SetActive(false); // Hide initially
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Missing prefab or parent for {ui.questName}");
             }
         }
     }
 
-    // Mark a quest as completed and update the UI
     public void CompleteQuest(string questName)
     {
-        // Find the achievement in the list
-        Achievements achievement = achievements.Find(a => a.questName == questName);
-
+        // Find the achievement by name
+        var achievement = achievements.Find(a => a.questName == questName);
         if (achievement != null && !achievement.isCompleted)
         {
-            achievement.isCompleted = true; // Mark as completed
+            achievement.isCompleted = true;
 
-            // Find the UI component associated with this quest
-            AchievementUI ui = achievementUIs.Find(a => a.questName == questName);
-            if (ui != null && ui.stamp != null)
+            // Find and activate the corresponding stamp
+            var ui = achievementUIs.Find(a => a.questName == questName);
+            if (ui != null && ui.stampInstance != null)
             {
-                ui.stamp.SetActive(true); // Show the stamp
-                Debug.Log($"Quest '{questName}' completed! Stamp revealed.");
+                ui.stampInstance.SetActive(true); // Show the stamp
+                Debug.Log($"Stamp activated for quest: {questName}");
             }
+            else
+            {
+                Debug.LogWarning($"Stamp instance not found for quest: {questName}");
+            }
+
+            SaveAchievements(); // Save progress
         }
         else
         {
             Debug.LogWarning($"Quest '{questName}' not found or already completed.");
+        }
+    }
+
+    public void SaveAchievements()
+    {
+        foreach (var achievement in achievements)
+        {
+            string key = $"Achievement_{achievement.questName}_Completed";
+            PlayerPrefs.SetInt(key, achievement.isCompleted ? 1 : 0);
+        }
+        PlayerPrefs.Save();
+    }
+
+    public void LoadAchievements()
+    {
+        foreach (var achievement in achievements)
+        {
+            string key = $"Achievement_{achievement.questName}_Completed";
+            achievement.isCompleted = PlayerPrefs.GetInt(key, 0) == 1;
+
+            var ui = achievementUIs.Find(a => a.questName == achievement.questName);
+            if (ui != null && ui.stampInstance != null)
+            {
+                ui.stampInstance.SetActive(achievement.isCompleted); // Reflect the saved state
+                Debug.Log($"Stamp for {achievement.questName} set to {achievement.isCompleted}");
+            }
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +7,14 @@ using Cinemachine;
 public class GameplayMenuManager : MonoBehaviour
 {
     public Button menuicon;
-    public GameObject menuPanel; 
-    public GameObject audioTab; 
+    public GameObject menuPanel;
+    public GameObject audioTab;
     public Button audiobtn;
     public Button achievementbtn;
     public Button languagebtn;
     public GameObject achievementTab;
     public GameObject languageTab;
-    public GameObject modalnotif; 
+    public GameObject modalnotif;
     public Button saveandquitbtn;
     public Button yellowbtn;
     public Button redbtn;
@@ -28,13 +27,15 @@ public class GameplayMenuManager : MonoBehaviour
     { 
         "ForestScene", "RiverScene", "VillageScene", "LiwaywayScene", "CassavaFieldsScene", "DMhouse", "InsideDMHouse"
     };
-    
+
     private List<string> chapter2Scenes = new List<string>
     {
         "DMsuitors", "IlogScene"
     };
 
     private CinemachineVirtualCamera cinemachineCamera;
+
+    public AchievementManager1 achievementManager; // Reference to the AchievementManager
 
     private void Start()
     {
@@ -92,7 +93,6 @@ public class GameplayMenuManager : MonoBehaviour
         languagebtn.gameObject.SetActive(true);
     }
 
-    // Show only the audio tab content
     private void ShowOnlyAudioTab()
     {
         audioTab.SetActive(true);
@@ -100,15 +100,22 @@ public class GameplayMenuManager : MonoBehaviour
         languageTab.SetActive(false);
     }
 
-    // Show only the achievement tab content
     private void ShowOnlyAchievementTab()
-    {
-        audioTab.SetActive(false);
-        achievementTab.SetActive(true);
-        languageTab.SetActive(false);
-    }
+{
+    audioTab.SetActive(false);
+    achievementTab.SetActive(true);
+    languageTab.SetActive(false);
 
-    // Show only the language tab content
+    if (achievementManager != null)
+    {
+        achievementManager.LoadAchievements();
+    }
+    else
+    {
+        Debug.LogError("AchievementManager not assigned in GameplayMenuManager!");
+    }
+}
+
     private void ShowOnlyLanguageTab()
     {
         audioTab.SetActive(false);
@@ -116,19 +123,16 @@ public class GameplayMenuManager : MonoBehaviour
         languageTab.SetActive(true);
     }
 
-    // Open the modal confirmation
     private void OpenModal()
     {
         modalnotif.SetActive(true);
     }
 
-    // Close the modal confirmation
     private void CloseModal()
     {
         modalnotif.SetActive(false);
     }
 
-    // Close the menu
     private void CloseMenu()
     {
         menuPanel.SetActive(false);
@@ -138,8 +142,19 @@ public class GameplayMenuManager : MonoBehaviour
     {
         // Get the current scene and calculate the progress
         currentScene = SceneManager.GetActiveScene().name;
+
         SaveProgress();
+
+        // Update achievements based on progress
+        UpdateAchievements();
+
         modalnotif.SetActive(false);
+
+        // Save achievements before quitting
+        if (achievementManager != null)
+        {
+            achievementManager.SaveAchievements();
+        }
 
         // Go back to the home screen after saving
         SceneManager.LoadScene("Homescreen");
@@ -147,7 +162,6 @@ public class GameplayMenuManager : MonoBehaviour
 
     private void SaveProgress()
     {
-        // Get the current scene
         currentScene = SceneManager.GetActiveScene().name;
 
         // Determine progress for Chapter 1 or Chapter 2
@@ -169,6 +183,22 @@ public class GameplayMenuManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    private void UpdateAchievements()
+{
+    // Find the GameObject in the scene and call CompleteQuest with its name or ID
+    GameObject questGameObject = GameObject.Find("CassavaQuest"); // Example: Find the GameObject by name
+
+    if (questGameObject != null)
+    {
+        // Pass the name of the GameObject (or another identifying string) to CompleteQuest
+        achievementManager.CompleteQuest(questGameObject.name); 
+    }
+    else
+    {
+        Debug.LogWarning("Quest GameObject not found in the scene.");
+    }
+}
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Ensure camera follows player after loading a saved scene
@@ -185,6 +215,9 @@ public class GameplayMenuManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
+
+
+
 /*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
