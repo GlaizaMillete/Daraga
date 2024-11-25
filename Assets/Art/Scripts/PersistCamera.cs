@@ -4,22 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class PersistentCamera : MonoBehaviour
 {
-    public CinemachineVirtualCamera cinemachineCamera;  // Reference to the Cinemachine Virtual Camera
+    private CinemachineVirtualCamera cinemachineCamera;  // Reference to the Cinemachine Virtual Camera
     private GameObject player;  // Reference to the player object
 
     private void Awake()
     {
-        // Remove DontDestroyOnLoad to avoid camera persistence issues across scenes
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to scene load event
     }
 
     private void Start()
     {
-        // Set up the initial camera and player references
-        SetupCameraForCurrentScene();
+        SetupCameraForCurrentScene();  // Set up the camera when the scene starts
     }
 
-    // This method is called each time a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetupCameraForCurrentScene();
@@ -27,23 +24,22 @@ public class PersistentCamera : MonoBehaviour
 
     private void SetupCameraForCurrentScene()
     {
-        // Try to find the player in the current scene
+        // Locate the player in the current scene
         player = GameObject.FindWithTag("Player");
 
-        // Try to find the Cinemachine camera in the scene
+        // Find the Cinemachine camera
         cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
 
-        if (cinemachineCamera == null)
+        if (player != null && cinemachineCamera != null)
         {
-            Debug.LogWarning("No Cinemachine camera found in the scene.");
+            FollowPlayer();  // Attach the camera to the player
         }
-        else if (player != null)
+        else
         {
-            FollowPlayer();  // Set the camera to follow the player
+            Debug.LogWarning("Player or Cinemachine camera not found in the scene.");
         }
     }
 
-    // Set the Cinemachine camera to follow and look at the player
     private void FollowPlayer()
     {
         if (cinemachineCamera != null && player != null)
@@ -51,15 +47,10 @@ public class PersistentCamera : MonoBehaviour
             cinemachineCamera.Follow = player.transform;
             cinemachineCamera.LookAt = player.transform;
         }
-        else
-        {
-            Debug.LogWarning("Cinemachine camera or player is not set.");
-        }
     }
 
     private void OnDisable()
     {
-        // Remove the scene loaded listener when the script is disabled
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;  // Unsubscribe from the event
     }
 }

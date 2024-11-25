@@ -8,10 +8,11 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
+        // Ensure only one instance exists and it persists across scenes
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -19,9 +20,11 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void LoadSpecificScene(string sceneName, Vector3 playerPosition, Vector3 cameraPosition)
+    public void LoadSpecificScene(string sceneName, Vector3 spawnPosition, Vector3 cameraPosition)
     {
-        StartCoroutine(LoadSceneAndSetPosition(sceneName, playerPosition, cameraPosition));
+        // Load the scene and update the positions
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        // Set player spawn position and camera position logic...
     }
 
     private IEnumerator LoadSceneAndSetPosition(string sceneName, Vector3 playerPosition, Vector3 cameraPosition)

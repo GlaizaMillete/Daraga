@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DialogueALON : MonoBehaviour
 {
     public static DialogueALON Instance;
-    public GameplayMenuManager gameplayMenuManager;
     public TextMeshProUGUI dialogueArea;
     public Image ricoImage; // Rico's image on the left
     public Image alonImage; // Alon's image on the right

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.InputSystem; // Add this for the new Input System
 
 public class DialoguePanelManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DialoguePanelManager : MonoBehaviour
     public GameObject nero, marina, marisa, bagwis, dalisay, ramon, domingo, reynaldo, rosita;
 
     // Character Icons for each NPC
-    public Image neroIcon, marinaIcon, marisaIcon, bagwisIcon, dalisayIcon,  ramonIcon, domingoIcon, reynaldoIcon, rositaIcon;
+    public Image neroIcon, marinaIcon, marisaIcon, bagwisIcon, dalisayIcon, ramonIcon, domingoIcon, reynaldoIcon, rositaIcon;
 
     // Riddle options
     public GameObject buttonA, buttonB, buttonC;
@@ -62,21 +63,14 @@ public class DialoguePanelManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Touch input handling via the new Input System
+        if (Touchscreen.current.primaryTouch.press.isPressed)
         {
-            HandleTouch(Input.mousePosition);
-        }
-        else if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                HandleTouch(touch.position);
-            }
+            HandleTouch(Touchscreen.current.primaryTouch.position.ReadValue());
         }
     }
 
-    private void HandleTouch(Vector3 screenPosition)
+    private void HandleTouch(Vector2 screenPosition)
     {
         if (currentState != DialogueState.None) return; // Block new touches during interactions
 
@@ -197,15 +191,33 @@ public class DialoguePanelManager : MonoBehaviour
 
         switch (npcName)
         {
-            case "Nero": neroIcon.gameObject.SetActive(true); break;
-            case "Marina": marinaIcon.gameObject.SetActive(true); break;
-            case "Marisa": marisaIcon.gameObject.SetActive(true); break;
-            case "Bagwis": bagwisIcon.gameObject.SetActive(true); break;
-            case "Dalisay": dalisayIcon.gameObject.SetActive(true); break;
-            case "Ramon": ramonIcon.gameObject.SetActive(true); break;
-            case "Domingo": domingoIcon.gameObject.SetActive(true); break;
-            case "Reynaldo": reynaldoIcon.gameObject.SetActive(true); break;
-            case "Rosita": rositaIcon.gameObject.SetActive(true); break;
+            case "Nero":
+                neroIcon.gameObject.SetActive(true);
+                break;
+            case "Marina":
+                marinaIcon.gameObject.SetActive(true);
+                break;
+            case "Marisa":
+                marisaIcon.gameObject.SetActive(true);
+                break;
+            case "Bagwis":
+                bagwisIcon.gameObject.SetActive(true);
+                break;
+            case "Dalisay":
+                dalisayIcon.gameObject.SetActive(true);
+                break;
+            case "Ramon":
+                ramonIcon.gameObject.SetActive(true);
+                break;
+            case "Domingo":
+                domingoIcon.gameObject.SetActive(true);
+                break;
+            case "Reynaldo":
+                reynaldoIcon.gameObject.SetActive(true);
+                break;
+            case "Rosita":
+                rositaIcon.gameObject.SetActive(true);
+                break;
         }
     }
 }

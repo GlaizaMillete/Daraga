@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; // For the new Input System
 using UnityEngine.EventSystems;
 
 [System.Serializable]
@@ -27,6 +28,13 @@ public class DialogueTriggerALON : MonoBehaviour
     public DialogueALONSet dialogue; // Ensure this is properly assigned in the inspector
     private Camera mainCamera;
 
+    public string achievementKey; // The achievement this NPC unlocks
+        void OnPlayerInteract()
+    {
+        AchievementManagerTrack achievementSystem = FindObjectOfType<AchievementManagerTrack>();
+        achievementSystem.OnTalkToNPC("AlonNPC"); // Replace "alon" with the specific NPC name
+    }
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -52,27 +60,29 @@ public class DialogueTriggerALON : MonoBehaviour
 
     private void Update()
     {
-        Vector3 inputPosition = Vector3.zero;
-        bool isInputDetected = false;
-
-        // Detect mouse click or touch input
-        if (Input.GetMouseButtonDown(0))
+        if (Touchscreen.current != null) // Check if a touchscreen is present
         {
-            inputPosition = Input.mousePosition;
-            isInputDetected = true;
+            foreach (var touch in Touchscreen.current.touches)
+            {
+                if (touch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
+                {
+                    HandleTouch(touch.position.ReadValue());
+                }
+            }
         }
-        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        else if (Mouse.current != null) // Fallback to mouse input for testing in the editor
         {
-            inputPosition = Input.GetTouch(0).position;
-            isInputDetected = true;
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                HandleTouch(Mouse.current.position.ReadValue());
+            }
         }
+    }
 
-        if (!isInputDetected)
-            return;
-
+    private void HandleTouch(Vector2 screenPosition)
+    {
         // Convert screen position to world position
-        inputPosition.z = 10; // Distance from the camera to where the world point should be calculated
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(inputPosition);
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, 10));
         worldPosition.z = 0; // Ensures it's at the correct z-position for 2D interaction
 
         // Detect if the touch/click hit the NPC
@@ -88,7 +98,3 @@ public class DialogueTriggerALON : MonoBehaviour
         }
     }
 }
-
-
-
-

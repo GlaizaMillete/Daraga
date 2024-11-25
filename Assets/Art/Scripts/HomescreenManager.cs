@@ -24,20 +24,13 @@ public class HomeScreenManager : MonoBehaviour
 
    private void LoadProgress()
     {
-        // Load Chapter 1 progress
         float chapter1Progress = PlayerPrefs.GetFloat("Chapter1Progress", 0f);
-        chapter1ProgressText.text = "Progress: " + chapter1Progress.ToString("F1") + "%";
+        chapter1Button.interactable = chapter1Progress > 0;
 
-        if (chapter1Progress > 0)
-            continueButton.interactable = true;
-
-        // Load Chapter 2 progress
         float chapter2Progress = PlayerPrefs.GetFloat("Chapter2Progress", 0f);
-        chapter2ProgressText.text = "Progress: " + chapter2Progress.ToString("F1") + "%";
-
-        if (chapter2Progress > 0)
-            chapter2Button.interactable = true;
+        chapter2Button.interactable = chapter1Progress >= 100f && chapter2Progress > 0;
     }
+
 
     private void ShowContinueContent()
     {
@@ -49,16 +42,16 @@ public class HomeScreenManager : MonoBehaviour
 
     private void LoadChapter1Scene()
     {
-        string lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch1", "ForestScene");
+        string lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch1", "ForestScene"); // Default to ForestScene
         SceneManager.LoadScene(lastSavedScene);
     }
 
     private void LoadChapter2Scene()
     {
-        // Load the last saved scene for Chapter 2
-        string lastSavedScene = PlayerPrefs.GetString("LastSavedSceneCh2", "DMsuitors");
+        string lastSavedScene = PlayerPrefs.GetString("LastSavedSceneCh2", "DMsuitors"); // Default to DMsuitors
         SceneManager.LoadScene(lastSavedScene);
     }
+
 
     // Called when returning to the home screen or saving progress
     public void SaveChapterProgress(string chapter, string currentScene, float progress)
@@ -74,6 +67,67 @@ public class HomeScreenManager : MonoBehaviour
             PlayerPrefs.SetString("LastSavedScene_Ch2", currentScene);
         }
         PlayerPrefs.Save();
+    }
+
+    // Saving specific progress for each scene
+    public void SaveChapter1SceneProgress(string currentScene)
+    {
+        // Scenes for Chapter 1
+        string[] chapter1Scenes = {
+            "ForestScene", "RiverScene", "VillageScene", "LiwaywayHouse", "CassavaFields", "DMhouse", "insideDMhouse"
+        };
+
+        if (System.Array.Exists(chapter1Scenes, scene => scene == currentScene))
+        {
+            float chapter1Progress = GetChapter1Progress(currentScene);
+            SaveChapterProgress("Ch1", currentScene, chapter1Progress);
+
+            // Check if the last scene in Chapter 1 ('insideDMhouse') is completed
+            if (currentScene == "insideDMhouse")
+            {
+                // Unlock Chapter 2 after completing Chapter 1
+                chapter2Button.interactable = true;
+            }
+        }
+    }
+
+    public void SaveChapter2SceneProgress(string currentScene)
+    {
+        // Scenes for Chapter 2
+        string[] chapter2Scenes = { "DMsuitors", "IlogScene" };
+
+        if (System.Array.Exists(chapter2Scenes, scene => scene == currentScene))
+        {
+            float chapter2Progress = GetChapter2Progress(currentScene);
+            SaveChapterProgress("Ch2", currentScene, chapter2Progress);
+        }
+    }
+
+   private float GetChapter1Progress(string sceneName)
+    {
+        string[] chapter1Scenes = { "ForestScene", "RiverScene", "VillageScene", "LiwaywayHouse", "CassavaFields", "DMhouse", "insideDMhouse" };
+        int completedScenes = 0;
+
+        foreach (string scene in chapter1Scenes)
+        {
+            if (PlayerPrefs.HasKey(scene))
+                completedScenes++;
+        }
+
+        return (completedScenes / (float)chapter1Scenes.Length) * 100f;
+    }
+
+    public void MarkSceneAsCompleted(string sceneName)
+    {
+        PlayerPrefs.SetInt(sceneName, 1);
+        PlayerPrefs.Save();
+    }
+
+    private float GetChapter2Progress(string sceneName)
+    {
+        // Custom logic for Chapter 2 progress based on scenes
+        // For simplicity, we're returning a fixed value, you can implement your own calculation
+        return 100f;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

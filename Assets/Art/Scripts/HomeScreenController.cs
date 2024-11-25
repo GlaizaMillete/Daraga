@@ -3,26 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class HomeScreenController : MonoBehaviour
 {
-    // Call this when the Play button is clicked
+    // Called when the Play button is clicked
     public void OnPlayButtonClick()
     {
-        // Check if the player has seen the cutscene
         if (PlayerPrefs.HasKey("HasSeenCutscene") && PlayerPrefs.GetInt("HasSeenCutscene") == 1)
         {
-            // If they've seen the cutscene, load the saved progress scene
             LoadSavedProgress();
         }
         else
         {
-            // If they haven't seen the cutscene, load the opening scene
+            // Save that the cutscene is being played
+            PlayerPrefs.SetInt("HasSeenCutscene", 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("OpeningScene");
         }
     }
 
-    private void LoadSavedProgress()
+    public void LoadSavedProgress()
     {
-        // Load the player's saved progress
-        string savedScene = PlayerPrefs.GetString("LastSavedScene", "DefaultScene");  // Default scene if no save
+        string savedScene = PlayerPrefs.GetString("LastSavedScene", "ForestScene");
         SceneManager.LoadScene(savedScene);
     }
 }

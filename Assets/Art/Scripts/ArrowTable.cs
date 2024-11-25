@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class ArrowTable : MonoBehaviour
@@ -30,6 +31,15 @@ public class ArrowTable : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Touchscreen.current.primaryTouch.press.isPressed)
+        {
+            Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            // Check if the touch is within the bounds of the arrow table button
+            // Replace this with your button's RectTransform bounds check
+        }
+    }
     private void EnableArrowTableButton()
     {
         // Enable the arrow table button once the dialogue ends
