@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &2190343486128058853
+=======
+--- !u!1 &796898613021677590
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,6 +12,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 6262051807003862026}
   - component: {fileID: 7067876255540756095}
   - component: {fileID: 4310141332205645680}
@@ -86,19 +91,30 @@ GameObject:
   - component: {fileID: 8284681223485574345}
   - component: {fileID: 5324171245084262944}
   - component: {fileID: 5806998849404360432}
+=======
+  - component: {fileID: 590027354630144648}
+  - component: {fileID: 3655737832362216537}
+  - component: {fileID: 20136003672994068}
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
   m_Layer: 5
   m_Name: tilapia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 1
 --- !u!224 &8284681223485574345
+=======
+  m_IsActive: 0
+--- !u!224 &590027354630144648
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 4150480034111318727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -114,20 +130,47 @@ RectTransform:
   m_SizeDelta: {x: 298.9066, y: 73.0296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5324171245084262944
+=======
+  m_GameObject: {fileID: 796898613021677590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8251688306825047922}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 298.9066, y: 73.0296}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3655737832362216537
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 4150480034111318727}
   m_CullTransparentMesh: 1
 --- !u!114 &5806998849404360432
+=======
+  m_GameObject: {fileID: 796898613021677590}
+  m_CullTransparentMesh: 1
+--- !u!114 &20136003672994068
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 4150480034111318727}
+=======
+  m_GameObject: {fileID: 796898613021677590}
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -151,3 +194,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+<<<<<<< HEAD
+=======
+--- !u!1 &3165223734444810511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8251688306825047922}
+  - component: {fileID: 8589313841162479390}
+  - component: {fileID: 4876780149313870861}
+  m_Layer: 5
+  m_Name: 'tilapiaStamp '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8251688306825047922
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165223734444810511}
+  m_LocalRotation: {x: -0, y: -0, z: 0.13521178, w: 0.9908167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5925759, y: 0.59257585, z: 0.59257585}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 590027354630144648}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.542}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 288, y: -35}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8589313841162479390
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165223734444810511}
+  m_CullTransparentMesh: 1
+--- !u!114 &4876780149313870861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165223734444810511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 921adb0652f4dbc49a48274656c9adce, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+>>>>>>> deb00790dd740c88cf9f4ed01693b92bd6479583
