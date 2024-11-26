@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersistAcrossScenes : MonoBehaviour
 {
     private void Awake()
     {
-        // Ensure this object is not duplicated
         if (FindObjectsOfType<PersistAcrossScenes>().Length > 1)
         {
             Destroy(gameObject);
@@ -12,5 +12,17 @@ public class PersistAcrossScenes : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Reassign references here if necessary
+        Debug.Log("Scene loaded: " + scene.name);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

@@ -16,6 +16,16 @@ public class CharacterMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
+    private void Awake()
+    {
+        if (FindObjectsOfType<CharacterMovement>().Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start() 
     {
         rb = GetComponent<Rigidbody2D>();

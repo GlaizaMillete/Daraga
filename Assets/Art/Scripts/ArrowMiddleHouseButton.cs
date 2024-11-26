@@ -8,7 +8,7 @@ public class ArrowMiddleHouseButton : MonoBehaviour
     [SerializeField] private string cutsceneSceneName = "ManliligawniDM"; // Name of the cutscene scene to play
     [SerializeField] private GameObject player; // Reference to the player GameObject
     [SerializeField] private GameObject middlehouse; // Reference to the middlehouse GameObject
-        [SerializeField] private float offsetY = 50f; // Vertical offset for placing the button at the top of middlehouse
+    [SerializeField] private float offsetY = 50f; // Vertical offset for placing the button at the top of middlehouse
     
     private Vector3 playerInitialPosition; // Store player's position
     private RectTransform buttonRectTransform; // Reference to the button's RectTransform

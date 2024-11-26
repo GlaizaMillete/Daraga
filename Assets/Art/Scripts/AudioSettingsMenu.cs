@@ -4,16 +4,28 @@ using UnityEngine.UI;
 public class AudioSettingsMenu : MonoBehaviour
 {
     public Slider sfxVolumeSlider; // Reference to the SFX volume slider
+    private AudioManager audioManager; // Reference to the AudioManager
 
     private void Start()
     {
-        // Set the slider's current value to the saved SFX volume
-        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        // Find the AudioManager in the scene
+        audioManager = FindObjectOfType<AudioManager>();
 
-        // Add listener to respond when the slider value changes
-        sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+        // Ensure the AudioManager exists
+        if (audioManager != null)
+        {
+            // Set the slider's current value to the saved SFX volume
+            sfxVolumeSlider.value = audioManager.sfxVolume;
 
-          // Find all AudioListeners in the scene
+            // Add listener to respond when the slider value changes
+            sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+        }
+        else
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+
+        // Find all AudioListeners in the scene
         AudioListener[] listeners = FindObjectsOfType<AudioListener>();
 
         // If more than one listener is found, disable the extra ones
@@ -30,15 +42,18 @@ public class AudioSettingsMenu : MonoBehaviour
     public void OnSFXVolumeChanged(float volume)
     {
         // Set the SFX volume in the AudioManager
-        if (AudioManager.Instance != null)
+        if (audioManager != null)
         {
-            AudioManager.Instance.SetSFXVolume(volume);
+            audioManager.SetSFXVolume(volume);
         }
     }
 
     private void OnDestroy()
     {
         // Remove listener when the object is destroyed
-        sfxVolumeSlider.onValueChanged.RemoveListener(OnSFXVolumeChanged);
+        if (sfxVolumeSlider != null)
+        {
+            sfxVolumeSlider.onValueChanged.RemoveListener(OnSFXVolumeChanged);
+        }
     }
 }

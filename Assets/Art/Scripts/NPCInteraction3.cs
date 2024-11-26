@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class NPCInteraction3 : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class NPCInteraction3 : MonoBehaviour
     [SerializeField]
     private GameObject parentObject;  // Reference to the parent object in the Inspector
 
-    private void Start()
+    public void Start()
     {
         // Debug log to track if the achievementTag and parentObject are set correctly
         Debug.Log("Achievement Tag: " + achievementTag);
@@ -23,36 +23,36 @@ public class NPCInteraction3 : MonoBehaviour
         }
     }
 
-    private void InteractWithNPC()
-{
-    // Check if achievementTag and parentObject are properly set
-    if (string.IsNullOrEmpty(achievementTag))
+    public void InteractWithNPC()
     {
-        Debug.LogWarning("Achievement Tag is empty or null!");
-        return;
-    }
+        // Check if achievementTag and parentObject are properly set
+        if (string.IsNullOrEmpty(achievementTag))
+        {
+            Debug.LogWarning("Achievement Tag is empty or null!");
+            return;
+        }
 
-    if (parentObject == null)
-    {
-        Debug.LogWarning("Parent Object is not set!");
-        return;
-    }
+        if (parentObject == null)
+        {
+            Debug.LogWarning("Parent Object is not set!");
+            return;
+        }
 
-    // Log for debugging
-    Debug.Log($"Interacting with NPC. Achievement Tag: {achievementTag}, Parent Object: {parentObject.name}");
+        // Log for debugging
+        Debug.Log($"Interacting with NPC. Achievement Tag: {achievementTag}, Parent Object: {parentObject.name}");
 
-    // Find the GameplayMenuManager component in the scene
-    GameplayMenuManager gameplayMenuManager = FindObjectOfType<GameplayMenuManager>();
+        // Find the GameplayMenuManager component in the scene
+        GameplayMenuManager gameplayMenuManager = FindObjectOfType<GameplayMenuManager>();
 
-    // Check if GameplayMenuManager was found
-    if (gameplayMenuManager != null)
-    {
-        // Call UnlockAchievement directly if the parent object and achievement tag are valid
-        gameplayMenuManager.UnlockAchievement(achievementTag, parentObject);
+        // Check if GameplayMenuManager was found
+        if (gameplayMenuManager != null)
+        {
+            // Call UnlockAchievement directly if the parent object and achievement tag are valid
+            gameplayMenuManager.UnlockAchievement(achievementTag, parentObject);
+        }
+        else
+        {
+            Debug.LogError("GameplayMenuManager not found!");
+        }
     }
-    else
-    {
-        Debug.LogError("GameplayMenuManager not found!");
-    }
-}
-}
+}*/

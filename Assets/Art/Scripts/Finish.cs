@@ -14,21 +14,24 @@ public class Finish : MonoBehaviour
             // Transition to the target scene
             SceneController.instance.LoadSpecificScene(targetSceneName, playerSpawnPosition, cameraPosition);
 
-            // Ensure the player's sorting layer is updated in the new scene
-            StartCoroutine(UpdatePlayerSortingLayerAfterTransition());
+            // Allow duplicated GameplayMenuManager to handle its state independently
+            StartCoroutine(HandleGameplayMenuManager());
         }
     }
 
-    private IEnumerator UpdatePlayerSortingLayerAfterTransition()
+    private IEnumerator HandleGameplayMenuManager()
     {
-        // Wait for a frame to ensure the scene loads
+        // Wait for the new scene to load
         yield return null;
 
-        // Call the sorting layer update
-        PlayerSortingLayerManager sortingLayerManager = FindObjectOfType<PlayerSortingLayerManager>();
-        if (sortingLayerManager != null)
+        // Ensure any new GameplayMenuManager instance initializes itself correctly
+        GameplayMenuManager[] menuManagers = FindObjectsOfType<GameplayMenuManager>();
+        foreach (var menuManager in menuManagers)
         {
-            sortingLayerManager.UpdatePlayerSortingLayer();
+            if (menuManager.menuPanel == null)
+            {
+                menuManager.menuPanel = GameObject.Find("MenuPanel");
+            }
         }
     }
 }

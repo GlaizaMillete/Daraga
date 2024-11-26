@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+
 
 public class DialogueInsideDmManager : MonoBehaviour
 {
@@ -62,21 +64,19 @@ public class DialogueInsideDmManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            HandleTouch(Input.mousePosition);
+            HandleTouch(Mouse.current.position.ReadValue());
         }
-        else if (Input.touchCount > 0)
+        else if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                HandleTouch(touch.position);
-            }
+            Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            HandleTouch(touchPosition);
         }
     }
 
-    private void HandleTouch(Vector3 screenPosition)
+
+    private void HandleTouch(Vector2 screenPosition)
     {
         if (currentState != DialogueState.None) return; // Block new touches during interactions
 
@@ -105,6 +105,7 @@ public class DialogueInsideDmManager : MonoBehaviour
                 OpenDialoguePanel("Makusog");   
         }
     }
+
 
     private void OpenDialoguePanel(string npcName)
     {

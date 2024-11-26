@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.InputSystem; // Add this for the new Input System
+using UnityEngine.InputSystem; // For the new Input System
 
 public class DialoguePanelManager : MonoBehaviour
 {
@@ -55,16 +55,16 @@ public class DialoguePanelManager : MonoBehaviour
         };
 
         // Assign button click listeners
-        arrowButton.GetComponent<Button>().onClick.AddListener(OnArrowClicked);
-        buttonA.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("A"));
-        buttonB.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("B"));
-        buttonC.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("C"));
+        arrowButton?.GetComponent<Button>().onClick.AddListener(OnArrowClicked);
+        buttonA?.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("A"));
+        buttonB?.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("B"));
+        buttonC?.GetComponent<Button>().onClick.AddListener(() => OnAnswerSelected("C"));
     }
 
     private void Update()
     {
-        // Touch input handling via the new Input System
-        if (Touchscreen.current.primaryTouch.press.isPressed)
+        // Touch input handling
+        if (Touchscreen.current?.primaryTouch.press.isPressed == true)
         {
             HandleTouch(Touchscreen.current.primaryTouch.position.ReadValue());
         }
@@ -108,8 +108,8 @@ public class DialoguePanelManager : MonoBehaviour
 
         ResetUI();
 
-        dialoguePanel.SetActive(true);
-        dialogueBeforeRiddle.SetActive(true);
+        dialoguePanel?.SetActive(true);
+        dialogueBeforeRiddle?.SetActive(true);
         dialogueText.text = $"Hello! I am {npcName}. Are you ready for a challenge?";
         DisplayCharacterIcon(npcName);
 
@@ -128,8 +128,8 @@ public class DialoguePanelManager : MonoBehaviour
     {
         if (currentState != DialogueState.DialogueBeforeRiddle) return;
 
-        dialogueBeforeRiddle.SetActive(false);
-        riddleBox.SetActive(true);
+        dialogueBeforeRiddle?.SetActive(false);
+        riddleBox?.SetActive(true);
         currentState = DialogueState.RiddleActive;
     }
 
@@ -142,21 +142,15 @@ public class DialoguePanelManager : MonoBehaviour
         correctAnswer = correctAns;
     }
 
+
     public void OnAnswerSelected(string selectedAnswer)
     {
         if (currentState != DialogueState.RiddleActive) return;
 
-        riddleBox.SetActive(false);
-        dialogueAfterRiddle.SetActive(true);
+        riddleBox?.SetActive(false);
+        dialogueAfterRiddle?.SetActive(true);
 
-        if (selectedAnswer == correctAnswer)
-        {
-            dialogueText.text = "Correct! Well done.";
-        }
-        else
-        {
-            dialogueText.text = "Incorrect. Better luck next time.";
-        }
+        dialogueText.text = selectedAnswer == correctAnswer ? "Correct! Well done." : "Incorrect. Better luck next time.";
 
         currentState = DialogueState.DialogueAfterRiddle;
 
@@ -171,14 +165,15 @@ public class DialoguePanelManager : MonoBehaviour
 
     private void ResetUI()
     {
-        dialoguePanel.SetActive(false);
-        riddleBox.SetActive(false);
-        dialogueBeforeRiddle.SetActive(false);
-        dialogueAfterRiddle.SetActive(false);
+        dialoguePanel?.SetActive(false);
+        riddleBox?.SetActive(false);
+        dialogueBeforeRiddle?.SetActive(false);
+        dialogueAfterRiddle?.SetActive(false);
     }
 
-    private void DisplayCharacterIcon(string npcName)
+  private void DisplayCharacterIcon(string npcName)
     {
+        // Ensure all icons are disabled at the start
         neroIcon.gameObject.SetActive(false);
         marinaIcon.gameObject.SetActive(false);
         marisaIcon.gameObject.SetActive(false);
@@ -189,6 +184,7 @@ public class DialoguePanelManager : MonoBehaviour
         reynaldoIcon.gameObject.SetActive(false);
         rositaIcon.gameObject.SetActive(false);
 
+        // Activate the correct icon based on NPC name
         switch (npcName)
         {
             case "Nero":
@@ -218,6 +214,10 @@ public class DialoguePanelManager : MonoBehaviour
             case "Rosita":
                 rositaIcon.gameObject.SetActive(true);
                 break;
+            default:
+                Debug.LogWarning($"NPC name '{npcName}' does not match any known icon.");
+                break;
         }
     }
+
 }

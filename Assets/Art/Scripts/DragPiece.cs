@@ -3,43 +3,65 @@ using UnityEngine;
 public class DragPiece : MonoBehaviour
 {
     private Vector3 offset;
-    private Camera mainCamera;
     private bool isDragging = false;
+    private RectTransform rectTransform;
+    private Canvas canvas;
+    private Vector3 targetPosition; // To store the target position for smooth dragging
+    private float smoothSpeed = 40f; // Speed at which the object follows the touch position
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        rectTransform = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>(); // Get the parent canvas
+        targetPosition = rectTransform.localPosition; // Initial target position
     }
 
-    private void OnMouseDown()
+    private void Update()
     {
-        if (Input.touchCount == 1 || Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            Vector3 screenPosition = mainCamera.WorldToScreenPoint(transform.position);
-            Vector3 inputPosition = Input.touchCount > 0
-                ? (Vector3)Input.GetTouch(0).position
-                : Input.mousePosition;
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosition = touch.position;
 
-            offset = transform.position - mainCamera.ScreenToWorldPoint(new Vector3(inputPosition.x, inputPosition.y, screenPosition.z));
-            isDragging = true;
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    if (IsTouchingObject(touchPosition))
+                    {
+                        Vector2 localTouchPosition;
+                        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
+                        offset = rectTransform.localPosition - new Vector3(localTouchPosition.x, localTouchPosition.y, 0);
+                        isDragging = true;
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                    if (isDragging)
+                    {
+                        Vector2 localTouchPosition;
+                        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
+                        targetPosition = new Vector3(localTouchPosition.x, localTouchPosition.y, 0) + offset;
+                    }
+                    break;
+
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isDragging = false;
+                    break;
+            }
+        }
+
+        // Smoothly move the object towards the target position
+        if (isDragging || targetPosition != rectTransform.localPosition)
+        {
+            rectTransform.localPosition = Vector3.Lerp(rectTransform.localPosition, targetPosition, smoothSpeed * Time.deltaTime);
         }
     }
 
-    private void OnMouseDrag()
+    private bool IsTouchingObject(Vector2 touchPosition)
     {
-        if (isDragging)
-        {
-            Vector3 inputPosition = Input.touchCount > 0
-                ? (Vector3)Input.GetTouch(0).position
-                : Input.mousePosition;
+        if (rectTransform == null) return false;
 
-            Vector3 newWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(inputPosition.x, inputPosition.y, mainCamera.WorldToScreenPoint(transform.position).z));
-            transform.position = newWorldPosition + offset;
-        }
-    }
-
-    private void OnMouseUp()
-    {
-        isDragging = false;
+        return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, touchPosition, canvas.worldCamera);
     }
 }
