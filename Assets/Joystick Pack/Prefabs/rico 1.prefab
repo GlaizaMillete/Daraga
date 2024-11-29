@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4718448178222698045}
   - component: {fileID: 5842593627226410884}
   - component: {fileID: 5689745181142944413}
+  - component: {fileID: -3232308706569975036}
   m_Layer: 0
   m_Name: rico 1
   m_TagString: Player
@@ -255,6 +256,19 @@ MonoBehaviour:
   - sceneName: IlogScene
     sortingLayerName: RICOP-LAYER(7)
     sortingOrder: 0
+--- !u!114 &-3232308706569975036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953182457165762588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224efa1c51cd52a4a8fbdc0b791a9a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneName: LiwaywayHouse
 --- !u!1 &4114011736974096873
 GameObject:
   m_ObjectHideFlags: 0
