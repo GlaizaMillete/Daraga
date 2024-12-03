@@ -111,22 +111,7 @@ public class DialogueALON : MonoBehaviour
         }
     }
 
-
-    /*private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            // Unlock the "Alon" achievement
-            gameplayMenuManager.UnlockAchievement("alon");
-
-            
-        }
-
-        
-    }*/
-
-
-    void EndDialogue()
+   void EndDialogue()
     {
         isDialogueActive = false;
         animator.Play("hide");

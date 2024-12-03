@@ -28,12 +28,6 @@ public class DialogueTriggerALON : MonoBehaviour
     public DialogueALONSet dialogue; // Ensure this is properly assigned in the inspector
     private Camera mainCamera;
 
-    /*public string achievementKey; // The achievement this NPC unlocks
-        void OnPlayerInteract()
-    {
-        AchievementManagerTrack achievementSystem = FindObjectOfType<AchievementManagerTrack>();
-        achievementSystem.OnTalkToNPC("AlonNPC"); // Replace "alon" with the specific NPC name
-    }*/
 
     private void Start()
     {
