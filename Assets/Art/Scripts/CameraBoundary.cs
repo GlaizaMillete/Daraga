@@ -60,3 +60,68 @@ public class PlayerBoundaryScript : MonoBehaviour
         maxBoundaries = new Vector2(cameraTopRight.x - padding, cameraTopRight.y - padding);
     }
 }
+/*using Cinemachine;
+using UnityEngine;
+
+public class PlayerBoundaryScript : MonoBehaviour
+{
+    public Camera mainCamera;
+    public CinemachineVirtualCamera virtualCamera;  // Reference to Cinemachine Virtual Camera
+    public float padding = 0.1f;
+
+    private Rigidbody2D rb;
+    private Vector2 minBoundaries;
+    private Vector2 maxBoundaries;
+    private Vector3 lastCameraPosition;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (virtualCamera == null && mainCamera != null)
+        {
+            // Attempt to find a Cinemachine Virtual Camera in the scene
+            virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        }
+
+        if (mainCamera != null)
+        {
+            lastCameraPosition = mainCamera.transform.position;
+            UpdateCameraBoundaries();
+        }
+    }
+
+    private void Update()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+            if (mainCamera == null) return;
+        }
+
+        if (mainCamera.transform.position != lastCameraPosition)
+        {
+            lastCameraPosition = mainCamera.transform.position;
+            UpdateCameraBoundaries();
+        }
+
+        float clampedX = Mathf.Clamp(transform.position.x, minBoundaries.x, maxBoundaries.x);
+        float clampedY = Mathf.Clamp(transform.position.y, minBoundaries.y, maxBoundaries.y);
+
+        rb.position = new Vector2(clampedX, clampedY);
+    }
+
+    private void UpdateCameraBoundaries()
+    {
+        Vector3 cameraBottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
+        Vector3 cameraTopRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
+
+        minBoundaries = new Vector2(cameraBottomLeft.x + padding, cameraBottomLeft.y + padding);
+        maxBoundaries = new Vector2(cameraTopRight.x - padding, cameraTopRight.y - padding);
+    }
+}*/
