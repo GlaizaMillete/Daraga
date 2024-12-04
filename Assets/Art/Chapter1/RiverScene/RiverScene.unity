@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rico 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3382011252150630652, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1977817140}
     - target: {fileID: 3966431353652241795, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: mainCamera
       value: 
@@ -968,6 +972,14 @@ PrefabInstance:
     - target: {fileID: 5187694745750272802, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649979541724048061, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649979541724048061, guid: 441c7bc27ddbe774da47eea2180bf87a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -317850805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3395,63 +3407,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987097204}
   m_CullTransparentMesh: 1
---- !u!1 &1004239948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1004239951}
-  - component: {fileID: 1004239950}
-  m_Layer: 0
-  m_Name: Gamemanagerscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1004239950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004239948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2be3e8868ed5f5459469cc4b9147865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuicon: {fileID: 1617834095}
-  menuPanel: {fileID: 172401677}
-  audioTab: {fileID: 1751790956}
-  audiobtn: {fileID: 614837024}
-  achievementbtn: {fileID: 1535803296}
-  languagebtn: {fileID: 1798621262}
-  achievementTab: {fileID: 317690320}
-  languageTab: {fileID: 966501218}
-  modalnotif: {fileID: 444863082}
-  saveandquitbtn: {fileID: 1360631625}
-  yellowbtn: {fileID: 1188536396}
-  redbtn: {fileID: 760943497}
-  exitbtn: {fileID: 1630155906}
---- !u!4 &1004239951
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004239948}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072531102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,7 +5947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1738726220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7094,7 +7049,7 @@ Transform:
   m_GameObject: {fileID: 1977817138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0365353, y: -2.8643901, z: -2}
+  m_LocalPosition: {x: -1.0365353, y: -2.86439, z: -2}
   m_LocalScale: {x: 1.0107839, y: 1.0107839, z: 1.0107839}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8521,5 +8476,4 @@ SceneRoots:
   - {fileID: 1744866242}
   - {fileID: 564670200}
   - {fileID: 1738726223}
-  - {fileID: 1004239951}
   - {fileID: 5562428643030419608}

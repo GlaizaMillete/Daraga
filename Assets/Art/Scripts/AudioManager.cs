@@ -22,19 +22,20 @@ public class AudioManager : MonoBehaviour
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
     }
 
-    private void Start()
+   private void Start()
+{
+    // Ensure there's exactly one AudioListener in the scene
+    AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+    if (listeners.Length > 1)
     {
-        InitializeAudioSources();
-
-        // Ensure there's exactly one AudioListener in the scene
-        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
-        if (listeners.Length > 1)
+        for (int i = 0; i < listeners.Length; i++)
         {
-            for (int i = 1; i < listeners.Length; i++)
+            if (listeners[i].gameObject != gameObject) // Keep the AudioListener on the main GameObject
             {
-                listeners[i].enabled = false;
+                Destroy(listeners[i]);
             }
         }
+    }
     }
 
     // Initialize or refresh the list of AudioSources in the scene

@@ -525,12 +525,11 @@ public class GameplayMenuManager : MonoBehaviour
     }
 
 }*/
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Collections.Generic;
 
 public class GameplayMenuManager : MonoBehaviour
 {
@@ -548,77 +547,54 @@ public class GameplayMenuManager : MonoBehaviour
     public Button redbtn;
     public Button exitbtn;
 
-    private string currentScene;
-    private float progress;
-
-    private List<string> chapter1Scenes = new List<string>
-    {
-        "ForestScene", "RiverScene", "VillageScene", "LiwaywayScene", "CassavaFieldsScene", "DMhouse", "InsideDMHouse"
-    };
-    private List<string> chapter2Scenes = new List<string>
-    {
-        "DMsuitors", "IlogScene"
-    };
-
     private CinemachineVirtualCamera cinemachineCamera;
 
     private void Start()
     {
-        // Hide menu and modal panels at start
-        menuPanel.SetActive(false);
-        modalnotif.SetActive(false);
+        DontDestroyOnLoad(gameObject); // Persist the object across scenes
+        InitializeUIReferences();
+        InitializeCamera();
 
-        // Show audioTab content by default
-        ShowOnlyAudioTab();
-
-        // Button listeners
+        // Add button listeners
         menuicon.onClick.AddListener(ToggleMenu);
         saveandquitbtn.onClick.AddListener(OpenModal);
         yellowbtn.onClick.AddListener(SaveAndQuit);
         redbtn.onClick.AddListener(CloseModal);
         exitbtn.onClick.AddListener(CloseMenu);
-
-        // Tab toggle listeners
         audiobtn.onClick.AddListener(ShowOnlyAudioTab);
         achievementbtn.onClick.AddListener(ShowOnlyAchievementTab);
         languagebtn.onClick.AddListener(ShowOnlyLanguageTab);
+    }
 
-        InitializeCamera();
+    private void InitializeUIReferences()
+    {
+        if (menuPanel == null) menuPanel = GameObject.Find("MenuPanel");
+        if (audioTab == null) audioTab = GameObject.Find("AudioTab");
+        if (achievementTab == null) achievementTab = GameObject.Find("AchievementTab");
+        if (languageTab == null) languageTab = GameObject.Find("LanguageTab");
+        // Add more UI elements as needed...
     }
 
     private void InitializeCamera()
     {
-        // Locate or create a Cinemachine virtual camera
         cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        if (cinemachineCamera == null)
+        if (cinemachineCamera != null)
         {
-            GameObject cameraObject = new GameObject("CinemachineCamera");
-            cinemachineCamera = cameraObject.AddComponent<CinemachineVirtualCamera>();
-        }
-
-        // Find player and set camera to follow
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            cinemachineCamera.Follow = player.transform;
-            cinemachineCamera.LookAt = player.transform;
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                cinemachineCamera.Follow = player.transform;
+                cinemachineCamera.LookAt = player.transform;
+            }
         }
     }
 
     private void ToggleMenu()
     {
         menuPanel.SetActive(!menuPanel.activeSelf);
-        if (menuPanel.activeSelf)
-        {
-            ShowOnlyAudioTab(); // Show audio tab content by default when menu opens
-        }
-
-        audiobtn.gameObject.SetActive(true);
-        achievementbtn.gameObject.SetActive(true);
-        languagebtn.gameObject.SetActive(true);
+        if (menuPanel.activeSelf) ShowOnlyAudioTab();
     }
 
-    // Show only the audio tab content
     private void ShowOnlyAudioTab()
     {
         audioTab.SetActive(true);
@@ -626,7 +602,6 @@ public class GameplayMenuManager : MonoBehaviour
         languageTab.SetActive(false);
     }
 
-    // Show only the achievement tab content
     private void ShowOnlyAchievementTab()
     {
         audioTab.SetActive(false);
@@ -634,7 +609,6 @@ public class GameplayMenuManager : MonoBehaviour
         languageTab.SetActive(false);
     }
 
-    // Show only the language tab content
     private void ShowOnlyLanguageTab()
     {
         audioTab.SetActive(false);
@@ -642,19 +616,16 @@ public class GameplayMenuManager : MonoBehaviour
         languageTab.SetActive(true);
     }
 
-    // Open the modal confirmation
     private void OpenModal()
     {
         modalnotif.SetActive(true);
     }
 
-    // Close the modal confirmation
     private void CloseModal()
     {
         modalnotif.SetActive(false);
     }
 
-    // Close the menu
     private void CloseMenu()
     {
         menuPanel.SetActive(false);
@@ -662,59 +633,26 @@ public class GameplayMenuManager : MonoBehaviour
 
     private void SaveAndQuit()
     {
-        currentScene = SceneManager.GetActiveScene().name;
-        SaveProgress(currentScene);
         SceneManager.LoadScene("HomeScreen");
     }
 
-    private void SaveProgress(string currentScene)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        float progress;
-        string chapterKey, sceneKey;
+        InitializeUIReferences();
+        InitializeCamera();
+        Debug.Log($"Scene {scene.name} loaded. UI and Camera initialized.");
+    }
 
-        if (chapter1Scenes.Contains(currentScene))
-        {
-            int index = chapter1Scenes.IndexOf(currentScene);
-            progress = ((float)(index + 1) / chapter1Scenes.Count) * 100f;
-            chapterKey = "Chapter1Progress";
-            sceneKey = "LastSavedScene_Ch1";
-        }
-        else if (chapter2Scenes.Contains(currentScene))
-        {
-            int index = chapter2Scenes.IndexOf(currentScene);
-            progress = ((float)(index + 1) / chapter2Scenes.Count) * 100f;
-            chapterKey = "Chapter2Progress";
-            sceneKey = "LastSavedScene_Ch2";
-        }
-        else
-        {
-            return;
-        }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        // Check if progress exists and isn't duplicating
-        if (PlayerPrefs.HasKey(chapterKey))
-        {
-            float savedProgress = PlayerPrefs.GetFloat(chapterKey);
-            if (progress > savedProgress) // Only update progress if it's higher
-            {
-                PlayerPrefs.SetFloat(chapterKey, progress);
-                PlayerPrefs.SetString(sceneKey, currentScene);
-                PlayerPrefs.SetString("LastSavedScene", currentScene); // General save
-                PlayerPrefs.Save();
-            }
-        }
-        else
-        {
-            // Save if no progress exists yet
-            PlayerPrefs.SetFloat(chapterKey, progress);
-            PlayerPrefs.SetString(sceneKey, currentScene);
-            PlayerPrefs.SetString("LastSavedScene", currentScene); // General save
-            PlayerPrefs.Save();
-        }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
-
-
 
 
 /*using System.Collections;

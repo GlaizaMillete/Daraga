@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9094472372024093055}
   - component: {fileID: 4434061882769352836}
   - component: {fileID: 7213330813660166533}
+  - component: {fileID: 3382011252150630652}
   - component: {fileID: 4718448178222698045}
   - component: {fileID: 5842593627226410884}
   - component: {fileID: 5689745181142944413}
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -317850805
-  m_SortingLayer: 33
+  m_SortingLayerID: 1628624293
+  m_SortingLayer: 20
   m_SortingOrder: 0
   m_Sprite: {fileID: -2055833505, guid: 6f4c2b265e4b3db4c94507f14a47bbbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08157697, y: -0.005233705}
+  m_Offset: {x: -0.08157697, y: -0.028055012}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8283374, y: 2.0236664}
+  m_Size: {x: 0.8283374, y: 2.0693088}
   m_EdgeRadius: 0
 --- !u!50 &4434061882769352836
 Rigidbody2D:
@@ -152,7 +153,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: b24532096a2ca9e4bace15c6251dc122, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -162,7 +163,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &7213330813660166533
 Animator:
@@ -185,6 +186,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3382011252150630652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953182457165762588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b22731e968324044a6ebefdda1029b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  padding: 1
 --- !u!114 &4718448178222698045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +266,7 @@ MonoBehaviour:
     sortingLayerName: RICOPLAYER(5)
     sortingOrder: 0
   - sceneName: DMsuitors
-    sortingLayerName: RICOP-PLAYER(6)
+    sortingLayerName: RICOP-LAYER(6)
     sortingOrder: 0
   - sceneName: IlogScene
     sortingLayerName: RICOP-LAYER(7)
