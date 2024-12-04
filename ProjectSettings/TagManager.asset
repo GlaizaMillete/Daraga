@@ -379,9 +379,6 @@ TagManager:
   - name: RICO-PLAYER(3)
     uniqueID: 370608389
     locked: 0
-  - name: RICOPLAYER(8)
-    uniqueID: 931252449
-    locked: 0
   - name: grassbridge
     uniqueID: 569244999
     locked: 0
@@ -832,11 +829,14 @@ TagManager:
   - name: grassbridge_ilogscene
     uniqueID: 3606145311
     locked: 0
-  - name: angmgasuitors
-    uniqueID: 2689108157
-    locked: 0
   - name: RICO-PLAYER(7)
     uniqueID: 1347270809
+    locked: 0
+  - name: FINISHPOINT(ILOGSCENE)
+    uniqueID: 3611480657
+    locked: 0
+  - name: angmgasuitors
+    uniqueID: 2689108157
     locked: 0
   - name: portal6
     uniqueID: 3523556665

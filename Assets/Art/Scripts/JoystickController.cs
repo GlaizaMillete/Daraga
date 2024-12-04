@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JoystickController : MonoBehaviour
 {
@@ -12,13 +12,27 @@ public class JoystickController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  // Prevent the joystick from being destroyed
+            DontDestroyOnLoad(gameObject); // Prevent the joystick from being destroyed
+            SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
         }
         else
         {
-            Destroy(gameObject);  // Destroy any additional joystick instances
+            Destroy(gameObject); // Destroy any additional joystick instances
         }
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Replace "YourSceneName" with the name of the specific scene where you want the joystick destroyed
+        if (scene.name == "Chapter3")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the event to avoid memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }
-
-

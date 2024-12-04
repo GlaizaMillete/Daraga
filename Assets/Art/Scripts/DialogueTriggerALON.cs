@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem; // For the new Input System
-using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class DialogueCharacterALON
@@ -27,7 +26,6 @@ public class DialogueTriggerALON : MonoBehaviour
 {
     public DialogueALONSet dialogue; // Ensure this is properly assigned in the inspector
     private Camera mainCamera;
-
 
     private void Start()
     {
@@ -64,13 +62,6 @@ public class DialogueTriggerALON : MonoBehaviour
                 }
             }
         }
-        else if (Mouse.current != null) // Fallback to mouse input for testing in the editor
-        {
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                HandleTouch(Mouse.current.position.ReadValue());
-            }
-        }
     }
 
     private void HandleTouch(Vector2 screenPosition)
@@ -79,11 +70,21 @@ public class DialogueTriggerALON : MonoBehaviour
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, 10));
         worldPosition.z = 0; // Ensures it's at the correct z-position for 2D interaction
 
-        // Detect if the touch/click hit the NPC
+        // Detect if the touch hit the NPC
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
             Debug.Log("NPC Touched (ALON)!");
+            TriggerDialogueALON();
+        }
+    }
+
+    // Trigger dialogue when a GameObject with the "Player" tag touches the NPC
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player touched the NPC (ALON)!");
             TriggerDialogueALON();
         }
     }
