@@ -1963,77 +1963,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &556262859
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 556262862}
-  - component: {fileID: 556262861}
-  - component: {fileID: 556262863}
-  m_Layer: 0
-  m_Name: Gamemanagerscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &556262861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556262859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2be3e8868ed5f5459469cc4b9147865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuicon: {fileID: 1887693858}
-  menuPanel: {fileID: 1783217648}
-  audioTab: {fileID: 715969202}
-  audiobtn: {fileID: 283384580}
-  achievementbtn: {fileID: 1090674818}
-  languagebtn: {fileID: 1737666533}
-  achievementTab: {fileID: 1666080715}
-  languageTab: {fileID: 1229924334}
-  modalnotif: {fileID: 1332424671}
-  saveandquitbtn: {fileID: 1083386942}
-  yellowbtn: {fileID: 182844496}
-  redbtn: {fileID: 1229650732}
-  exitbtn: {fileID: 1218303334}
---- !u!4 &556262862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556262859}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &556262863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556262859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6084ad2d606c8204b9971e5a6a7a1ef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfxVolumeSlider: {fileID: 1650271972}
 --- !u!1 &598483931
 GameObject:
   m_ObjectHideFlags: 0
@@ -6436,6 +6365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxVolume: 1
+  scenesToDestroyOn: []
 --- !u!114 &1783217651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6809,7 +6739,7 @@ GameObject:
   - component: {fileID: 1841353132}
   - component: {fileID: 1841353129}
   - component: {fileID: 1841353133}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: liwayway
   m_TagString: Liwayway
   m_Icon: {fileID: 0}
@@ -8492,5 +8422,4 @@ SceneRoots:
   - {fileID: 997259183}
   - {fileID: 1353110556}
   - {fileID: 1410477479}
-  - {fileID: 556262862}
   - {fileID: 1819839267}

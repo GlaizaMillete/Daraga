@@ -62,6 +62,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Art/Chapter3Animation/Chapter3.unity
     guid: fb397878df2c2b84f8dc332f70058247
+  - enabled: 1
+    path: Assets/CREDITS/CREDITS.unity
+    guid: 57e97b9c1009e4c4d992df4aa33c2e6d
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: a355af3fc7e4b0d41813b961d5164cb8, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: db9d8b7118af3754db710988c8d8c9bc, type: 2}

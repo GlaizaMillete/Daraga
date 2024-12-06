@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,12 +9,16 @@ public class AudioManager : MonoBehaviour
     // Array to store all AudioSource components for SFX in the game
     private AudioSource[] sfxSources;
 
+    // List of scenes where the AudioManager should be destroyed
+    public List<string> scenesToDestroyOn = new List<string>();
+
     private void Awake()
     {
         // Prevent duplicate instances of the AudioManager
         if (FindObjectsOfType<AudioManager>().Length > 1)
         {
             Destroy(gameObject); // Destroy any duplicate AudioManager
+            return;
         }
 
         DontDestroyOnLoad(gameObject); // Keep this instance persistent between scenes
@@ -22,20 +27,20 @@ public class AudioManager : MonoBehaviour
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
     }
 
-   private void Start()
-{
-    // Ensure there's exactly one AudioListener in the scene
-    AudioListener[] listeners = FindObjectsOfType<AudioListener>();
-    if (listeners.Length > 1)
+    private void Start()
     {
-        for (int i = 0; i < listeners.Length; i++)
+        // Ensure there's exactly one AudioListener in the scene
+        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+        if (listeners.Length > 1)
         {
-            if (listeners[i].gameObject != gameObject) // Keep the AudioListener on the main GameObject
+            for (int i = 0; i < listeners.Length; i++)
             {
-                Destroy(listeners[i]);
+                if (listeners[i].gameObject != gameObject) // Keep the AudioListener on the main GameObject
+                {
+                    Destroy(listeners[i]);
+                }
             }
         }
-    }
     }
 
     // Initialize or refresh the list of AudioSources in the scene
@@ -81,6 +86,15 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
-        InitializeAudioSources(); // Reinitialize SFX sources in the new scene
+        // Check if the current scene is in the list of scenes to destroy this object
+        if (scenesToDestroyOn.Contains(scene.name))
+        {
+            Debug.Log($"Destroying AudioManager in scene: {scene.name}");
+            Destroy(gameObject); // Destroy the AudioManager
+        }
+        else
+        {
+            InitializeAudioSources(); // Reinitialize SFX sources in the new scene
+        }
     }
 }

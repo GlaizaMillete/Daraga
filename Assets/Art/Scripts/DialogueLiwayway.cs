@@ -176,40 +176,38 @@ public class DialogueLiwayway : MonoBehaviour
     {
         public List<DialogueLine> dialogueLines = new List<DialogueLine>();
     }
-    public delegate void DialogueEndHandler();
-    public event DialogueEndHandler OnDialogueEnd; // Event to notify when dialogue ends
-    public Image characterIconRight; // For Liwayway's icon
-    public Image characterIconLeft; // For Rico's icon (you'll need to add this in the Unity Inspector)
 
+    public delegate void DialogueEndHandler();
+    public event DialogueEndHandler OnDialogueEnd;
+
+    [Header("UI References")]
+    public Image characterIconRight; // Liwayway's icon
+    public Image characterIconLeft;  // Rico's icon
     public TextMeshProUGUI dialogueArea;
     public Button arrowButton; // Next dialogue button
     public Animator animator;
 
-    private Queue<DialogueLine> lines;
-    private Camera mainCamera;
+    [Header("Dialogue Settings")]
+    public float typingSpeed = 0.02f;
+
+    private Queue<DialogueLine> lines = new Queue<DialogueLine>();
     private bool isDialogueActive = false;
     private bool isTyping = false;
     private string currentSentence;
-
-    public float typingSpeed = 0.02f;
+    private Camera mainCamera;
 
     private void Awake()
     {
+        // Singleton pattern
         if (Instance == null)
             Instance = this;
-
-        lines = new Queue<DialogueLine>();
+        else
+            Destroy(gameObject);
     }
 
     private void Start()
     {
         mainCamera = Camera.main;
-
-        if (mainCamera == null)
-            Debug.LogError("Main camera not found. Ensure a camera is tagged as 'MainCamera'.");
-
-        if (EventSystem.current == null)
-            Debug.LogError("No EventSystem found. Add one to the scene.");
 
         if (arrowButton != null)
             arrowButton.onClick.AddListener(DisplayNextDialogueLine);
@@ -217,8 +215,14 @@ public class DialogueLiwayway : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        if (dialogue == null || dialogue.dialogueLines.Count == 0)
+        {
+            Debug.LogWarning("Dialogue is empty or null.");
+            return;
+        }
+
         isDialogueActive = true;
-        animator.Play("show");
+        animator?.Play("show");
 
         lines.Clear();
         foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
@@ -249,16 +253,15 @@ public class DialogueLiwayway : MonoBehaviour
         UpdateCharacterIcons(currentLine.character);
         currentSentence = currentLine.line;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentLine));
+        StartCoroutine(TypeSentence(currentLine.line));
     }
 
-    private IEnumerator TypeSentence(DialogueLine dialogueLine)
+    private IEnumerator TypeSentence(string sentence)
     {
         dialogueArea.text = "";
-        currentSentence = dialogueLine.line;
         isTyping = true;
 
-        foreach (char letter in dialogueLine.line.ToCharArray())
+        foreach (char letter in sentence.ToCharArray())
         {
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
@@ -267,32 +270,69 @@ public class DialogueLiwayway : MonoBehaviour
         isTyping = false;
     }
 
-   private void UpdateCharacterIcons(DialogueCharacter character)
+    private void UpdateCharacterIcons(DialogueCharacter character)
     {
-        // Hide both icons first
+        if (character == null)
+        {
+            Debug.LogWarning("DialogueCharacter is null.");
+            return;
+        }
+
+        // Hide both icons
         characterIconLeft.gameObject.SetActive(false);
         characterIconRight.gameObject.SetActive(false);
 
-        // Show the character's icon based on the character name
+        // Show appropriate icon based on the character
         if (character.characterName == "Liwayway")
         {
             characterIconRight.sprite = character.icon;
-            characterIconRight.gameObject.SetActive(true); // Liwayway's icon is shown
+            characterIconRight.gameObject.SetActive(true);
         }
         else if (character.characterName == "Rico")
         {
             characterIconLeft.sprite = character.icon;
-            characterIconLeft.gameObject.SetActive(true); // Rico's icon is shown
+            characterIconLeft.gameObject.SetActive(true);
         }
     }
 
-
-     private void EndDialogue()
+    private void EndDialogue()
     {
         isDialogueActive = false;
-        animator.Play("hide");
+        animator?.Play("hide");
+        OnDialogueEnd?.Invoke();
+    }
 
-        // Notify when dialogue ends
-        OnDialogueEnd?.Invoke();  // This will trigger any method subscribed to this event
+    private void OnMouseDown()
+    {
+        // Detect mouse click or touch input
+        if (!isDialogueActive)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    // Trigger dialogue start (if needed)
+                    Debug.Log("Liwayway clicked.");
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        // Mobile touch detection
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    Debug.Log("Liwayway touched.");
+                }
+            }
+        }
     }
 }
+
