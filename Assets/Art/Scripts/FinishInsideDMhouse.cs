@@ -1,16 +1,14 @@
-using System.Collections;
+/*using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class FinishInsideDMHouse : MonoBehaviour
 {
-    [SerializeField] private string cutsceneSceneName = "AngMgaSuitors"; // Scene for the cutscene
-    [SerializeField] private string targetSceneName = "DMsuitors"; // Scene to load after cutscene
-    [SerializeField] private Vector3 playerSpawnPosition = new Vector3(0, 0, 0); // Player's position in the target scene
-    [SerializeField] private Vector3 cameraPosition = new Vector3(0, 0, -10); // Camera position in the target scene
-
-    private AudioSource[] otherSceneAudioSources;
-    private GameObject[] otherSceneObjects;
+    [SerializeField] private string cutsceneSceneName = "AngMgaSuitors"; // Cutscene scene name
+    [SerializeField] private string targetSceneName = "DMsuitors"; // Next scene name
+    [SerializeField] private Vector3 playerSpawnPosition = new Vector3(0, 0, 0); // Player position
+    [SerializeField] private Vector3 cameraPosition = new Vector3(0, 0, -10); // Camera position
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,89 +24,172 @@ public class FinishInsideDMHouse : MonoBehaviour
 
     private void SaveProgress()
     {
-        PlayerPrefs.SetFloat("Chapter1Progress", 100f); // Mark Chapter 1 as complete (100%)
-        PlayerPrefs.SetString("LastSavedScene", cutsceneSceneName); // Save the cutscene scene as last
+        PlayerPrefs.SetFloat("Chapter2Progress", 100f); // Save chapter progress
+        PlayerPrefs.SetString("LastSavedScene", cutsceneSceneName); // Save current scene
         PlayerPrefs.Save();
     }
 
     private IEnumerator PlayCutsceneAndLoadNextScene()
     {
-        // Save and store the current scene's audio sources and game objects
-        StoreOtherSceneElements();
+       
+        DisableExtraEventSystems();
 
-        // Mute the audio and disable objects in other scenes to prevent interruptions
-        MuteOtherSceneAudio();
-        DisableOtherSceneObjects();
-
-        // Load the cutscene scene first
+        // Load the cutscene scene additively
         AsyncOperation asyncCutsceneLoad = SceneManager.LoadSceneAsync(cutsceneSceneName, LoadSceneMode.Additive);
         while (!asyncCutsceneLoad.isDone)
         {
             yield return null;
         }
 
-        // Wait until the cutscene is over (replace with actual logic)
-        yield return new WaitForSeconds(35f); // Placeholder, replace with actual cutscene logic
+        // Wait for the cutscene to finish
+        yield return new WaitForSeconds(35f); // Replace with actual cutscene duration
 
-        // Now load the next scene (DMsuitors)
-        AsyncOperation asyncTargetSceneLoad = SceneManager.LoadSceneAsync(targetSceneName);
+        // Unload the cutscene scene
+        SceneManager.UnloadSceneAsync(cutsceneSceneName);
+
+        // Load the target scene (DMsuitors)
+        AsyncOperation asyncTargetSceneLoad = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Single);
         while (!asyncTargetSceneLoad.isDone)
         {
             yield return null;
         }
 
-        // Optionally, unload the cutscene scene to free up resources
-        SceneManager.UnloadSceneAsync(cutsceneSceneName);
-
-        // Restore the audio and game objects
-        RestoreOtherSceneAudio();
-        RestoreOtherSceneObjects();
-
-        // Set the player's position in the new scene
+        // Set player's position and camera in the target scene
         PositionPlayerAndCamera();
     }
 
-    private void StoreOtherSceneElements()
+   
+    private void DisableExtraEventSystems()
     {
-        // Get all audio sources in the other scenes
-        otherSceneAudioSources = FindObjectsOfType<AudioSource>();
-        // Get all game objects in the other scenes (you can refine this by scene or tag)
-        otherSceneObjects = GameObject.FindGameObjectsWithTag("GameObject");
-    }
-
-    private void MuteOtherSceneAudio()
-    {
-        // Mute all audio sources
-        foreach (var audioSource in otherSceneAudioSources)
+        // Find all EventSystem components in the scene
+        EventSystem[] eventSystems = FindObjectsOfType<EventSystem>();
+        for (int i = 1; i < eventSystems.Length; i++)
         {
-            audioSource.mute = true;
+            Destroy(eventSystems[i].gameObject); // Remove extra event systems
         }
     }
 
-    private void DisableOtherSceneObjects()
+
+    private void PositionPlayerAndCamera()
     {
-        // Disable all other game objects to prevent interference
-        foreach (var gameObject in otherSceneObjects)
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
         {
-            gameObject.SetActive(false);
+            player.transform.position = playerSpawnPosition;
+        }
+
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            mainCamera.transform.position = cameraPosition;
+        }
+    }
+}*/
+
+using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
+public class FinishInsideDMHouse : MonoBehaviour
+{
+    [SerializeField] private string cutsceneSceneName = "AngMgaSuitors"; // Cutscene scene name
+    [SerializeField] private string targetSceneName = "DMsuitors"; // Next scene name
+    [SerializeField] private Vector3 playerSpawnPosition = new Vector3(0, 0, 0); // Player position
+    [SerializeField] private Vector3 cameraPosition = new Vector3(0, 0, -10); // Camera position
+    private GameObject insideDMHouseRoot; // Reference to the root object of the scene
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            // Save progress for Chapter 1 completion
+            SaveProgress();
+
+            // Start the cutscene and transition to the next scene after it's done
+            StartCoroutine(PlayCutsceneAndLoadNextScene());
         }
     }
 
-    private void RestoreOtherSceneAudio()
+    private void SaveProgress()
     {
-        // Restore the audio settings for the previous scene(s)
-        foreach (var audioSource in otherSceneAudioSources)
+        PlayerPrefs.SetFloat("Chapter2Progress", 100f); // Save chapter progress
+        PlayerPrefs.SetString("LastSavedScene", cutsceneSceneName); // Save current scene
+        PlayerPrefs.Save();
+    }
+
+    private IEnumerator PlayCutsceneAndLoadNextScene()
+    {
+        // Hide the insideDMhouse scene
+        HideInsideDMHouse();
+
+        DisableExtraEventSystems();
+
+        // Hide the menu icon and floating joystick
+        HideUIElements();
+
+        // Load the cutscene scene additively
+        AsyncOperation asyncCutsceneLoad = SceneManager.LoadSceneAsync(cutsceneSceneName, LoadSceneMode.Additive);
+        while (!asyncCutsceneLoad.isDone)
         {
-            audioSource.mute = false;
+            yield return null;
+        }
+
+        // Wait for the cutscene to finish
+        yield return new WaitForSeconds(35f); // Replace with actual cutscene duration
+
+        // Unload the cutscene scene
+        SceneManager.UnloadSceneAsync(cutsceneSceneName);
+
+        // Load the target scene (DMsuitors)
+        AsyncOperation asyncTargetSceneLoad = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Single);
+        while (!asyncTargetSceneLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // Set player's position and camera in the target scene
+        PositionPlayerAndCamera();
+    }
+
+    private void HideInsideDMHouse()
+    {
+        // Get all root objects in the current scene
+        insideDMHouseRoot = new GameObject("InsideDMHouseRoot");
+        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            if (obj != this.gameObject) // Exclude the script's GameObject
+            {
+                obj.transform.SetParent(insideDMHouseRoot.transform); // Move objects to a new parent
+                obj.SetActive(false); // Deactivate all objects
+            }
         }
     }
 
-    private void RestoreOtherSceneObjects()
+    private void DisableExtraEventSystems()
     {
-        // Restore the game objects to their original state
-        foreach (var gameObject in otherSceneObjects)
+        // Find all EventSystem components in the scene
+        EventSystem[] eventSystems = FindObjectsOfType<EventSystem>();
+        for (int i = 1; i < eventSystems.Length; i++)
         {
-            gameObject.SetActive(true);
+            Destroy(eventSystems[i].gameObject); // Remove extra event systems
+        }
+    }
+
+    private void HideUIElements()
+    {
+        // Hide menu icon
+        GameObject menuIcon = GameObject.Find("MenuIcon");
+        if (menuIcon != null)
+        {
+            menuIcon.SetActive(false);
+        }
+
+        // Hide floating joystick
+        GameObject floatingJoystick = GameObject.Find("FloatingJoystick");
+        if (floatingJoystick != null)
+        {
+            floatingJoystick.SetActive(false);
         }
     }
 
@@ -127,3 +208,5 @@ public class FinishInsideDMHouse : MonoBehaviour
         }
     }
 }
+
+

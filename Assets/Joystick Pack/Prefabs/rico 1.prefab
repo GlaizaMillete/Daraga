@@ -23,22 +23,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5187694745750272802
-Transform:
+--- !u!224 &5187694745750272802
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953182457165762588}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.226545, y: -2.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5873246, y: 3.5873246, z: 3.5873246}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5107250461066441631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 15.226545, y: -2.6}
+  m_SizeDelta: {x: 2.56, y: 2.56}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8649979541724048061
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -240,22 +244,25 @@ MonoBehaviour:
     sortingLayerName: RICO-PLAYER(2)
     sortingOrder: 0
   - sceneName: LiwaywayHouse
-    sortingLayerName: RICO-PLAYER(2)
-    sortingOrder: 0
-  - sceneName: CassavaFields
     sortingLayerName: RICO-PLAYER(3)
     sortingOrder: 0
-  - sceneName: DMhouse
+  - sceneName: CassavaFields
     sortingLayerName: RICO-PLAYER(4)
     sortingOrder: 0
+  - sceneName: DMhouse
+    sortingLayerName: RICO-PLAYER(5)
+    sortingOrder: 0
   - sceneName: insideDMhouse
-    sortingLayerName: RICOPLAYER(5)
+    sortingLayerName: RICO-PLAYER(6)
     sortingOrder: 0
   - sceneName: DMsuitors
-    sortingLayerName: RICOP-LAYER(6)
+    sortingLayerName: RICO-PLAYER(7)
     sortingOrder: 0
   - sceneName: IlogScene
-    sortingLayerName: RICOP-LAYER(7)
+    sortingLayerName: RICO-PLAYER(8)
+    sortingOrder: 0
+  - sceneName: Chapter3
+    sortingLayerName: RICO-PLAYER(9)
     sortingOrder: 0
 --- !u!1 &4114011736974096873
 GameObject:

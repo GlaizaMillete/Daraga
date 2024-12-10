@@ -1266,8 +1266,8 @@ Transform:
   m_GameObject: {fileID: 835342158}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.9318, y: 4.9318, z: 4.9318}
+  m_LocalPosition: {x: -150.21503, y: 0, z: 0}
+  m_LocalScale: {x: 8.882665, y: 7.4499764, z: 7.1634393}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1328,7 +1328,7 @@ RectTransform:
   m_GameObject: {fileID: 1050689419}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.4113588}
-  m_LocalScale: {x: 14.811519, y: 14.49483, z: 9.0228}
+  m_LocalScale: {x: 26.677027, y: 21.895891, z: 13.105618}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1683959820}
@@ -1343,7 +1343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -528.9, y: -304.7}
+  m_AnchoredPosition: {x: -654.0792, y: -304.7}
   m_SizeDelta: {x: 19.22, y: 10.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1050689421
@@ -1568,7 +1568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -432}
+  m_AnchoredPosition: {x: -6, y: -286}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390739435
@@ -1617,18 +1617,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 629184570}
         m_TargetAssemblyTypeName: JarAssemble, Assembly-CSharp
-        m_MethodName: OnJarAssemblyComplete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 629184570}
-        m_TargetAssemblyTypeName: JarAssemble, Assembly-CSharp
         m_MethodName: OnCompleteButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -1641,7 +1629,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 629184570}
         m_TargetAssemblyTypeName: JarAssemble, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: OnJarAssemblyComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1803,7 +1791,7 @@ GameObject:
   - component: {fileID: 1683959821}
   - component: {fileID: 1683959822}
   - component: {fileID: 1683959823}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: jarOutline
   m_TagString: JarOutline
   m_Icon: {fileID: 0}
@@ -2151,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.99, y: 2.45}
+  m_AnchoredPosition: {x: -7.0005584, y: 2.72654}
   m_SizeDelta: {x: 2.97, y: 3.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1816636579

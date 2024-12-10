@@ -100,7 +100,7 @@ public class DialogueManager : MonoBehaviour
         lines = new Queue<DialogueLine>();
     }
 
-    private void Start()
+    public void Start()
     {
         arrowButton.onClick.AddListener(DisplayNextDialogueLine);
     }
@@ -143,7 +143,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(currentLine));
     }
 
-    IEnumerator TypeSentence(DialogueLine dialogueLine)
+    public IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";
         currentSentence = dialogueLine.line;

@@ -6,14 +6,16 @@ public class DragPiece : MonoBehaviour
     private bool isDragging = false;
     private RectTransform rectTransform;
     private Canvas canvas;
-    private Vector3 targetPosition; // To store the target position for smooth dragging
-    private float smoothSpeed = 40f; // Speed at which the object follows the touch position
+    private Vector3 targetPosition; // Smooth dragging target position
+    private float smoothSpeed = 10f; // Drag smoothness multiplier
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        canvas = GetComponentInParent<Canvas>(); // Get the parent canvas
-        targetPosition = rectTransform.localPosition; // Initial target position
+        canvas = GetComponentInParent<Canvas>();
+
+        // Initialize targetPosition to the current position
+        targetPosition = rectTransform.localPosition;
     }
 
     private void Update()
@@ -29,7 +31,8 @@ public class DragPiece : MonoBehaviour
                     if (IsTouchingObject(touchPosition))
                     {
                         Vector2 localTouchPosition;
-                        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
+                        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                            rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
                         offset = rectTransform.localPosition - new Vector3(localTouchPosition.x, localTouchPosition.y, 0);
                         isDragging = true;
                     }
@@ -39,7 +42,8 @@ public class DragPiece : MonoBehaviour
                     if (isDragging)
                     {
                         Vector2 localTouchPosition;
-                        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
+                        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                            rectTransform, touchPosition, canvas.worldCamera, out localTouchPosition);
                         targetPosition = new Vector3(localTouchPosition.x, localTouchPosition.y, 0) + offset;
                     }
                     break;
@@ -51,8 +55,8 @@ public class DragPiece : MonoBehaviour
             }
         }
 
-        // Smoothly move the object towards the target position
-        if (isDragging || targetPosition != rectTransform.localPosition)
+        // Smoothly move the object to the target position
+        if (isDragging)
         {
             rectTransform.localPosition = Vector3.Lerp(rectTransform.localPosition, targetPosition, smoothSpeed * Time.deltaTime);
         }
@@ -62,6 +66,7 @@ public class DragPiece : MonoBehaviour
     {
         if (rectTransform == null) return false;
 
+        // Check if the touch is over this object
         return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, touchPosition, canvas.worldCamera);
     }
 }

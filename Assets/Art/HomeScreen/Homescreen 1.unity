@@ -766,10 +766,8 @@ MonoBehaviour:
   continueButton: {fileID: 1128874784}
   chapter1Button: {fileID: 415593308}
   chapter2Button: {fileID: 1146956405}
-  chapter3Button: {fileID: 1115815517}
   chapter1ProgressText: {fileID: 656083168}
   chapter2ProgressText: {fileID: 896691323}
-  chapter3ProgressText: {fileID: 1405201873}
   continuePanel: {fileID: 1000904423}
 --- !u!4 &212954010
 Transform:
@@ -781,6 +779,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 667.00305, y: 373.1975, z: -5.612402}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &228679743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228679745}
+  m_Layer: 0
+  m_Name: credithandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &228679745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228679743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1894.3379, y: 498.17117, z: -11.993469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4836,7 +4865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467208585b5d0a84c97bb4d7e403d4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeScreenManager: {fileID: 212954009}
 --- !u!1 &1229151637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7550,3 +7578,4 @@ SceneRoots:
   - {fileID: 956417475}
   - {fileID: 271399569}
   - {fileID: 212954010}
+  - {fileID: 228679745}

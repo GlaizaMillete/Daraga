@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: MAGAYON
-  productName: DaragangMagayon
+  productName: Daragang Magayon
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -140,10 +140,7 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0.2
-  preloadedAssets:
-  - {fileID: 11400000, guid: e1d0db6de3d14b244aec22428ef132b9, type: 2}
-  - {fileID: 6868125307518980555, guid: a355af3fc7e4b0d41813b961d5164cb8, type: 2}
-  - {fileID: 11400000, guid: db9d8b7118af3754db710988c8d8c9bc, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

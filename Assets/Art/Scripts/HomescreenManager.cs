@@ -86,7 +86,7 @@ public class HomeScreenManager : MonoBehaviour
     }
 }*/
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -141,22 +141,23 @@ public class HomeScreenManager : MonoBehaviour
 
         if (chapter == "Ch1")
         {
-            // Load the last saved scene for Chapter 1
             lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch1", "ForestScene");
-            LoadPlayerPosition(lastSavedScene); // Load the player's position for the scene
         }
         else if (chapter == "Ch2")
         {
-            // Load the last saved scene for Chapter 2
             lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch2", "DMsuitors");
-            LoadPlayerPosition(lastSavedScene); // Load the player's position for the scene
         }
 
         if (!string.IsNullOrEmpty(lastSavedScene))
         {
             SceneManager.LoadScene(lastSavedScene);
         }
+        else
+        {
+            Debug.LogWarning("No saved scene found for this chapter.");
+        }
     }
+
 
     private void LoadPlayerPosition(string scene)
     {
@@ -215,6 +216,106 @@ public class HomeScreenManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Chapter2Progress", progress);
             PlayerPrefs.SetString("LastSavedScene_Ch2", currentScene);
+        }
+
+        PlayerPrefs.Save();
+    }
+}*/
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class HomeScreenManager : MonoBehaviour
+{
+    public Button continueButton;          // Button to open continue content
+    public Button chapter1Button;         // Button to load Chapter 1 progress
+    public Button chapter2Button;         // Button to load Chapter 2 progress
+    public Button chapter3Button;         // Button to load Chapter 3 progress
+    public Text chapter1ProgressText;     // Text to display Chapter 1 progress
+    public Text chapter2ProgressText;     // Text to display Chapter 2 progress
+    public Text chapter3ProgressText;     // Text to display Chapter 3 progress
+    public GameObject continuePanel;      // Panel shown when continue button is clicked
+
+    private void Start()
+    {
+        LoadProgress();
+
+        // Add listeners for buttons
+        continueButton.onClick.AddListener(OpenContinueContent);
+        chapter1Button.onClick.AddListener(() => LoadChapter("Ch1"));
+        chapter2Button.onClick.AddListener(() => LoadChapter("Ch2"));
+        chapter3Button.onClick.AddListener(() => LoadChapter("Ch3"));
+    }
+
+    private void LoadProgress()
+    {
+        // Load and display Chapter 1 progress
+        float chapter1Progress = PlayerPrefs.GetFloat("Chapter1Progress", 0f);
+        chapter1ProgressText.text = "Progress: " + chapter1Progress.ToString("F1") + "%";
+        chapter1Button.interactable = chapter1Progress > 0;
+
+        // Load and display Chapter 2 progress
+        float chapter2Progress = PlayerPrefs.GetFloat("Chapter2Progress", 0f);
+        chapter2ProgressText.text = "Progress: " + chapter2Progress.ToString("F1") + "%";
+        chapter2Button.interactable = (chapter1Progress >= 100f && chapter2Progress > 0);
+
+        // Load and display Chapter 3 progress
+        float chapter3Progress = PlayerPrefs.GetFloat("Chapter3Progress", 0f);
+        chapter3ProgressText.text = "Progress: " + chapter3Progress.ToString("F1") + "%";
+        chapter3Button.interactable = (chapter2Progress >= 100f && chapter3Progress > 0);
+    }
+
+    private void OpenContinueContent()
+    {
+        if (continuePanel != null)
+        {
+            continuePanel.SetActive(true);
+        }
+    }
+
+    private void LoadChapter(string chapter)
+    {
+        string lastSavedScene = "";
+
+        if (chapter == "Ch1")
+        {
+            lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch1", "ForestScene");
+        }
+        else if (chapter == "Ch2")
+        {
+            lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch2", "DMsuitors");
+        }
+        else if (chapter == "Ch3")
+        {
+            lastSavedScene = PlayerPrefs.GetString("LastSavedScene_Ch3", "Chapter3StartScene");
+        }
+
+        if (!string.IsNullOrEmpty(lastSavedScene))
+        {
+            SceneManager.LoadScene(lastSavedScene);
+        }
+        else
+        {
+            Debug.LogWarning("No saved scene found for this chapter.");
+        }
+    }
+
+    public void SaveChapterProgress(string chapter, string currentScene, float progress)
+    {
+        if (chapter == "Ch1")
+        {
+            PlayerPrefs.SetFloat("Chapter1Progress", progress);
+            PlayerPrefs.SetString("LastSavedScene_Ch1", currentScene);
+        }
+        else if (chapter == "Ch2")
+        {
+            PlayerPrefs.SetFloat("Chapter2Progress", progress);
+            PlayerPrefs.SetString("LastSavedScene_Ch2", currentScene);
+        }
+        else if (chapter == "Ch3")
+        {
+            PlayerPrefs.SetFloat("Chapter3Progress", progress);
+            PlayerPrefs.SetString("LastSavedScene_Ch3", currentScene);
         }
 
         PlayerPrefs.Save();

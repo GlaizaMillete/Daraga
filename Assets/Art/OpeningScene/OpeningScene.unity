@@ -1251,6 +1251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 446923980}
+  - component: {fileID: 446923981}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1273,6 +1274,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446923981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446923978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f6fd85b11caf34caf908e041191dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipButton: {fileID: 584210062}
 --- !u!1 &489296945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1757,6 @@ GameObject:
   - component: {fileID: 584210066}
   - component: {fileID: 584210065}
   - component: {fileID: 584210064}
-  - component: {fileID: 584210068}
   m_Layer: 0
   m_Name: SkipButton
   m_TagString: Untagged
@@ -1814,7 +1827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 584210068}
+      - m_Target: {fileID: 446923981}
         m_TargetAssemblyTypeName: OpeningCutsceneController, Assembly-CSharp
         m_MethodName: OnSkipButtonClick
         m_Mode: 1
@@ -1864,19 +1877,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584210062}
   m_CullTransparentMesh: 1
---- !u!114 &584210068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584210062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f6fd85b11caf34caf908e041191dbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipButton: {fileID: 584210062}
 --- !u!1 &631355817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,51 +3240,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100388172}
   m_CullTransparentMesh: 1
---- !u!1 &1126157294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1126157296}
-  - component: {fileID: 1126157295}
-  m_Layer: 0
-  m_Name: OpeningCutsceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1126157295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126157294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f6fd85b11caf34caf908e041191dbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipButton: {fileID: 584210062}
---- !u!4 &1126157296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126157294}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 738.56165, y: 371.1518, z: -7.013301}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138883760
 GameObject:
   m_ObjectHideFlags: 0
@@ -7378,4 +7333,3 @@ SceneRoots:
   - {fileID: 1261003194}
   - {fileID: 2140679263}
   - {fileID: 446923980}
-  - {fileID: 1126157296}

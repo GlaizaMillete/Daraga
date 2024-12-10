@@ -319,7 +319,7 @@ public class DialogueLiwayway : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         // Mobile touch detection
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)

@@ -36,6 +36,7 @@ TagManager:
   - AlonQuestStamp
   - TilapiaQuestStamp
   - riddleTALIMQuestStamp
+  - EventSystem
   layers:
   - Default
   - TransparentFX
@@ -367,6 +368,9 @@ TagManager:
   - name: groundcassava
     uniqueID: 3471938685
     locked: 0
+  - name: RICO-PLAYER(4)
+    uniqueID: 2128793391
+    locked: 0
   - name: leaves01
     uniqueID: 700311971
     locked: 0
@@ -520,11 +524,8 @@ TagManager:
   - name: marina_inside
     uniqueID: 2797371647
     locked: 0
-  - name: RICOPLAYER(5)
+  - name: RICO-PLAYER(5)
     uniqueID: 3421383959
-    locked: 0
-  - name: RICO-PLAYER(4)
-    uniqueID: 2128793391
     locked: 0
   - name: leaves_insidedm
     uniqueID: 900108731
@@ -778,6 +779,9 @@ TagManager:
   - name: ulap_dmsuitors
     uniqueID: 3561486611
     locked: 0
+  - name: RICO-PLAYER(7)
+    uniqueID: 1347270809
+    locked: 0
   - name: leaves_dmsuitors
     uniqueID: 2851546285
     locked: 0
@@ -828,9 +832,6 @@ TagManager:
     locked: 0
   - name: grassbridge_ilogscene
     uniqueID: 3606145311
-    locked: 0
-  - name: RICO-PLAYER(7)
-    uniqueID: 1347270809
     locked: 0
   - name: FINISHPOINT(ILOGSCENE)
     uniqueID: 3611480657
@@ -1029,4 +1030,10 @@ TagManager:
     locked: 0
   - name: blacknanaman
     uniqueID: 922451863
+    locked: 0
+  - name: RICO-PLAYER(8)
+    uniqueID: 1341052849
+    locked: 0
+  - name: RICO-PLAYER(9)
+    uniqueID: 2278209841
     locked: 0

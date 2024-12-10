@@ -7,7 +7,7 @@ public class ArrowTable : MonoBehaviour
     public GameObject arrowTableButton; // ArrowTable button
     public Animator receiveBoxAnimator; // Animator for the receive box
     public string jarAssembleSceneName = "JarAssemble"; // Name of the JarAssemble scene
-    public GameObject joystick; // Reference to the joystick UI
+   
     private DialogueLiwayway dialogueLiwayway;
 
     private void Start()
@@ -85,12 +85,6 @@ public class ArrowTable : MonoBehaviour
     {
         // Save player and camera position before transitioning
         SavePlayerAndCameraState();
-
-        // Hide the joystick during the transition
-        if (joystick != null)
-        {
-            joystick.SetActive(false);
-        }
 
         // Load the JarAssemble scene
         SceneManager.LoadScene(jarAssembleSceneName);

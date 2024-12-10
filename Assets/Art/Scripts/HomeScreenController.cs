@@ -52,8 +52,17 @@ using UnityEngine.SceneManagement;
 
 public class HomeScreenController : MonoBehaviour
 {
+    public HomeScreenManager homeScreenManager; // Reference to HomeScreenManager
+
     public void OnPlayButtonClick()
     {
+        // Ensure HomeScreenManager is linked
+        if (homeScreenManager == null)
+        {
+            Debug.LogError("HomeScreenManager is not assigned in HomeScreenController!");
+            return;
+        }
+
         // Check if the user has seen the cutscene
         if (PlayerPrefs.GetInt("HasSeenCutscene", 0) == 0)
         {
@@ -71,28 +80,33 @@ public class HomeScreenController : MonoBehaviour
     {
         float chapter1Progress = PlayerPrefs.GetFloat("Chapter1Progress", 0f);
         float chapter2Progress = PlayerPrefs.GetFloat("Chapter2Progress", 0f);
+        string sceneToLoad = "";
 
-        // If no progress, load the opening scene
-        if (chapter1Progress <= 0f && chapter2Progress <= 0f)
-        {
-            SceneManager.LoadScene("OpeningScene");
-            return;
-        }
-
-        string sceneToLoad = "ForestScene"; // Default if no progress
-        if (chapter1Progress > 0f)
+        if (chapter1Progress > 0f && chapter2Progress == 0f)
         {
             sceneToLoad = PlayerPrefs.GetString("LastSavedScene_Ch1", "ForestScene");
         }
         else if (chapter2Progress > 0f)
         {
+            // Use HomeScreenManager to get Chapter 2's last saved scene
             sceneToLoad = PlayerPrefs.GetString("LastSavedScene_Ch2", "DMsuitors");
         }
+        else
+        {
+            sceneToLoad = "OpeningScene"; // Default to opening scene if no progress
+        }
 
-        SceneManager.LoadScene(sceneToLoad);
+        if (!string.IsNullOrEmpty(sceneToLoad))
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Debug.LogWarning("No saved scene found to load.");
+        }
     }
-
 }
+
 
 
 
